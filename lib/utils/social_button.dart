@@ -9,7 +9,7 @@ class SocialButton extends StatelessWidget {
     this.ontap,
   }) : super(key: key);
   final Function ontap;
-  final text;
+  final  text;
   @override
   Widget build(BuildContext context) {
     return InkWell(

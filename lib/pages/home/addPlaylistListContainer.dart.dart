@@ -60,10 +60,7 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
               ],
             ),
           ),
-        ), //highlightColor: Colors.white,
-        // splashColor: Colors.white,
-        // hoverColor: Colors.white,
-        //  focusColor: Colors.white,
+        ), 
 
         GestureDetector(
           onTap: () {

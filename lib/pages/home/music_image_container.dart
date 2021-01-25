@@ -52,8 +52,8 @@ class MusicImageContainer extends StatelessWidget {
             ),
             child: Container(
               margin: EdgeInsets.only(left: 20),
-              height:ScreenUtil().setHeight(210),// * 0.2 + 30,
-              width: ScreenUtil().setWidth(190),// * 0.5,
+              height:ScreenUtil().setHeight(210),
+              width: ScreenUtil().setWidth(190),
               decoration: BoxDecoration(
                 // color: Colors.black,
                 borderRadius: BorderRadius.all(
