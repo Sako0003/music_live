@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:music_live/pages/home/myicon.dart';
 
 
 import 'package:music_live/utils/variables.dart';
@@ -23,67 +24,21 @@ class _MusicplayerState extends State<Musicplayer> {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
+      appBar: AppBar( 
         elevation: 0,
         backgroundColor: Colors.white10,
-        leading: IconButton(
-          splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-          icon: Icon(
-            Icons.chevron_left,
-            color: Colors.black,
-            size: size.width * 0.090,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actions: [
-          IconButton(
-            splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-            icon: Icon(
-              Icons.save_alt,
-              color: Colors.black,
-              size: size.width * 0.070,
-            ),
-            onPressed: () {},
-          ),
-          IconButton(
-            splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-            icon: Icon(
-              Icons.share,
-              color: Colors.black,
-              size: size.width * 0.070,
-            ),
-            onPressed: () {},
-          ),
-          Padding(
+        leading: Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){Navigator.pop(context);} ,),
+        actions: [Myicon(icon: Icons.save_alt,size:size.width * 0.070 ,ontap:(){} ),
+          Myicon(icon: Icons.share,size:size.width * 0.065 ,ontap:(){} ),
+          
+          Padding(//
             padding: const EdgeInsets.only(right: 10),
-            child: IconButton(
-              splashColor: Colors.white,
-              hoverColor: Colors.white,
-              highlightColor: Colors.white,
-              focusColor: Colors.white,
-              icon: Icon(
-                Icons.control_point,
-                color: Colors.black,
-                size: size.width * 0.070,
-              ),
-              onPressed: () {
-                // this code showdialoq inside
-                showDialoqFunc(
-                  context,
-                );
-              },
-            ),
+            child: Myicon(icon: Icons.control_point,size:size.width * 0.070 ,ontap:(){
+                   // this code showdialoq inside
+                 showDialoqFunc(
+                   context,
+                 );
+            } ),
           ),
         ],
       ),

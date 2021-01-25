@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:music_live/pages/home/myicon.dart';
 
 class SliderPlayercontainer extends StatefulWidget {
   @override
@@ -120,32 +121,14 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
             height: size.height * 0.2 - 25, width: size.width * 0.8,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                IconButton(
-                    splashColor: Colors.white,
-                    hoverColor: Colors.white,
-                    highlightColor: Colors.white,
-                    focusColor: Colors.white,
-                    icon: Icon(
-                      Icons.sync,
-                      color: Colors.black,size: size.width *0.065,
-                    ),
-                    onPressed: () {}),
-                IconButton(
-                    splashColor: Colors.white,
-                    hoverColor: Colors.white,
-                    highlightColor: Colors.white,
-                    focusColor: Colors.white,
-                    icon: Icon(
-                      Icons.skip_previous,
-                      color: Colors.black,
-                      size: size.width *0.090,
-                    ),
-                    onPressed: () {}),
+              children: [//skip_previous
+                Myicon(icon: Icons.sync,size:size.width * 0.065 ,ontap:(){} ),
+                Myicon(icon: Icons.skip_previous,size:size.width * 0.090 ,ontap:(){} ),
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius:size.width *0.090,
-                  child: IconButton(
+                  child: 
+                  IconButton(
                       splashColor: Colors.white,
                       hoverColor: Colors.white,
                       highlightColor: Colors.white,
@@ -172,29 +155,9 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                           });
                         }
                       }),
-                ),
-                IconButton(
-                    splashColor: Colors.white,
-                    hoverColor: Colors.white,
-                    highlightColor: Colors.white,
-                    focusColor: Colors.white,
-                    icon: Icon(
-                      Icons.skip_next,
-                      color: Colors.black,
-                      size: size.width *0.090,
-                    ),
-                    onPressed: () {}),
-                IconButton(
-                    splashColor: Colors.white,
-                    hoverColor: Colors.white,
-                    highlightColor: Colors.white,
-                    focusColor: Colors.white,
-                    disabledColor: Colors.white,
-                    icon: Icon(
-                      Icons.shuffle_sharp,
-                      color: Colors.black, size: size.width *0.065,
-                    ),
-                    onPressed: () {}),
+                ),Myicon(icon:Icons.skip_next,size:size.width * 0.090 ,ontap:(){} ),
+                Myicon(icon:Icons.shuffle_sharp,size:size.width * 0.065 ,ontap:(){} ),
+                
               ],
             ),
           ),

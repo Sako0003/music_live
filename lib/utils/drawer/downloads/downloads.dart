@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:grouped_list/grouped_list.dart';
+import 'package:music_live/pages/home/myicon.dart';
 
 import 'package:music_live/pages/home/mynavbar.dart';
 
@@ -95,33 +96,20 @@ class _DownloadsState extends State<Downloads> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: IconButton(splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-            icon: Icon(
-              Icons.chevron_left,
-              color: Colors.black,
-            size:  size.width * 0.090,
-            ),
-            onPressed: () {
-             setState(() {
+        leading: Myicon(icon: Icons.chevron_left,size:size.width * 0.090, ontap:(){
+           setState(() {
                 Navigator.pop(context);
              });
-            }),
+        } ),
+        
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
             'Downloads',
             style: TextStyle(color: Colors.black),
           ),
-        ),actions: [IconButton(splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-          icon: Icon(Icons.search,color: Colors.black,), onPressed: () {
-          
-        },)], //bunu sonra sil
+        ),actions: [Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),
+          ], 
       ),
       body: Container(
        // color: Colors.pink,
@@ -134,16 +122,9 @@ class _DownloadsState extends State<Downloads> {
                   height: size.height *0.05,width: double.infinity,
                   child: Row(children: [
                     SizedBox(width: size.width * 0.7+20,),
-                    IconButton(splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-                      icon: Icon( Icons.sync,color: Colors.black,size: size.width * 0.06,), onPressed: (){}),
-                    IconButton(splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-                      icon: Icon(Icons.shuffle_sharp,color: Colors.black,size: size.width * 0.06,), onPressed: (){}),
+                    Myicon(icon: Icons.sync,size:size.width * 0.06 ,ontap:(){} ),
+                   Myicon(icon: Icons.shuffle_sharp,size:size.width * 0.06 ,ontap:(){} ),
+                    
                   ],),
                   color:Colors.white10,
                   ),
@@ -254,17 +235,8 @@ class _DownloadsState extends State<Downloads> {
                               Container(
                                 height: size.height * 0.1 - 18,
                                 width: size.width * 0.1 - 10, //color: Colors.brown,
-                                child: IconButton(splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-                                  icon: Icon(
-                                    Icons.control_point,
-                                    color: Colors.black87,
-                                    size: size.width * 0.060,
-                                  ),
-                                  onPressed: () {},
-                                ),
+                                child:Myicon(icon: Icons.control_point,size:size.width * 0.06 ,ontap:(){} ),
+                                 
                               )
                             ],
                           ),

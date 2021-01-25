@@ -7,6 +7,8 @@ import 'package:music_live/pages/home/mypplaylist_containername.dart';
 import 'package:music_live/pages/home/popular_seeall_container.dart';
 import 'package:music_live/utils/drawer/my_drawer.dart';
 
+import 'myicon.dart';
+
 class HomePageView extends StatefulWidget {
   @override
   _HomePageViewState createState() => _HomePageViewState();
@@ -23,19 +25,11 @@ class _HomePageViewState extends State<HomePageView> {
         key: scaffolfkey, //bu drayverin iconunu deyisdim rengine gore
         drawerScrimColor: Colors.black12,
         appBar: AppBar(
-          leading: IconButton(
-              splashColor: Colors.white,
-              hoverColor: Colors.white,
-              highlightColor: Colors.white,
-              focusColor: Colors.white,
-              icon: Icon(
-                Icons.menu,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                scaffolfkey.currentState
+          leading:Myicon(icon: Icons.menu,size:ScreenUtil().radius(25) ,ontap:(){
+            scaffolfkey.currentState
                     .openDrawer(); //bu drayverin iconunu deyisdim rengine gore
-              }),
+          } ),
+          
           elevation: 0,
           backgroundColor: Colors.white10,
           title: Container(

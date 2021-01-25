@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_live/pages/home/myicon.dart';
 
 import 'sawitchlistcontanorrr.dart';
 
@@ -24,30 +25,16 @@ class _SettingState extends State<Setting> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: IconButton(
-          splashColor: Colors.white,
-          hoverColor: Colors.white,
-          highlightColor: Colors.white,
-          focusColor: Colors.white,
-          icon: Icon(
-            Icons.chevron_left,
-            color: Colors.black,
-            size: size.width * 0.090,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
+        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){ Navigator.pop(context);} ),
+         
         title: Center(
             child: Text(
           'Setting',
           style: TextStyle(color: Colors.black),
         )),
         actions: [
-          Icon(
-            Icons.search,
-            color: Colors.black,
-          ),
+          Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),
+         
           SizedBox(width: size.width * 0.06),
         ],
       ),

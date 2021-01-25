@@ -24,14 +24,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+ 
   @override
   Widget build(BuildContext context) {
     //metnlerin fontsize ucun   ScreenUtil().setSp(20, allowFontScalingSelf: true)
-    // dizayn sayti https://psdetch.com/                        
+    // dizayn sayti https://psdetch.com/
 //container uzunluq ucun ScreenUtil().setHeight(40),
 //container genislik ucun ScreenUtil().setWidth(320),
 //ScreenUtil().setHeight(1),//
-          //ScreenUtil().setWidth(20),//
+    //ScreenUtil().setWidth(20),//
     return ScreenUtilInit(
       designSize: Size(365, 690),
       allowFontScaling: false,
@@ -43,8 +44,8 @@ class _MyAppState extends State<MyApp> {
           '/setting': (context) => Setting(),
           '/search1': (context) => Searc1page(),
           '/search2': (context) => Searc2page(),
-          '/playlstdrawer': (context) =>MyplaylisDraywer() ,
-          '/download': (context) =>Downloads() ,
+          '/playlstdrawer': (context) => MyplaylisDraywer(),
+          '/download': (context) => Downloads(),
           '/registr': (context) => RegistrationView(),
         },
         debugShowCheckedModeBanner: false,
@@ -54,3 +55,6 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
+//her yerde bu my icon
+
+ 

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:music_live/pages/home/music_image_container.dart';
+import 'package:music_live/pages/home/myicon.dart';
 //import 'package:music_live/pages/home/music_image_container.dart';
 
 class MyplaylisDraywer extends StatefulWidget {
@@ -17,19 +18,8 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-            splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-            icon: Icon(
-              Icons.chevron_left,
-              color: Colors.black,
-              size: size.width * 0.07,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            }),
+        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.07 ,ontap:(){ Navigator.pop(context);} ),
+        
         elevation: 0,
         backgroundColor: Colors.white10,
         title: Center(
@@ -44,18 +34,8 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 7),
-            child: IconButton(
-                splashColor: Colors.white,
-                hoverColor: Colors.white,
-                highlightColor: Colors.white,
-                focusColor: Colors.white,
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                ),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/search1');
-                }),
+            child: Myicon(icon: Icons.search,size:ScreenUtil().radius(23) ,ontap:(){ Navigator.pushNamed(context, '/search1');} ),
+            
           )
         ],
       ),

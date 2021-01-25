@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:music_live/pages/home/music_image_container.dart';
+import 'package:music_live/pages/home/myicon.dart';
 
 
 class Searc2page extends StatefulWidget {
@@ -27,21 +28,12 @@ class _Searc2pageState extends State<Searc2page> {
         ),
         backgroundColor: Colors.white10,
         elevation: 0,
-        leading: IconButton(
-            splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-            icon: Icon(
-              Icons.chevron_left,
-              color: Colors.black,
-              size: size.width * 0.090,
-            ),
-            onPressed: () {
-              setState(() {
+        leading:Myicon(icon:Icons.chevron_left,size:size.width * 0.085 ,ontap:(){
+          setState(() {
                 Navigator.pop(context);
               });
-            }),
+        } ),
+         
       ),
       body: ListView(scrollDirection: Axis.vertical,
               children:[ Container(
@@ -183,14 +175,7 @@ class _Searc2pageState extends State<Searc2page> {
                      ],
                    ),
                  ),
-                        IconButton(
-                          splashColor: Colors.white,
-              hoverColor: Colors.white,
-              highlightColor: Colors.white,
-              focusColor: Colors.white,
-                          icon: Icon(Icons.arrow_right,size: size.width * 0.090,), onPressed:() {
-                          
-                        }, )
+                        Myicon(icon: Icons.arrow_right,size:size.width * 0.090 ,ontap:(){} ),
                ],),
                ),
                       ),

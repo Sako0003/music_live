@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_live/utils/variables.dart';
 
+import 'myicon.dart';
+
 class MyNavbar extends StatefulWidget {
   const MyNavbar({
     Key key,
@@ -70,7 +72,7 @@ class _MyNavbarState extends State<MyNavbar> {
                          
                           width: ScreenUtil().setWidth(232),
                           child: Text(
-                            'Androttttttttttttttttttttttttttyy',
+                            'Andro',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Colors.black54,
@@ -94,7 +96,7 @@ class _MyNavbarState extends State<MyNavbar> {
                             style: TextStyle(
                                 color: Colors.black,
                                 fontSize: ScreenUtil()
-                                    .setSp(17, allowFontScalingSelf: true),
+                                    .setSp(15, allowFontScalingSelf: true),
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -109,43 +111,10 @@ class _MyNavbarState extends State<MyNavbar> {
                   width: ScreenUtil().setWidth(246),
                   child: Row(
                     children: [
-                      Spacer(),
-                      IconButton(
-                        splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-                        icon: Icon(
-                          Icons.skip_previous,
-                          size: ScreenUtil().radius(23),
-                          color: Colors.black,
-                        ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-                        icon: Icon(
-                          Icons.pause_outlined,
-                          size: ScreenUtil().radius(23),
-                          color: Colors.black,
-                        ),
-                        onPressed: () {},
-                      ),
-                      IconButton(
-                        splashColor: Colors.white,
-            hoverColor: Colors.white,
-            highlightColor: Colors.white,
-            focusColor: Colors.white,
-                        icon: Icon(
-                          Icons.skip_next,
-                          size: ScreenUtil().radius(23),
-                          color: Colors.black,
-                        ),
-                        onPressed: () {},
-                      ),
+                      Spacer(),Myicon(icon: Icons.skip_previous,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                      Myicon(icon: Icons.pause_outlined,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                       Myicon(icon: Icons.skip_next,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                      
                     ],
                   ),
                 ),
