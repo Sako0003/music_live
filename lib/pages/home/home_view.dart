@@ -25,17 +25,18 @@ class _HomePageViewState extends State<HomePageView> {
         key: scaffolfkey, //bu drayverin iconunu deyisdim rengine gore
         drawerScrimColor: Colors.black12,
         appBar: AppBar(
-          leading:Myicon(icon: Icons.menu,size:ScreenUtil().radius(25) ,ontap:(){
-            scaffolfkey.currentState
+          leading: Myicon(
+              icon: Icons.menu,
+              size: ScreenUtil().radius(25),
+              ontap: () {
+                scaffolfkey.currentState
                     .openDrawer(); //bu drayverin iconunu deyisdim rengine gore
-          } ),
-          
+              }),
           elevation: 0,
           backgroundColor: Colors.white10,
           title: Container(
             child: TextField(
               onSubmitted: (value) {
-               
                 Navigator.pushNamed(context, '/library');
                 Navigator.pushNamed(context, '/musicplayer');
                 Navigator.pushNamed(context, '/search1');
