@@ -19,7 +19,7 @@ class _MyNavbarState extends State<MyNavbar> {
     return Container(
       decoration: BoxDecoration(
         
-      //  color: Colors.pink
+        color: Colors.white
         ),
       child: Row(
         children: [
@@ -111,6 +111,10 @@ class _MyNavbarState extends State<MyNavbar> {
                     children: [
                       Spacer(),
                       IconButton(
+                        splashColor: Colors.white,
+            hoverColor: Colors.white,
+            highlightColor: Colors.white,
+            focusColor: Colors.white,
                         icon: Icon(
                           Icons.skip_previous,
                           size: ScreenUtil().radius(23),
@@ -119,6 +123,10 @@ class _MyNavbarState extends State<MyNavbar> {
                         onPressed: () {},
                       ),
                       IconButton(
+                        splashColor: Colors.white,
+            hoverColor: Colors.white,
+            highlightColor: Colors.white,
+            focusColor: Colors.white,
                         icon: Icon(
                           Icons.pause_outlined,
                           size: ScreenUtil().radius(23),
@@ -127,6 +135,10 @@ class _MyNavbarState extends State<MyNavbar> {
                         onPressed: () {},
                       ),
                       IconButton(
+                        splashColor: Colors.white,
+            hoverColor: Colors.white,
+            highlightColor: Colors.white,
+            focusColor: Colors.white,
                         icon: Icon(
                           Icons.skip_next,
                           size: ScreenUtil().radius(23),

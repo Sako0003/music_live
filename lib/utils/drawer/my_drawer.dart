@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -16,14 +15,14 @@ class _MyDrawerState extends State<MyDrawer> {
     Size size = MediaQuery.of(context).size;
     return Container(
       height: size.height * 1,
-      width: size.width * 0.5 - 10,
+      width: size.width * 0.5 + 5,
       child: Scaffold(
         body: Drawer(
           elevation: 0,
           child: Container(
             height: size.height * 1,
             width: size.width * 0.5 - 10,
-            color: Colors.black,
+            color: Colors.black87,
             child: Column(
               children: [
                 Padding(
@@ -44,31 +43,38 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 MylibraryContainer(
                   ontap: () {
-                    
+                    Navigator.pushNamed(context, '/library');
                   },
                   size: size,
                   text: 'Library',
                   icon: Icons.music_note,
                 ),
+                //
                 MylibraryContainer(
-                    ontap: () {},
+                    ontap: () {
+                      Navigator.pushNamed(context, '/playlstdrawer');
+                    },
                     size: size,
-                    text: 'Myplaylisy',
+                    text: 'Myplaylist',
                     icon: Icons.queue_music),
                 MylibraryContainer(
-                    ontap: () {},
+                    ontap: () {
+Navigator.pushNamed(context, '/download');
+                    },
                     size: size,
                     text: 'Downloads',
                     icon: Icons.file_download),
                 MylibraryContainer(
-                  ontap: () {},
+                  ontap: () {
+                    Navigator.pushNamed(context, '/setting');
+                  },
                   size: size,
                   text: 'Setting',
                   icon: Icons.brightness_7,
                 ),
                 MylibraryContainer(
                   ontap: () {
-                   
+                    Navigator.pushNamed(context,  '/registr');
                   },
                   size: size,
                   text: 'Logout',

@@ -1,4 +1,3 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -6,7 +5,7 @@ import 'package:flutter/material.dart';
 
 import 'package:music_live/utils/variables.dart';
 
-import 'newfile_listview.dart';
+import 'showdialoq.dart';
 import 'slider_playercontainer.dart';
 //import 'package:music_live/Mainpage/music_image_container.dart';
 
@@ -17,6 +16,7 @@ class Musicplayer extends StatefulWidget {
 
 class _MusicplayerState extends State<Musicplayer> {
   double musict = 0.0;
+
 
   @override
   Widget build(BuildContext context) {
@@ -78,10 +78,9 @@ class _MusicplayerState extends State<Musicplayer> {
                 size: size.width * 0.070,
               ),
               onPressed: () {
-                // this code NewfileListview inside
+                // this code showdialoq inside
                 showDialoqFunc(
                   context,
-                
                 );
               },
             ),
@@ -164,4 +163,5 @@ class _MusicplayerState extends State<Musicplayer> {
     );
   }
 }
+
 

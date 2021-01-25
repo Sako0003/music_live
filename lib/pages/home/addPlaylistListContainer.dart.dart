@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -16,6 +14,8 @@ class AddPlaylistListContainer extends StatefulWidget {
 }
 
 class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
+ 
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -66,14 +66,13 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
         //  focusColor: Colors.white,
 
         GestureDetector(
-          onTapDown: (details) {
-            Navigator.pushNamed(context, '/library');
+          onTap: () {
+           
           },
           child: Container(
             margin: EdgeInsets.only(right: 13),
-
-            height: ScreenUtil().setHeight(99), //* 0.1 + 28,
-            width: ScreenUtil().setWidth(100), //* 0.3 - 18,
+            height: ScreenUtil().setHeight(99),
+            width: ScreenUtil().setWidth(100),
             decoration: BoxDecoration(
               color: Colors.black87,
               borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -81,16 +80,24 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+               
+                Container(
+                  
+
+                ),
                 Icon(
                   Icons.add,
                   color: Colors.white,
-                  size:  ScreenUtil().radius(25),
+                  size: ScreenUtil().radius(25),
                 ),
                 Text(
                   'Add Playlist',
                   style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold,
-                      fontSize:ScreenUtil().setSp(14, allowFontScalingSelf: true), ),
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize:
+                        ScreenUtil().setSp(14, allowFontScalingSelf: true),
+                  ),
                 ),
               ],
             ),

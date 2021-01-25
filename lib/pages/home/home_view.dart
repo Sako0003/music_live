@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/home/addPlaylistListContainer.dart.dart';
@@ -20,13 +18,16 @@ var scaffolfkey = GlobalKey<ScaffoldState>();
 class _HomePageViewState extends State<HomePageView> {
   @override
   Widget build(BuildContext context) {
-   
     return SafeArea(
-          child: Scaffold(
+      child: Scaffold(
         key: scaffolfkey, //bu drayverin iconunu deyisdim rengine gore
         drawerScrimColor: Colors.black12,
         appBar: AppBar(
           leading: IconButton(
+              splashColor: Colors.white,
+              hoverColor: Colors.white,
+              highlightColor: Colors.white,
+              focusColor: Colors.white,
               icon: Icon(
                 Icons.menu,
                 color: Colors.black,
@@ -39,6 +40,13 @@ class _HomePageViewState extends State<HomePageView> {
           backgroundColor: Colors.white10,
           title: Container(
             child: TextField(
+              onSubmitted: (value) {
+               
+                Navigator.pushNamed(context, '/library');
+                Navigator.pushNamed(context, '/musicplayer');
+                Navigator.pushNamed(context, '/search1');
+                Navigator.pushNamed(context, '/search2');
+              },
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'searc',
@@ -55,12 +63,11 @@ class _HomePageViewState extends State<HomePageView> {
         drawer: MyDrawer(),
         body: Container(
           //  color: Colors.pink,
-          height: ScreenUtil().setHeight(524) ,
+          height: ScreenUtil().setHeight(524),
           width: double.infinity,
           child: ListView(
             children: [
               PopularSeallContainer(
-               
                 text: 'Popular',
                 textn: 'See all',
               ),
@@ -68,7 +75,6 @@ class _HomePageViewState extends State<HomePageView> {
               Padding(
                 padding: const EdgeInsets.only(top: 23),
                 child: PopularSeallContainer(
-                  
                   text: 'My playlist',
                   textn: 'See all',
                 ),
@@ -78,7 +84,6 @@ class _HomePageViewState extends State<HomePageView> {
                 height: 10,
               ),
               PopularSeallContainer(
-                
                 text: 'History',
                 textn: 'See all',
               ),
@@ -89,11 +94,10 @@ class _HomePageViewState extends State<HomePageView> {
         bottomNavigationBar: BottomAppBar(
           child: Container(
             height: ScreenUtil().setHeight(110),
-            width: ScreenUtil().setWidth(365),//men yazdim bax buna bu with yox idi burda
+            width: ScreenUtil()
+                .setWidth(365), //men yazdim bax buna bu with yox idi burda
             //color: Colors.red,
-            child: MyNavbar(
-              
-            ),
+            child: MyNavbar(),
           ),
         ),
       ),

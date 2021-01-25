@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Mylist {
   String image;
- // String name;
-  Mylist(this.image,//this.name
+  //String name;
+  Mylist(this.image,
   );
 }
 
