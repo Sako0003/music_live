@@ -7,7 +7,7 @@ import 'package:music_live/pages/home/home_view.dart';
 
 import 'package:music_live/pages/registration/registration_view.dart';
 import 'package:music_live/utils/drawer/downloads/downloads.dart';
-import 'package:music_live/utils/drawer/mayplaylist.dart';
+import 'package:music_live/utils/drawer/Myplaylist/mayplaylist.dart';
 import 'package:music_live/utils/drawer/setting/setting.dart';
 
 import 'Searc/search_2.dart';
