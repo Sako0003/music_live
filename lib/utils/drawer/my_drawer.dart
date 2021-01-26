@@ -62,6 +62,13 @@ class _MyDrawerState extends State<MyDrawer> {
 Navigator.pushNamed(context, '/download');
                     },
                     size: size,
+                    text: 'History',
+                    icon: Icons.history),
+                    MylibraryContainer(
+                    ontap: () {
+Navigator.pushNamed(context, '/history');
+                    },
+                    size: size,
                     text: 'Downloads',
                     icon: Icons.file_download),
                 MylibraryContainer(

@@ -61,7 +61,7 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/history');
+           
           },
           child: Container(
             margin: EdgeInsets.only(right: 13),
