@@ -14,8 +14,6 @@ class AddPlaylistListContainer extends StatefulWidget {
 }
 
 class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
- 
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -60,11 +58,10 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
               ],
             ),
           ),
-        ), 
-
+        ),
         GestureDetector(
           onTap: () {
-           
+            Navigator.pushNamed(context, '/history');
           },
           child: Container(
             margin: EdgeInsets.only(right: 13),
@@ -77,11 +74,7 @@ class _AddPlaylistListContainerState extends State<AddPlaylistListContainer> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               
-                Container(
-                  
-
-                ),
+                Container(),
                 Icon(
                   Icons.add,
                   color: Colors.white,

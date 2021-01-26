@@ -38,8 +38,8 @@ class _MyNavbarState extends State<MyNavbar> {
             child: Container(
               margin: EdgeInsets.only(left: 22),
               height:
-                  ScreenUtil().setHeight(89), //widget.size.height * 0.1 + 26,
-              width: ScreenUtil().setWidth(83), //widget.size.width * 0.2 + 15,
+                  ScreenUtil().setHeight(89), 
+              width: ScreenUtil().setWidth(83), 
               decoration: BoxDecoration(
                 //color: Colors.black,
 
@@ -56,17 +56,18 @@ class _MyNavbarState extends State<MyNavbar> {
             height: ScreenUtil().setHeight(95),
             width: ScreenUtil().setWidth(255),
             child: Column(
-              children: [
+              children: [Padding(padding: EdgeInsets.only(top: 4)),
                 Container(
                   //1 num cont column
-                 //  color: Colors.brown,
+                  // color: Colors.brown,
 
-                  height: ScreenUtil().setHeight(39),
+                  height: ScreenUtil().setHeight(59),
                   width: ScreenUtil().setWidth(252),
                   child: Column(
-                    children: [SizedBox(height:  ScreenUtil().setHeight(4),),
+                    children: [Padding(padding: EdgeInsets.only(top: 4)),
+                      
                       Flexible(
-                        child: Container(//padding: EdgeInsets.only(top: 10),
+                        child: Container(
                           // color: Colors.blue,
                           alignment: Alignment.topLeft,
                          
@@ -91,7 +92,7 @@ class _MyNavbarState extends State<MyNavbar> {
 
                           width: ScreenUtil().setWidth(232),
                           child: Text(
-                            'Touromusic',
+                            'Track 5',
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
                                 color: Colors.black,
@@ -100,30 +101,36 @@ class _MyNavbarState extends State<MyNavbar> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
+                      ), Container(
+                        // color: Colors.yellow,
+                   height: ScreenUtil().setHeight(26),
+                   width: ScreenUtil().setWidth(246),
+                                              child: Row(
+                    children: [
+                     SizedBox(width:ScreenUtil().setWidth(104),),Myicon(icon: Icons.skip_previous,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                          Myicon(icon: Icons.pause_outlined,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                           Myicon(icon: Icons.skip_next,size:ScreenUtil().radius(23) ,ontap:(){} ),
+                          
+                    ],
+                  ),
                       ),
                     ],
                   ),
                 ),
-                Container(
-                  //2 num count column
-                  //color: Colors.yellow,
-                  height: ScreenUtil().setHeight(33),
-                  width: ScreenUtil().setWidth(246),
-                  child: Row(
-                    children: [
-                      Spacer(),Myicon(icon: Icons.skip_previous,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                      Myicon(icon: Icons.pause_outlined,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                       Myicon(icon: Icons.skip_next,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                      
-                    ],
-                  ),
-                ),
-                Container(
+                // Container(
+                //   //2 num count column
+                  
+                //   //color: Colors.yellow,
+                //   height: ScreenUtil().setHeight(20),
+                //   width: ScreenUtil().setWidth(246),
+                //   child:
+                // ),
+                Container(padding: EdgeInsets.only(top: 7),
                   //3 num count column
-                 //  color: Colors.blue,
+                  // color: Colors.blue,
                   alignment: Alignment.bottomLeft,
 
-                  height: ScreenUtil().setHeight(23),
+                  height: ScreenUtil().setHeight(28),
                   width: ScreenUtil().setWidth(247),
                   child: Slider(
                     inactiveColor: Colors.black12,

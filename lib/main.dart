@@ -6,6 +6,7 @@ import 'package:music_live/Searc/serach_1.dart';
 import 'package:music_live/pages/home/home_view.dart';
 
 import 'package:music_live/pages/registration/registration_view.dart';
+import 'package:music_live/utils/drawer/History/historydraywer.dart';
 import 'package:music_live/utils/drawer/downloads/downloads.dart';
 import 'package:music_live/utils/drawer/Myplaylist/mayplaylist.dart';
 import 'package:music_live/utils/drawer/setting/setting.dart';
@@ -47,9 +48,10 @@ class _MyAppState extends State<MyApp> {
           '/playlstdrawer': (context) => MyplaylisDraywer(),
           '/download': (context) => Downloads(),
           '/registr': (context) => RegistrationView(),
+          '/history': (context) => History(),
         },
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(backgroundColor: Colors.black45),
+        theme: ThemeData(),
         home: RegistrationView(),
       ),
     );
