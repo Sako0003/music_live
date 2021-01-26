@@ -22,7 +22,7 @@ class _MyDrawerState extends State<MyDrawer> {
           child: Container(
             height: size.height * 1,
             width: size.width * 0.5 - 10,
-            color: Colors.black87,
+            color: Colors.black,
             child: Column(
               children: [
                 Padding(
