@@ -131,7 +131,7 @@ class _DownloadsState extends State<Downloads> {
                 Container(
                   width: double.infinity,
                   height: size.height *0.8+30,
-                  //  color: Colors.amber,
+                    color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
                     // scrollDirection: Axis.vertical,
                     elements: _library,
@@ -144,6 +144,7 @@ class _DownloadsState extends State<Downloads> {
                                 child: Row(
                               children: [
                                 Container(
+                                  color: Colors.white10,
                                   margin: EdgeInsets.only(left: size.width * 0.04),
                                   child: Text(
                                     groupByValue,
@@ -156,90 +157,106 @@ class _DownloadsState extends State<Downloads> {
                           ],
                         )),
                     itemBuilder: (context, dynamic element) {
-                      return Card(
-                        elevation: 0,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.02,
-                            vertical: size.height * 0.01),
-                        child: Container(
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                  child: ColorFiltered(
-                                colorFilter: ColorFilter.matrix(
-                                  [
-                                    0.2126, 0.7152, 0.0722, 0, 0,
-                                    0.2126, 0.7152, 0.0722, 0,
-                                    0, //this color image change(black)
-                                    0.2126, 0.7152, 0.0722, 0, 0,
-                                    0, 0, 0, 1, 0,
-                                  ],
-                                ),
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                                              child: Row(
+                          children: [
+                            Container(color: Colors.white10,
+                              height: size.height * 0.1+22,width: size.width * 1,
+                              child: Card(
+                                elevation: 0,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: size.width * 0.02,
+                                    vertical: size.height * 0.01),
                                 child: Container(
-                                  height: size.height * 0.075,
-                                  // width: 75,
-                                  child: Image(
-                                    image: NetworkImage(element['thumbnailUrl']),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              )),
-                              Expanded(
-                                flex: 5,
-                                child: Container(
-                                  height: size.height * 0.1 - 22,
-
-                                  // color: Colors.pink,
-                                  padding: EdgeInsets.only(bottom: 5),
-                                  child: Column(
+                                  padding: EdgeInsets.all(10),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 18, right: 10),
-                                        child: Text(
-                                          element['title'],
-                                          style: TextStyle(
-                                              fontSize: size.width * 0.03 - 0.1,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
+                                      Expanded(
+                                          child: ColorFiltered(
+                                        colorFilter: ColorFilter.matrix(
+                                          [
+                                            0.2126, 0.7152, 0.0722, 0, 0,
+                                            0.2126, 0.7152, 0.0722, 0,
+                                            0, //this color image change(black)
+                                            0.2126, 0.7152, 0.0722, 0, 0,
+                                            0, 0, 0, 1, 0,
+                                          ],
                                         ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10, right: 10, top: 6),
                                         child: Container(
-                                          //  color: Colors.amber,
-                                          margin: EdgeInsets.only(left: 10),
-                                          child: Text(
-                                            '${element['author']}',
-                                            style: TextStyle(
-                                                fontSize: size.width * 0.04 + 0.01,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
+                                          color: Colors.white10,
+                                          height: size.height * 0.075,
+                                          // width: 75,
+                                          child: Image(
+                                            image: NetworkImage(element['thumbnailUrl']),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      )),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          height: size.height * 0.1 - 22,
+
+                                           color: Colors.white10,
+                                          padding: EdgeInsets.only(bottom: 5),
+                                          child: Column(
+                                            mainAxisAlignment: MainAxisAlignment.center,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    left: 18, right: 10),
+                                                child: Text(
+                                                  element['title'],
+                                                  style: TextStyle(
+                                                      fontSize: size.width * 0.03 - 0.1,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.black54),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 10, right: 10, top: 6),
+                                                child: Container(
+                                                    color: Colors.white10,
+                                                  margin: EdgeInsets.only(left: 10),
+                                                  child: Text(
+                                                    '${element['author']}',
+                                                    style: TextStyle(
+                                                        fontSize: size.width * 0.04 + 0.01,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.black),
+                                                    maxLines: 1,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ),
+                                      Container(
+                                        height: size.height * 0.1 - 18,
+                                        width: size.width * 0.1 - 10, color: Colors.white10,
+                                        child:Myicon(icon: Icons.control_point,size:size.width * 0.06 ,ontap:(){} ),
+                                         
+                                      )
                                     ],
                                   ),
                                 ),
                               ),
-                              Container(
-                                height: size.height * 0.1 - 18,
-                                width: size.width * 0.1 - 10, //color: Colors.brown,
-                                child:Myicon(icon: Icons.control_point,size:size.width * 0.06 ,ontap:(){} ),
-                                 
-                              )
-                            ],
-                          ),
+                            ),
+                             Container(margin: EdgeInsets.only(right:15 ),
+                          alignment: Alignment.center,color: Colors.white10,
+                          height: size.height * 0.08,width:size.width * 0.1,
+                         child:Myicon(icon: Icons.delete_forever,ontap: (){},size: size.width * 0.07,)
+                        ),
+                          ],
                         ),
                       );
                     },
@@ -253,7 +270,7 @@ class _DownloadsState extends State<Downloads> {
               ],
             ),
             musicOpened
-                ? Positioned(bottom: 0, left: 0, right: 0, child: MyNavbar())
+                ? Positioned(bottom: 9, left: 0, right: 0, child: MyNavbar())
                 : Container()
           ],
         ),

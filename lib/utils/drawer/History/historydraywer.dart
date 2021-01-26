@@ -152,9 +152,7 @@ class _HistoryState extends State<History> {
                     groupSeparatorBuilder: (String groupByValue) => Row(
                       children: [
                         Flexible(
-                            child: Row(
-                          children: [
-                            Container(
+                            child: Container(
                               color: Colors.white10,
                               width: size.width * 0.6,
                               margin: EdgeInsets.only(
@@ -165,106 +163,118 @@ class _HistoryState extends State<History> {
                                 style: TextStyle(fontWeight: FontWeight.bold,
                                     fontSize: size.width * 0.040),
                               ),
-                            ),
-                            
-                          ],
-                        ))
+                            ))
                       ],
                     ),
                     itemBuilder: (context, dynamic element) {
-                      return Card(color: Colors.white10,
-                        elevation: 0,
-                        margin: EdgeInsets.symmetric(
-                            horizontal: size.width * 0.02,
-                            vertical: size.height * 0.01),
-                        child: Container(
-                          color: Colors.white10,
-                          padding: EdgeInsets.all(10),
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Expanded(
-                                  child: ColorFiltered(
-                                colorFilter: ColorFilter.matrix(
-                                  [
-                                    0.2126, 0.7152, 0.0722, 0, 0,
-                                    0.2126, 0.7152, 0.0722, 0,
-                                    0, //this color image change(black)
-                                    0.2126, 0.7152, 0.0722, 0, 0,
-                                    0, 0, 0, 1, 0,
-                                  ],
-                                ),
-                                child: Container(
-                                  color: Colors.white10,
-                                  height: size.height * 0.075,
-                                  // width: 75,
-                                  child: Image(
-                                    image:
-                                        NetworkImage(element['thumbnailUrl']),
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
-                              )),
-                              Expanded(
-                                flex: 5,
-                                child: Container(
-                                  height: size.height * 0.1 - 22,
+                      return SingleChildScrollView( 
+                         scrollDirection: Axis.horizontal,
+                                              child: Row(
+                                                children: [
+                                                  Container(
+                          height: size.height * 0.1+22,width: size.width * 1,
+                          child: Card(color: Colors.white10,
+                            elevation: 0,
+                            margin: EdgeInsets.symmetric(
+                                horizontal: size.width * 0.02,
+                                vertical: size.height * 0.01),
+                            child: Container(
+                              color: Colors.white10,
+                              padding: EdgeInsets.all(10),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Expanded(
+                                      child: ColorFiltered(
+                                    colorFilter: ColorFilter.matrix(
+                                      [
+                                        0.2126, 0.7152, 0.0722, 0, 0,
+                                        0.2126, 0.7152, 0.0722, 0,
+                                        0, //this color image change(black)
+                                        0.2126, 0.7152, 0.0722, 0, 0,
+                                        0, 0, 0, 1, 0,
+                                      ],
+                                    ),
+                                    child: Container(
+                                      color: Colors.white10,
+                                      height: size.height * 0.075,
+                                      // width: 75,
+                                      child: Image(
+                                        image:
+                                            NetworkImage(element['thumbnailUrl']),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  )),
+                                  Expanded(
+                                    flex: 5,
+                                    child: Container(
+                                      height: size.height * 0.1 - 22,
 
-                                   color: Colors.white10,
-                                  padding: EdgeInsets.only(bottom: 5),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 18, right: 10),
-                                        child: Text(
-                                          element['title'],
-                                          style: TextStyle(
-                                              fontSize: size.width * 0.03 - 0.1,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
-                                          maxLines: 1,
-                                          overflow: TextOverflow.ellipsis,
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            left: 10, right: 10, top: 6),
-                                        child: Container(
-                                          //  color: Colors.amber,
-                                          margin: EdgeInsets.only(left: 10),
-                                          child: Text(
-                                            '${element['author']}',
-                                            style: TextStyle(
-                                                fontSize:
-                                                    size.width * 0.04 + 0.01,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black),
-                                            maxLines: 1,
-                                            overflow: TextOverflow.ellipsis,
+                                       color: Colors.white10,
+                                      padding: EdgeInsets.only(bottom: 5),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                    left: 18, right: 10),
+                                            child: Text(
+                                                  element['title'],
+                                                  style: TextStyle(
+                                                      fontSize: size.width * 0.03 - 0.1,
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.black54),
+                                                  maxLines: 1,
+                                                  overflow: TextOverflow.ellipsis,
+                                            ),
                                           ),
-                                        ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                    left: 10, right: 10, top: 6),
+                                            child: Container(
+                                                  //  color: Colors.amber,
+                                                  margin: EdgeInsets.only(left: 10),
+                                                  child: Text(
+                                                    '${element['author']}',
+                                                    style: TextStyle(
+                                                        fontSize:
+                                                            size.width * 0.04 + 0.01,
+                                                        fontWeight: FontWeight.bold,
+                                                        color: Colors.black),
+                                                    maxLines: 1,
+                                                    overflow: TextOverflow.ellipsis,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                  Container(
+                                    height: size.height * 0.1 - 18,
+                                    width: size.width * 0.1 -
+                                        10, //color: Colors.brown,
+                                    child: Myicon(
+                                        icon: Icons.control_point,
+                                        size: size.width * 0.06,
+                                        ontap: () {}),
+                                  )
+                                ],
                               ),
-                              Container(
-                                height: size.height * 0.1 - 18,
-                                width: size.width * 0.1 -
-                                    10, //color: Colors.brown,
-                                child: Myicon(
-                                    icon: Icons.control_point,
-                                    size: size.width * 0.06,
-                                    ontap: () {}),
-                              )
-                            ],
+                            ),
                           ),
                         ),
+                        Container(margin: EdgeInsets.only(right:15 ),
+                          alignment: Alignment.center,color: Colors.white10,
+                          height: size.height * 0.08,width:size.width * 0.1,
+                         child:Myicon(icon: Icons.delete_forever,ontap: (){},size: size.width * 0.07,)
+                        ),
+                                                ],
+                                              ),
                       );
                     },
                     itemComparator: (item1, item2) =>

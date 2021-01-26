@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 class Switchlistcontanorrr extends StatelessWidget {
@@ -16,6 +17,7 @@ class Switchlistcontanorrr extends StatelessWidget {
   final bool value;
   @override
   Widget build(BuildContext context) {
+   
     return Container(
       alignment: Alignment.topLeft,
       height: size.height * 0.057,
@@ -36,16 +38,13 @@ class Switchlistcontanorrr extends StatelessWidget {
           ),
         ),
         trailing: Container(
-          
           height: size.height * 0.04,
           width: size.width * 0.135,
           decoration: BoxDecoration(
-              border: Border.all(
-                width: 0.8,
-                color: Colors.black54
-              ),
+              border: Border.all(width: 0.8, color: Colors.black54),
               borderRadius: BorderRadius.circular(15)),
-          child: CupertinoSwitch(activeColor: Colors.black54,
+          child: CupertinoSwitch(
+            activeColor: Colors.black54,
             value: value,
             onChanged: onchanged,
           ),

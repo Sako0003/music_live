@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
           '/history': (context) => History(),
         },
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(),
+        theme: ThemeData(  ),
         home: RegistrationView(),
       ),
     );
