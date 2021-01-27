@@ -129,17 +129,24 @@ class _Searc2pageState extends State<Searc2page> {
                       child: InkWell(onTap: () {
                         
                       },
-                                            child: Container(
+                       child: Container(
                           
                           height: size.height * 0.08,
                width: size.width * 0.9+6,
                decoration: BoxDecoration(
                  color: Colors.black12,borderRadius: BorderRadius.circular(10)),
                child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [Container(height: size.height * 0.1-25,width: size.width *0.2,
-                   //color: Colors.black,
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(mylist[index].image),),      
+                 children: [ColorFiltered(
+                   colorFilter: ColorFilter.matrix([ 0.2126, 0.7152, 0.0722, 0, 0,
+                0.2126, 0.7152, 0.0722, 0,
+                0, //this color image change(black)
+                0.2126, 0.7152, 0.0722, 0, 0,
+                0, 0, 0, 1, 0,]),
+                                    child: Container(height: size.height * 0.1-25,width: size.width *0.2,
+                     //color: Colors.black,
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(mylist[index].image),),      
+                   ),
                  ),
 
                  Container(//color: Colors.red,
@@ -154,23 +161,48 @@ class _Searc2pageState extends State<Searc2page> {
                                     fontWeight: FontWeight.bold,
                                     color: Colors.black,
                                     fontSize: size.width * 0.04),
-                              ),Row(
-                                
-                                children: [
-                                  Text(
-                                    '1544444 Album',maxLines: 1,textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black54,
-                                        fontSize: size.width * 0.03),
-                                  ), SizedBox(width: size.width * 0.01),Text(
-                                    '45444444444 Song',maxLines: 1,textAlign: TextAlign.start,
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.black54,
-                                        fontSize: size.width * 0.03),
+                              ),Flexible(
+                                     child: Container(
+                                 // color: Colors.amber,
+                                  height: size.height * 0.03+10,
+                                  width: double.infinity,
+                                  child: Row(
+                                    
+                                    children: [
+                                      Container(alignment: Alignment.centerLeft,
+                                        height: size.height * 0.03,
+                                  width: size.width * 0.3,
+                                      //  color: Colors.green,
+                                        child: Text(
+                                            '1 Album',
+                                            softWrap: true,
+                      overflow: TextOverflow.clip,
+                                            maxLines: 1,textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black54,
+                                                fontSize: size.width * 0.03),
+                                          ),
+                                      ),// SizedBox(width: size.width * 0.01),
+                                      Container(
+                                        alignment: Alignment.centerLeft,
+                                          height: size.height * 0.03,
+                                  width: size.width * 0.3-5,
+                                        //color: Colors.red,
+                                        child: Text(
+                                            '4 Song',
+                                             softWrap: true,
+                      overflow: TextOverflow.ellipsis,
+                                            maxLines: 1,textAlign: TextAlign.start,
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black54,
+                                                fontSize: size.width * 0.03),
+                                          ),
+                                      ),
+                                    ],
                                   ),
-                                ],
+                                ),
                               ),
                      ],
                    ),

@@ -72,7 +72,7 @@ class _MyPplaylistContainerNameState extends State<MyPplaylistContainerName> {
                     alignment: Alignment.topLeft,
                     //  color: Colors.pink,
                     child: Text(
-                      'Touromusicckklklkmnnmbnbmnbmnbmc',
+                      'Touromusic',
                       maxLines: 1,
                       softWrap: true,
                       overflow: TextOverflow.ellipsis,
