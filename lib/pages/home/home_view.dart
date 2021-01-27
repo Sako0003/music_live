@@ -46,6 +46,11 @@ class _HomePageViewState extends State<HomePageView> {
                 border: InputBorder.none,
                 hintText: 'searc',
                 suffixIcon: IconButton(
+                 // focusColor: Colors.white,
+                 // disabledColor: Colors.white,
+                 //  highlightColor: Colors.white,
+                  // hoverColor: Colors.white,
+                  // splashColor: Colors.white,
                     icon: Icon(
                       Icons.search,
                       color: Colors.black54,

@@ -23,8 +23,8 @@ class _RegistrationViewState extends State<RegistrationView> {
               Container(
                 margin: EdgeInsets.only(bottom: 60),
                 alignment: Alignment.center,
-                width: ScreenUtil().setWidth(190), //150
-                height: ScreenUtil().setHeight(180), //140
+                width: ScreenUtil().setWidth(190), 
+                height: ScreenUtil().setHeight(180), 
                 color: Colors.black87,
                 child: Text(
                   'Mejx',
@@ -38,17 +38,17 @@ class _RegistrationViewState extends State<RegistrationView> {
                 ontap: () {
                   Navigator.pushNamed(context, '/main_page');
                 },
-                // size: size,
+               
                 text: 'Facebook',
               ),
               SocialButton(
                 ontap: () {},
-                //  size: size,
+               
                 text: 'Google',
               ),
               SocialButton(
                 ontap: () {},
-                // size: size,
+               
                 text: 'Apple ID',
               )
             ],
