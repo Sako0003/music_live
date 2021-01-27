@@ -1,5 +1,5 @@
 import 'dart:ui';
-
+import 'package:http/http.dart' as request;
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -13,7 +13,7 @@ class SliderPlayercontainer extends StatefulWidget {
 class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
   bool playing = false;
   IconData playBtn = Icons.play_arrow;
-  AudioPlayer _player;
+  AudioPlayer _player = AudioPlayer();
   AudioCache cache;
   Duration position = Duration();
   Duration musiclenght = Duration();
@@ -23,14 +23,15 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     _player.seek(newPos);
   }
 
+  var fileName = "song1.mp3";
   @override
   void initState() {
     super.initState();
     //Audio player yazanda hemise problem kotlin sdk version(kotlin version deyis)
     _player = AudioPlayer();
+
     cache = AudioCache(fixedPlayer: _player);
     _player.onDurationChanged.listen((duration) {
-      //
       setState(() {
         musiclenght = duration;
       });
@@ -59,12 +60,14 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
             child: Row(
               children: [
                 Text(
-                    '${position.inMinutes}:${position.inSeconds.remainder(60)}',
-                    style: TextStyle(fontSize: size.width *0.048),
-                    ),
+                  '${musiclenght.inHours}:${position.inMinutes}:${position.inSeconds.remainder(60)}',
+                  style: TextStyle(fontSize: size.width * 0.048),
+                ),
                 Spacer(),
                 Text(
-                    '${musiclenght.inMinutes}:${musiclenght.inSeconds.remainder(60)}',style: TextStyle(fontSize: size.width *0.048),),
+                  '${musiclenght.inHours}:${musiclenght.inMinutes}:${musiclenght.inSeconds.remainder(60)}',
+                  style: TextStyle(fontSize: size.width * 0.048),
+                ),
               ],
             ),
           ),
@@ -88,59 +91,64 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
           Container(
             margin: EdgeInsets.only(top: 15),
             alignment: Alignment.center,
-           // color: Colors.amber,
-            height: size.height * 0.1 - 49, width: size.width * 0.5-9,
+            // color: Colors.amber,
+            height: size.height * 0.1 - 49, width: size.width * 0.5 - 9,
             child: Text(
               'Jaybalvvvvv ',
               overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-                      softWrap: false,
-              
-              style: TextStyle(color: Colors.black54, fontSize: size.width * 0.1-20),
+              maxLines: 1,
+              softWrap: false,
+              style: TextStyle(
+                  color: Colors.black54, fontSize: size.width * 0.1 - 20),
             ),
           ),
           Container(
-              alignment: Alignment.center,
+            alignment: Alignment.center,
             //  color: Colors.green,
-              height: size.height * 0.1 - 45, width: size.width * 0.8,
-              child: Text(
-
-                'Music Is My Terephyy  ',
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-          softWrap: false,
-                style: TextStyle(
-                color: Colors.black,
-                fontSize:size.width * 0.1-15,
-                fontWeight: FontWeight.bold),
-              ),
+            height: size.height * 0.1 - 45, width: size.width * 0.8,
+            child: Text(
+              'Music Is My Terephyy  ',
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              softWrap: false,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: size.width * 0.1 - 15,
+                  fontWeight: FontWeight.bold),
             ),
+          ),
           Container(
-           alignment: Alignment.center,
-             // color: Colors.amber,
+            alignment: Alignment.center,
+            // color: Colors.amber,
             height: size.height * 0.2 - 25, width: size.width * 0.8,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [//skip_previous
-                Myicon(icon: Icons.sync,size:size.width * 0.065 ,ontap:(){} ),
-                Myicon(icon: Icons.skip_previous,size:size.width * 0.090 ,ontap:(){} ),
+              children: [
+                //skip_previous
+                Myicon(
+                    icon: Icons.sync, size: size.width * 0.065, ontap: () {}),
+                Myicon(
+                    icon: Icons.skip_previous,
+                    size: size.width * 0.090,
+                    ontap: () {}),
                 CircleAvatar(
                   backgroundColor: Colors.black,
-                  radius:size.width *0.090,
-                  child: 
-                  IconButton(
+                  radius: size.width * 0.090,
+                  child: IconButton(
                       splashColor: Colors.white,
                       hoverColor: Colors.white,
                       highlightColor: Colors.white,
                       focusColor: Colors.white,
                       icon: Icon(
                         playBtn,
-                        size: size.width *0.088,
+                        size: size.width * 0.088,
                         color: Colors.white,
                       ),
                       onPressed: () {
                         if (!playing) {
-                          cache.play('fileName');
+                          _player.play(
+                              "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+
                           setState(
                             () {
                               playBtn = Icons.pause;
@@ -155,9 +163,15 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                           });
                         }
                       }),
-                ),Myicon(icon:Icons.skip_next,size:size.width * 0.090 ,ontap:(){} ),
-                Myicon(icon:Icons.shuffle_sharp,size:size.width * 0.065 ,ontap:(){} ),
-                
+                ),
+                Myicon(
+                    icon: Icons.skip_next,
+                    size: size.width * 0.090,
+                    ontap: () {}),
+                Myicon(
+                    icon: Icons.shuffle_sharp,
+                    size: size.width * 0.065,
+                    ontap: () {}),
               ],
             ),
           ),
