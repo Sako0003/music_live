@@ -20,9 +20,8 @@ class _MyNavbarState extends State<MyNavbar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        
-        color: Colors.white
-        ),
+          color: Colors.white,
+          ),
       child: Row(
         children: [
           ColorFiltered(
@@ -37,9 +36,8 @@ class _MyNavbarState extends State<MyNavbar> {
             ),
             child: Container(
               margin: EdgeInsets.only(left: 22),
-              height:
-                  ScreenUtil().setHeight(89), 
-              width: ScreenUtil().setWidth(83), 
+              height: ScreenUtil().setHeight(89),
+              width: ScreenUtil().setWidth(83),
               decoration: BoxDecoration(
                 //color: Colors.black,
 
@@ -51,12 +49,13 @@ class _MyNavbarState extends State<MyNavbar> {
             ),
           ),
           Container(
-           // color: Colors.green,
+            // color: Colors.green,
 
             height: ScreenUtil().setHeight(95),
             width: ScreenUtil().setWidth(255),
             child: Column(
-              children: [Padding(padding: EdgeInsets.only(top: 4)),
+              children: [
+                Padding(padding: EdgeInsets.only(top: 4)),
                 Container(
                   //1 num cont column
                   // color: Colors.brown,
@@ -64,13 +63,13 @@ class _MyNavbarState extends State<MyNavbar> {
                   height: ScreenUtil().setHeight(59),
                   width: ScreenUtil().setWidth(252),
                   child: Column(
-                    children: [Padding(padding: EdgeInsets.only(top: 4)),
-                      
+                    children: [
+                      Padding(padding: EdgeInsets.only(top: 4)),
                       Flexible(
                         child: Container(
                           // color: Colors.blue,
                           alignment: Alignment.topLeft,
-                         
+
                           width: ScreenUtil().setWidth(232),
                           child: Text(
                             'Andro',
@@ -88,7 +87,7 @@ class _MyNavbarState extends State<MyNavbar> {
                         child: Container(
                           alignment: Alignment.topLeft,
                           //  color: Colors.pink,
-                            height: ScreenUtil().setHeight(21),
+                          height: ScreenUtil().setHeight(21),
 
                           width: ScreenUtil().setWidth(232),
                           child: Text(
@@ -101,31 +100,44 @@ class _MyNavbarState extends State<MyNavbar> {
                                 fontWeight: FontWeight.bold),
                           ),
                         ),
-                      ), Container(
+                      ),
+                      Container(
                         // color: Colors.yellow,
-                   height: ScreenUtil().setHeight(26),
-                   width: ScreenUtil().setWidth(246),
-                                              child: Row(
-                    children: [
-                     SizedBox(width:ScreenUtil().setWidth(104),),Myicon(icon: Icons.skip_previous,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                          Myicon(icon: Icons.pause_outlined,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                           Myicon(icon: Icons.skip_next,size:ScreenUtil().radius(23) ,ontap:(){} ),
-                          
-                    ],
-                  ),
+                        height: ScreenUtil().setHeight(26),
+                        width: ScreenUtil().setWidth(246),
+                        child: Row(
+                          children: [
+                            SizedBox(
+                              width: ScreenUtil().setWidth(104),
+                            ),
+                            Myicon(
+                                icon: Icons.skip_previous,
+                                size: ScreenUtil().radius(23),
+                                ontap: () {}),
+                            Myicon(
+                                icon: Icons.pause_outlined,
+                                size: ScreenUtil().radius(23),
+                                ontap: () {}),
+                            Myicon(
+                                icon: Icons.skip_next,
+                                size: ScreenUtil().radius(23),
+                                ontap: () {}),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
                 // Container(
                 //   //2 num count column
-                  
+
                 //   //color: Colors.yellow,
                 //   height: ScreenUtil().setHeight(20),
                 //   width: ScreenUtil().setWidth(246),
                 //   child:
                 // ),
-                Container(padding: EdgeInsets.only(top: 7),
+                Container(
+                  padding: EdgeInsets.only(top: 7),
                   //3 num count column
                   // color: Colors.blue,
                   alignment: Alignment.bottomLeft,

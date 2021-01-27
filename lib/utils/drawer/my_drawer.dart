@@ -59,14 +59,14 @@ class _MyDrawerState extends State<MyDrawer> {
                     icon: Icons.queue_music),
                 MylibraryContainer(
                     ontap: () {
-Navigator.pushNamed(context, '/download');
+Navigator.pushNamed(context, '/history');
                     },
                     size: size,
                     text: 'History',
                     icon: Icons.history),
                     MylibraryContainer(
                     ontap: () {
-Navigator.pushNamed(context, '/history');
+Navigator.pushNamed(context, '/download');
                     },
                     size: size,
                     text: 'Downloads',

@@ -5,6 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:music_live/pages/home/music_image_container.dart';
 import 'package:music_live/pages/home/myicon.dart';
+import 'package:music_live/pages/home/mynavbar.dart';
+import 'package:music_live/utils/drawer/History/historydraywer.dart';
+
 //import 'package:music_live/pages/home/music_image_container.dart';
 
 class MyplaylisDraywer extends StatefulWidget {
@@ -40,6 +43,7 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
         ],
       ),
       body: Container(
+        height:  size.height * 1,
         width: double.infinity,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -136,7 +140,7 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
                 )),
           ],
         ),
-      ),
+      ),bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

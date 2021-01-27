@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
  
   @override
   Widget build(BuildContext context) {
-    //metnlerin fontsize ucun   ScreenUtil().setSp(20, allowFontScalingSelf: true)
+    //metnlerin fontsize ucun   ScreenUtil().setSp(20, allowFontScalingSelf: true),
     // dizayn sayti https://psdetch.com/
 //container uzunluq ucun ScreenUtil().setHeight(40),
 //container genislik ucun ScreenUtil().setWidth(320),

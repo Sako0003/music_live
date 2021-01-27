@@ -6,8 +6,9 @@ import 'package:grouped_list/grouped_list.dart';
 import 'package:music_live/pages/home/myicon.dart';
 
 import 'package:music_live/pages/home/mynavbar.dart';
+import 'package:music_live/utils/drawer/History/historydraywer.dart';
 
-bool musicOpened = true;
+
 
 List _library = [
   {
@@ -96,42 +97,55 @@ class _DownloadsState extends State<Downloads> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading: Myicon(icon: Icons.chevron_left,size:size.width * 0.090, ontap:(){
-           setState(() {
+        leading: Myicon(
+            icon: Icons.chevron_left,
+            size: size.width * 0.090,
+            ontap: () {
+              setState(() {
                 Navigator.pop(context);
-             });
-        } ),
-        
+              });
+            }),
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
             'Downloads',
             style: TextStyle(color: Colors.black),
           ),
-        ),actions: [Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),
-          ], 
+        ),
+        actions: [
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
+        ],
       ),
-      body: Container(
-       // color: Colors.pink,
-        child: Stack(
-          children: [
-            Column(
+      body: ListView(
+        children: [
+          Container(
+            // color: Colors.pink,
+            child: Column(
               children: [
-                
                 Container(
-                  height: size.height *0.05,width: double.infinity,
-                  child: Row(children: [
-                    SizedBox(width: size.width * 0.7+20,),
-                    Myicon(icon: Icons.sync,size:size.width * 0.06 ,ontap:(){} ),
-                   Myicon(icon: Icons.shuffle_sharp,size:size.width * 0.06 ,ontap:(){} ),
-                    
-                  ],),
-                  color:Colors.white10,
+                  height: size.height * 0.05,
+                  width: double.infinity,
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: size.width * 0.7 + 20,
+                      ),
+                      Myicon(
+                          icon: Icons.sync,
+                          size: size.width * 0.06,
+                          ontap: () {}),
+                      Myicon(
+                          icon: Icons.shuffle_sharp,
+                          size: size.width * 0.06,
+                          ontap: () {}),
+                    ],
                   ),
+                  color: Colors.white10,
+                ),
                 Container(
                   width: double.infinity,
-                  height: size.height *0.8+30,
-                    color: Colors.white10,
+                  height: size.height * 0.8 + 30,
+                  color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
                     // scrollDirection: Axis.vertical,
                     elements: _library,
@@ -145,11 +159,13 @@ class _DownloadsState extends State<Downloads> {
                               children: [
                                 Container(
                                   color: Colors.white10,
-                                  margin: EdgeInsets.only(left: size.width * 0.04),
+                                  margin:
+                                      EdgeInsets.only(left: size.width * 0.04),
                                   child: Text(
                                     groupByValue,
                                     textAlign: TextAlign.start,
-                                    style: TextStyle(fontSize: size.width * 0.050),
+                                    style:
+                                        TextStyle(fontSize: size.width * 0.050),
                                   ),
                                 )
                               ],
@@ -159,10 +175,12 @@ class _DownloadsState extends State<Downloads> {
                     itemBuilder: (context, dynamic element) {
                       return SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
-                                              child: Row(
+                        child: Row(
                           children: [
-                            Container(color: Colors.white10,
-                              height: size.height * 0.1+22,width: size.width * 1,
+                            Container(
+                              color: Colors.white10,
+                              height: size.height * 0.1 + 22,
+                              width: size.width * 1,
                               child: Card(
                                 elevation: 0,
                                 margin: EdgeInsets.symmetric(
@@ -171,7 +189,8 @@ class _DownloadsState extends State<Downloads> {
                                 child: Container(
                                   padding: EdgeInsets.all(10),
                                   child: Row(
-                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Expanded(
@@ -190,7 +209,8 @@ class _DownloadsState extends State<Downloads> {
                                           height: size.height * 0.075,
                                           // width: 75,
                                           child: Image(
-                                            image: NetworkImage(element['thumbnailUrl']),
+                                            image: NetworkImage(
+                                                element['thumbnailUrl']),
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -199,12 +219,13 @@ class _DownloadsState extends State<Downloads> {
                                         flex: 5,
                                         child: Container(
                                           height: size.height * 0.1 - 22,
-
-                                           color: Colors.white10,
+                                          color: Colors.white10,
                                           padding: EdgeInsets.only(bottom: 5),
                                           child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.center,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Padding(
                                                 padding: const EdgeInsets.only(
@@ -212,27 +233,38 @@ class _DownloadsState extends State<Downloads> {
                                                 child: Text(
                                                   element['title'],
                                                   style: TextStyle(
-                                                      fontSize: size.width * 0.03 - 0.1,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontSize:
+                                                          size.width * 0.03 -
+                                                              0.1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                   maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
                                                 ),
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.only(
-                                                    left: 10, right: 10, top: 6),
+                                                    left: 10,
+                                                    right: 10,
+                                                    top: 6),
                                                 child: Container(
-                                                    color: Colors.white10,
-                                                  margin: EdgeInsets.only(left: 10),
+                                                  color: Colors.white10,
+                                                  margin:
+                                                      EdgeInsets.only(left: 10),
                                                   child: Text(
                                                     '${element['author']}',
                                                     style: TextStyle(
-                                                        fontSize: size.width * 0.04 + 0.01,
-                                                        fontWeight: FontWeight.bold,
+                                                        fontSize:
+                                                            size.width * 0.04 +
+                                                                0.01,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                         color: Colors.black),
                                                     maxLines: 1,
-                                                    overflow: TextOverflow.ellipsis,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
                                                 ),
                                               ),
@@ -242,20 +274,29 @@ class _DownloadsState extends State<Downloads> {
                                       ),
                                       Container(
                                         height: size.height * 0.1 - 18,
-                                        width: size.width * 0.1 - 10, color: Colors.white10,
-                                        child:Myicon(icon: Icons.control_point,size:size.width * 0.06 ,ontap:(){} ),
-                                         
+                                        width: size.width * 0.1 - 10,
+                                        color: Colors.white10,
+                                        child: Myicon(
+                                            icon: Icons.control_point,
+                                            size: size.width * 0.06,
+                                            ontap: () {}),
                                       )
                                     ],
                                   ),
                                 ),
                               ),
                             ),
-                             Container(margin: EdgeInsets.only(right:15 ),
-                          alignment: Alignment.center,color: Colors.white10,
-                          height: size.height * 0.08,width:size.width * 0.1,
-                         child:Myicon(icon: Icons.delete_forever,ontap: (){},size: size.width * 0.07,)
-                        ),
+                            Container(
+                                margin: EdgeInsets.only(right: 15),
+                                alignment: Alignment.center,
+                                color: Colors.white10,
+                                height: size.height * 0.08,
+                                width: size.width * 0.1,
+                                child: Myicon(
+                                  icon: Icons.delete_forever,
+                                  ontap: () {},
+                                  size: size.width * 0.07,
+                                )),
                           ],
                         ),
                       );
@@ -269,12 +310,10 @@ class _DownloadsState extends State<Downloads> {
                 ),
               ],
             ),
-            musicOpened
-                ? Positioned(bottom: 9, left: 0, right: 0, child: MyNavbar())
-                : Container()
-          ],
-        ),
+          ),
+        ],
       ),
+      bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

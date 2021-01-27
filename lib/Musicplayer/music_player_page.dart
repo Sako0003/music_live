@@ -1,41 +1,8 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:music_live/pages/home/myicon.dart';
-
+import 'package:music_live/utils/drawer/History/historydraywer.dart';
 
 import 'package:music_live/utils/variables.dart';
 
@@ -51,32 +18,60 @@ class Musicplayer extends StatefulWidget {
 class _MusicplayerState extends State<Musicplayer> {
   double musict = 0.0;
 
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar( 
+      appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white10,
-        leading: Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){Navigator.pop(context);} ,),
-        actions: [Myicon(icon: Icons.save_alt,size:size.width * 0.070 ,ontap:(){} ),
-          Myicon(icon: Icons.share,size:size.width * 0.065 ,ontap:(){} ),
-          
-          Padding(//
+        leading: Myicon(
+          icon: Icons.chevron_left,
+          size: size.width * 0.090,
+          ontap: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [
+          Myicon(
+              icon: Icons.save_alt,
+              size: size.width * 0.070,
+              ontap: () {
+//myhistory.add(value)
+                var data = {
+                  "albumId": 20,
+                  "id": 1,
+                  "title": "song1",
+                  "url": "https://via.placeholder.com/600/92c952",
+                  "thumbnailUrl":
+                      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+                  "author": 'sahib',
+                  "date": '11/2/21',
+                  "group": 'A',
+                };
+                setState(() {
+                  myhistory.add(data);
+                });
+              }),
+          Myicon(icon: Icons.share, size: size.width * 0.065, ontap: () {}),
+          Padding(
+            //
             padding: const EdgeInsets.only(right: 10),
-            child: Myicon(icon: Icons.control_point,size:size.width * 0.070 ,ontap:(){
-                   // this code showdialoq inside
-                 showDialoqFunc(
-                   context,
-                 );
-            } ),
+            child: Myicon(
+                icon: Icons.control_point,
+                size: size.width * 0.070,
+                ontap: () {
+                  // this code showdialoq inside
+                  showDialoqFunc(
+                    context,
+                  );
+                }),
           ),
         ],
       ),
-      body: ListView(
-              children: [Column(
+      body: ListView(children: [
+        Column(
           children: [
             Container(
               height: size.height * 0.4 + 20,
@@ -149,9 +144,7 @@ class _MusicplayerState extends State<Musicplayer> {
             ),
           ],
         ),
-               ] ),
+      ]),
     );
   }
 }
-
-

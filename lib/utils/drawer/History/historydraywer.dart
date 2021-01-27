@@ -9,7 +9,7 @@ import 'package:music_live/pages/home/mynavbar.dart';
 
 bool musicOpened = true;
 
-List _library = [
+List myhistory = [
   {
     "albumId": 1,
     "id": 1,
@@ -116,8 +116,10 @@ class _HistoryState extends State<History> {
         ],
       ),
       body: Container(
-        // color: Colors.pink,
-        child: Stack(
+        height: size.height * 1,
+        width: double.infinity,
+       // color: Colors.pink,
+        child: ListView(
           children: [
             Column(
               children: [
@@ -144,137 +146,155 @@ class _HistoryState extends State<History> {
                 Container(
                   width: double.infinity,
                   height: size.height * 0.8 + 30,
-                    color: Colors.white10,
+                  color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
-                    
-                    elements: _library,
+                    elements: myhistory,
                     groupBy: (element) => element['date'],
                     groupSeparatorBuilder: (String groupByValue) => Row(
                       children: [
                         Flexible(
                             child: Container(
-                              color: Colors.white10,
-                              width: size.width * 0.6,
-                              margin: EdgeInsets.only(
-                                  left: size.width * 0.04),
-                              child: Text(
-                                groupByValue,
-                                textAlign: TextAlign.start,
-                                style: TextStyle(fontWeight: FontWeight.bold,
-                                    fontSize: size.width * 0.040),
-                              ),
-                            ))
+                          color: Colors.white10,
+                          width: size.width * 0.6,
+                          margin: EdgeInsets.only(left: size.width * 0.04),
+                          child: Text(
+                            groupByValue,
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: size.width * 0.040),
+                          ),
+                        ))
                       ],
                     ),
                     itemBuilder: (context, dynamic element) {
-                      return SingleChildScrollView( 
-                         scrollDirection: Axis.horizontal,
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                          height: size.height * 0.1+22,width: size.width * 1,
-                          child: Card(color: Colors.white10,
-                            elevation: 0,
-                            margin: EdgeInsets.symmetric(
-                                horizontal: size.width * 0.02,
-                                vertical: size.height * 0.01),
-                            child: Container(
-                              color: Colors.white10,
-                              padding: EdgeInsets.all(10),
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Expanded(
-                                      child: ColorFiltered(
-                                    colorFilter: ColorFilter.matrix(
-                                      [
-                                        0.2126, 0.7152, 0.0722, 0, 0,
-                                        0.2126, 0.7152, 0.0722, 0,
-                                        0, //this color image change(black)
-                                        0.2126, 0.7152, 0.0722, 0, 0,
-                                        0, 0, 0, 1, 0,
-                                      ],
-                                    ),
-                                    child: Container(
-                                      color: Colors.white10,
-                                      height: size.height * 0.075,
-                                      // width: 75,
-                                      child: Image(
-                                        image:
-                                            NetworkImage(element['thumbnailUrl']),
-                                        fit: BoxFit.cover,
-                                      ),
-                                    ),
-                                  )),
-                                  Expanded(
-                                    flex: 5,
-                                    child: Container(
-                                      height: size.height * 0.1 - 22,
-
-                                       color: Colors.white10,
-                                      padding: EdgeInsets.only(bottom: 5),
-                                      child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(
+                      return SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: [
+                            Container(
+                              height: size.height * 0.1 + 22,
+                              width: size.width * 1,
+                              child: Card(
+                                color: Colors.white10,
+                                elevation: 0,
+                                margin: EdgeInsets.symmetric(
+                                    horizontal: size.width * 0.02,
+                                    vertical: size.height * 0.01),
+                                child: Container(
+                                  color: Colors.white10,
+                                  padding: EdgeInsets.all(10),
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Expanded(
+                                          child: ColorFiltered(
+                                        colorFilter: ColorFilter.matrix(
+                                          [
+                                            0.2126, 0.7152, 0.0722, 0, 0,
+                                            0.2126, 0.7152, 0.0722, 0,
+                                            0, //this color image change(black)
+                                            0.2126, 0.7152, 0.0722, 0, 0,
+                                            0, 0, 0, 1, 0,
+                                          ],
+                                        ),
+                                        child: Container(
+                                          color: Colors.white10,
+                                          height: size.height * 0.075,
+                                          // width: 75,
+                                          child: Image(
+                                            image: NetworkImage(
+                                                element['thumbnailUrl']),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      )),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Container(
+                                          height: size.height * 0.1 - 22,
+                                          color: Colors.white10,
+                                          padding: EdgeInsets.only(bottom: 5),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Padding(
+                                                padding: const EdgeInsets.only(
                                                     left: 18, right: 10),
-                                            child: Text(
+                                                child: Text(
                                                   element['title'],
                                                   style: TextStyle(
-                                                      fontSize: size.width * 0.03 - 0.1,
-                                                      fontWeight: FontWeight.bold,
+                                                      fontSize:
+                                                          size.width * 0.03 -
+                                                              0.1,
+                                                      fontWeight:
+                                                          FontWeight.bold,
                                                       color: Colors.black54),
                                                   maxLines: 1,
-                                                  overflow: TextOverflow.ellipsis,
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                    left: 10, right: 10, top: 6),
-                                            child: Container(
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.only(
+                                                    left: 10,
+                                                    right: 10,
+                                                    top: 6),
+                                                child: Container(
                                                   //  color: Colors.amber,
-                                                  margin: EdgeInsets.only(left: 10),
+                                                  margin:
+                                                      EdgeInsets.only(left: 10),
                                                   child: Text(
                                                     '${element['author']}',
                                                     style: TextStyle(
                                                         fontSize:
-                                                            size.width * 0.04 + 0.01,
-                                                        fontWeight: FontWeight.bold,
+                                                            size.width * 0.04 +
+                                                                0.01,
+                                                        fontWeight:
+                                                            FontWeight.bold,
                                                         color: Colors.black),
                                                     maxLines: 1,
-                                                    overflow: TextOverflow.ellipsis,
+                                                    overflow:
+                                                        TextOverflow.ellipsis,
                                                   ),
-                                            ),
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
+                                        ),
                                       ),
-                                    ),
+                                      Container(
+                                        height: size.height * 0.1 - 18,
+                                        width: size.width * 0.1 -
+                                            10, //color: Colors.brown,
+                                        child: Myicon(
+                                            icon: Icons.control_point,
+                                            size: size.width * 0.06,
+                                            ontap: () {}),
+                                      )
+                                    ],
                                   ),
-                                  Container(
-                                    height: size.height * 0.1 - 18,
-                                    width: size.width * 0.1 -
-                                        10, //color: Colors.brown,
-                                    child: Myicon(
-                                        icon: Icons.control_point,
-                                        size: size.width * 0.06,
-                                        ontap: () {}),
-                                  )
-                                ],
+                                ),
                               ),
                             ),
-                          ),
+                            Container(
+                                margin: EdgeInsets.only(right: 15),
+                                alignment: Alignment.center,
+                                color: Colors.white10,
+                                height: size.height * 0.08,
+                                width: size.width * 0.1,
+                                child: Myicon(
+                                  icon: Icons.delete_forever,
+                                  ontap: () {},
+                                  size: size.width * 0.07,
+                                )),
+                          ],
                         ),
-                        Container(margin: EdgeInsets.only(right:15 ),
-                          alignment: Alignment.center,color: Colors.white10,
-                          height: size.height * 0.08,width:size.width * 0.1,
-                         child:Myicon(icon: Icons.delete_forever,ontap: (){},size: size.width * 0.07,)
-                        ),
-                                                ],
-                                              ),
                       );
                     },
                     itemComparator: (item1, item2) =>
@@ -286,12 +306,13 @@ class _HistoryState extends State<History> {
                 ),
               ],
             ),
-            musicOpened
-                ? Positioned(bottom: 9, left: 0, right: 0, child: MyNavbar())
-                : Container()
+            
           ],
         ),
       ),
+      bottomNavigationBar: musicOpened
+          ? MyNavbar()
+          : null,
     );
   }
 }
