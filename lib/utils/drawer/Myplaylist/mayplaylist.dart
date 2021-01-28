@@ -91,6 +91,10 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
                         Positioned(
                             right: size.width * 0.01,
                             child: IconButton(
+                               splashColor: Colors.white,
+        hoverColor: Colors.white,
+        highlightColor: Colors.white,
+        focusColor: Colors.white,
                                 icon: Icon(
                                   Icons.more_horiz,
                                   color: Colors.white,

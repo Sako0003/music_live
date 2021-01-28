@@ -19,7 +19,21 @@ class _MyNavbarState extends State<MyNavbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
+       width: double.infinity,
+       height:ScreenUtil().setHeight(111),
+       
       decoration: BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+     boxShadow: [
+       BoxShadow(
+         offset: Offset(0, 10),
+         blurRadius: 17,
+         color: Colors.black54
+       )
+     ],
           color: Colors.white,
           ),
       child: Row(
@@ -36,7 +50,7 @@ class _MyNavbarState extends State<MyNavbar> {
             ),
             child: Container(
               margin: EdgeInsets.only(left: 22),
-              height: ScreenUtil().setHeight(89),
+              height: ScreenUtil().setHeight(80),
               width: ScreenUtil().setWidth(83),
               decoration: BoxDecoration(
                 //color: Colors.black,
@@ -128,14 +142,7 @@ class _MyNavbarState extends State<MyNavbar> {
                     ],
                   ),
                 ),
-                // Container(
-                //   //2 num count column
-
-                //   //color: Colors.yellow,
-                //   height: ScreenUtil().setHeight(20),
-                //   width: ScreenUtil().setWidth(246),
-                //   child:
-                // ),
+               
                 Container(
                   padding: EdgeInsets.only(top: 7),
                   //3 num count column
