@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/home/addPlaylistListContainer.dart.dart';
+import 'package:music_live/pages/home/list_history.dart';
 import 'package:music_live/pages/home/music_image_container.dart';
-import 'package:music_live/pages/home/mynavbar.dart';
-import 'package:music_live/pages/home/mypplaylist_containername.dart';
+
+
 import 'package:music_live/pages/home/popular_seeall_container.dart';
+import 'package:music_live/utils/drawer/History/historydraywer.dart';
+
 import 'package:music_live/utils/drawer/my_drawer.dart';
 
 import 'myicon.dart';
+import 'mynavbar.dart';
 
 class HomePageView extends StatefulWidget {
   @override
@@ -46,11 +50,11 @@ class _HomePageViewState extends State<HomePageView> {
                 border: InputBorder.none,
                 hintText: 'searc',
                 suffixIcon: IconButton(
-                 // focusColor: Colors.white,
-                 // disabledColor: Colors.white,
-                 //  highlightColor: Colors.white,
-                  // hoverColor: Colors.white,
-                  // splashColor: Colors.white,
+                 focusColor: Colors.white,
+                 disabledColor: Colors.white,
+                  highlightColor: Colors.white,
+                  hoverColor: Colors.white,
+                  splashColor: Colors.white,
                     icon: Icon(
                       Icons.search,
                       color: Colors.black54,
@@ -62,8 +66,8 @@ class _HomePageViewState extends State<HomePageView> {
         ),
         drawer: MyDrawer(),
         body: Container(
-          //  color: Colors.pink,
-          height: ScreenUtil().setHeight(524),
+           // color: Colors.pink,
+          height: ScreenUtil().setHeight(618),
           width: double.infinity,
           child: ListView(
             children: [
@@ -87,19 +91,11 @@ class _HomePageViewState extends State<HomePageView> {
                 text: 'History',
                 textn: 'See all',
               ),
-              MyPplaylistContainerName(),
+              ListHistr(),
             ],
           ),
         ),
-        bottomNavigationBar: BottomAppBar(
-          child: Container(
-            height: ScreenUtil().setHeight(110),
-            width: ScreenUtil()
-                .setWidth(365), //men yazdim bax buna bu with yox idi burda
-            //color: Colors.red,
-            child: MyNavbar(),
-          ),
-        ),
+        bottomNavigationBar: musicOpened ? MyNavbar() : null,
       ),
     );
   }
