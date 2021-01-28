@@ -2,7 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:music_live/pages/home/myicon.dart';
-import 'package:music_live/utils/drawer/History/historydraywer.dart';
+
+import 'package:music_live/utils/drawer/downloads/downloads.dart';
 
 import 'package:music_live/utils/variables.dart';
 
@@ -46,12 +47,12 @@ class _MusicplayerState extends State<Musicplayer> {
                   "url": "https://via.placeholder.com/600/92c952",
                   "thumbnailUrl":
                       'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-                  "author": 'sahib',
+                  "author": 'Veliiii',
                   "date": '11/2/21',
                   "group": 'A',
                 };
                 setState(() {
-                  myhistory.add(data);
+                  mydownload.add(data);
                 });
               }),
           Myicon(icon: Icons.share, size: size.width * 0.065, ontap: () {}),

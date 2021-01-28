@@ -10,7 +10,7 @@ import 'package:music_live/utils/drawer/History/historydraywer.dart';
 
 
 
-List _library = [
+List mydownload = [
   {
     "albumId": 1,
     "id": 1,
@@ -148,7 +148,7 @@ class _DownloadsState extends State<Downloads> {
                   color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
                     // scrollDirection: Axis.vertical,
-                    elements: _library,
+                    elements: mydownload,
                     groupBy: (element) => element['group'],
                     groupSeparatorBuilder: (String groupByValue) => Padding(
                         padding: EdgeInsets.all(3),

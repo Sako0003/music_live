@@ -1,5 +1,5 @@
 import 'dart:ui';
-//import 'package:http/http.dart' as request;
+import 'package:http/http.dart' as request;
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -13,7 +13,7 @@ class SliderPlayercontainer extends StatefulWidget {
 class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
   bool playing = false;
   IconData playBtn = Icons.play_arrow;
-  AudioPlayer _player ;//= AudioPlayer();
+  AudioPlayer _player = AudioPlayer();
   AudioCache cache;
   Duration position = Duration();
   Duration musiclenght = Duration();

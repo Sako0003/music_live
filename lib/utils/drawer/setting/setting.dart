@@ -82,7 +82,7 @@ class _SettingState extends State<Setting> {
               ],
             ),
             Divider(
-              color: Colors.black54,
+              color: Colors.black,
               height: size.height * 0.02,
              ),// height: size.height * 0.040,
             //           width: size.width * 0.7,//
@@ -133,7 +133,7 @@ class _SettingState extends State<Setting> {
       ),
     ),
             Divider(
-              color: Colors.black54,
+              color: Colors.black,
               height: size.height * 0.02,
             ),
             ConnectionContainer(
