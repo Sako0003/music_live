@@ -26,8 +26,11 @@ dependencies:
   audioplayers: ^0.17.2
   cupertino_icons: ^1.0.0
   flutter_screenutil: ^4.0.2+5
+  flutter_share: ^1.0.5
+  google_fonts: ^1.1.2
   grouped_list: ^3.7.1
   http: ^0.12.2
+  path_provider: ^1.6.27
 
 dev_dependencies:
   flutter_test:

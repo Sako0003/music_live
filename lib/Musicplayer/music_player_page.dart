@@ -1,11 +1,16 @@
-import 'dart:ui';
+
+
+import 'dart:async';
 
 import 'package:flutter/material.dart';
+
 import 'package:music_live/pages/home/myicon.dart';
 
 import 'package:music_live/utils/drawer/downloads/downloads.dart';
-
+import 'package:flutter_share/flutter_share.dart';
 import 'package:music_live/utils/variables.dart';
+
+
 
 import 'showdialoq.dart';
 import 'slider_playercontainer.dart';
@@ -17,6 +22,16 @@ class Musicplayer extends StatefulWidget {
 }
 
 class _MusicplayerState extends State<Musicplayer> {
+  Future<void> share() async {
+    await FlutterShare.share(
+      title: 'Example share',
+      text: 'Example share text',
+      linkUrl: 'https://flutter.dev/',
+      chooserTitle: 'Example Chooser Title'
+    );
+  }
+  
+
   double musict = 0.0;
 
   @override
@@ -39,7 +54,6 @@ class _MusicplayerState extends State<Musicplayer> {
               icon: Icons.save_alt,
               size: size.width * 0.070,
               ontap: () {
-//myhistory.add(value)
                 var data = {
                   "albumId": 20,
                   "id": 1,
@@ -54,8 +68,8 @@ class _MusicplayerState extends State<Musicplayer> {
                 setState(() {
                   mydownload.add(data);
                 });
-              }),
-          Myicon(icon: Icons.share, size: size.width * 0.065, ontap: () {}),
+              }), //urlFileShare,
+          Myicon(icon: Icons.share,ontap:share,),
           Padding(
             //
             padding: const EdgeInsets.only(right: 10),
@@ -149,3 +163,4 @@ class _MusicplayerState extends State<Musicplayer> {
     );
   }
 }
+

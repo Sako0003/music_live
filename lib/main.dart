@@ -57,6 +57,5 @@ class _MyAppState extends State<MyApp> {
     );
   }
 }
-//her yerde bu my icon
 
  

@@ -130,7 +130,9 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                 Myicon(
                     icon: Icons.skip_previous,
                     size: size.width * 0.090,
-                    ontap: () {}),
+                    ontap: () {
+                      
+                    }),
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius: size.width * 0.090,
