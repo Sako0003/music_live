@@ -3,7 +3,8 @@ import 'package:http/http.dart' as request;
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:music_live/pages/home/myicon.dart';
+import 'package:music_live/pages/parts/myicon.dart';
+
 
 class SliderPlayercontainer extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     Size size = MediaQuery.of(context).size;
 
     return Container(
-      //TODO: Screenutil Height
+     
       height: size.height * 0.4 - 22,
       width: size.width * 1,
       // color: Colors.green,
@@ -73,23 +74,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
               ],
             ),
           ),
-          // Container(
-          //   margin: EdgeInsets.only(top: 5),
-
-          //   alignment: Alignment.bottomLeft,
-          //   height: size.height * 0.1 - 53,
-          //   width: size.width * 0.9 + 17, //color: Colors.blue,
-          //   child: Slider.adaptive(
-          //     inactiveColor: Colors.black12,
-          //     activeColor: Colors.black87,
-          //     min: 0,
-          //     max: 100.0,
-          //     value: 150.0,
-          //     onChanged: (value) {
-          //       seekToSec(value.toInt());
-          //     },
-          //   ),
-          // ),
+          
           Container(
             margin: EdgeInsets.only(top: 15),
             alignment: Alignment.center,

@@ -4,7 +4,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:music_live/Musicplayer/newplaylist.dart';
-import 'package:music_live/pages/home/music_image_container.dart';
+import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
 import 'package:music_live/utils/variables.dart';
 
 showDialoqFunc(

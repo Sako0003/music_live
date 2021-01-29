@@ -4,9 +4,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:grouped_list/grouped_list.dart';
-import 'package:music_live/pages/home/myicon.dart';
 
-import 'package:music_live/pages/home/mynavbar.dart';
+
+import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/myicon.dart';
 
 bool musicOpened = true;
 

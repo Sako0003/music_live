@@ -1,8 +1,9 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:music_live/pages/home/music_image_container.dart';
-import 'package:music_live/pages/home/myicon.dart';
+import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
+import 'package:music_live/pages/parts/myicon.dart';
+
 
 
 class Searc1page extends StatefulWidget {

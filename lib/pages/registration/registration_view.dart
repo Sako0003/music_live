@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:music_live/utils/social_button.dart';
+import 'package:music_live/pages/parts/social_button.dart';
 
 class RegistrationView extends StatefulWidget {
   @override

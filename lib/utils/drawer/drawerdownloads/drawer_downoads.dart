@@ -3,13 +3,16 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 import 'package:grouped_list/grouped_list.dart';
-import 'package:music_live/pages/home/myicon.dart';
 
-import 'package:music_live/pages/home/mynavbar.dart';
 
-bool musicOpened = true;
+import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/myicon.dart';
+import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
 
-List myhistory = [
+
+
+
+List mydownload = [
   {
     "albumId": 1,
     "id": 1,
@@ -18,7 +21,7 @@ List myhistory = [
     "thumbnailUrl":
         'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
     "author": 'DDDDDdddddddddddddddddddDD',
-    "date": '29/29/29',
+    "date": '24/24/24',
     "group": 'A',
   },
   {
@@ -28,7 +31,7 @@ List myhistory = [
     "url": "https://via.placeholder.com/600/771796",
     "thumbnailUrl": "https://via.placeholder.com/150/771796",
     "author": 'DDDDDDD',
-    "date": '03/03/03',
+    "date": '24/24/24',
     "group": 'B',
   },
   {
@@ -38,7 +41,7 @@ List myhistory = [
     "url": "https://via.placeholder.com/600/771796",
     "thumbnailUrl": "https://via.placeholder.com/150/771796",
     "author": 'DDDDDDD',
-    "date": '2/10/22',
+    "date": '24/24/24',
     "group": 'B',
   },
   {
@@ -48,7 +51,7 @@ List myhistory = [
     "url": "https://via.placeholder.com/600/771796",
     "thumbnailUrl": "https://via.placeholder.com/150/771796",
     "author": 'DDDDDDD',
-    "date": '18/18/18',
+    "date": '24/24/24',
     "group": 'B',
   },
   {
@@ -58,7 +61,7 @@ List myhistory = [
     "url": "https://via.placeholder.com/600/24f355",
     "thumbnailUrl": "https://via.placeholder.com/150/24f355",
     "author": 'DDDDDDD',
-    "date": '04/22/09',
+    "date": '24/24/24',
     "group": 'C',
   },
   {
@@ -68,7 +71,7 @@ List myhistory = [
     "url": "https://via.placeholder.com/600/d32776",
     "thumbnailUrl": "https://via.placeholder.com/150/d32776",
     "author": 'DDDDDDD',
-    "date": '20/1/24',
+    "date": '24/24/24',
     "group": 'D',
   },
   {
@@ -79,17 +82,17 @@ List myhistory = [
     "thumbnailUrl":
         'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
     "author": 'dfjkdshfjkds',
-    "date": '29/22/29',
+    "date": '24/24/24',
     "group": 'A',
   },
 ];
 
-class History extends StatefulWidget {
+class Downloads extends StatefulWidget {
   @override
-  _HistoryState createState() => _HistoryState();
+  _DownloadsState createState() => _DownloadsState();
 }
 
-class _HistoryState extends State<History> {
+class _DownloadsState extends State<Downloads> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -107,7 +110,7 @@ class _HistoryState extends State<History> {
         backgroundColor: Colors.white,
         title: Center(
           child: Text(
-            'History',
+            'Downloads',
             style: TextStyle(color: Colors.black),
           ),
         ),
@@ -115,13 +118,11 @@ class _HistoryState extends State<History> {
           Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
         ],
       ),
-      body: Container(
-        height: size.height * 1,
-        width: double.infinity,
-       // color: Colors.pink,
-        child: ListView(
-          children: [
-            Column(
+      body: ListView(
+        children: [
+          Container(
+            // color: Colors.pink,
+            child: Column(
               children: [
                 Container(
                   height: size.height * 0.05,
@@ -148,41 +149,46 @@ class _HistoryState extends State<History> {
                   height: size.height * 0.8 + 30,
                   color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
-                    elements: myhistory,
-                    groupBy: (element) => element['date'],
-                    groupSeparatorBuilder: (String groupByValue) => Row(
-                      children: [
-                        Flexible(
-                            child: Container(
-                          color: Colors.white10,
-                          width: size.width * 0.6,
-                          margin: EdgeInsets.only(left: size.width * 0.04),
-                          child: Text(
-                            groupByValue,
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: size.width * 0.040),
-                          ),
-                        ))
-                      ],
-                    ),
+                    // scrollDirection: Axis.vertical,
+                    elements: mydownload,
+                    groupBy: (element) => element['group'],
+                    groupSeparatorBuilder: (String groupByValue) => Padding(
+                        padding: EdgeInsets.all(3),
+                        child: Row(
+                          children: [
+                            Flexible(
+                                child: Row(
+                              children: [
+                                Container(
+                                  color: Colors.white10,
+                                  margin:
+                                      EdgeInsets.only(left: size.width * 0.04),
+                                  child: Text(
+                                    groupByValue,
+                                    textAlign: TextAlign.start,
+                                    style:
+                                        TextStyle(fontSize: size.width * 0.050),
+                                  ),
+                                )
+                              ],
+                            ))
+                          ],
+                        )),
                     itemBuilder: (context, dynamic element) {
                       return SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: [
                             Container(
+                              color: Colors.white10,
                               height: size.height * 0.1 + 22,
                               width: size.width * 1,
                               child: Card(
-                                color: Colors.white10,
                                 elevation: 0,
                                 margin: EdgeInsets.symmetric(
                                     horizontal: size.width * 0.02,
                                     vertical: size.height * 0.01),
                                 child: Container(
-                                  color: Colors.white10,
                                   padding: EdgeInsets.all(10),
                                   child: Row(
                                     crossAxisAlignment:
@@ -246,7 +252,7 @@ class _HistoryState extends State<History> {
                                                     right: 10,
                                                     top: 6),
                                                 child: Container(
-                                                  //  color: Colors.amber,
+                                                  color: Colors.white10,
                                                   margin:
                                                       EdgeInsets.only(left: 10),
                                                   child: Text(
@@ -270,8 +276,8 @@ class _HistoryState extends State<History> {
                                       ),
                                       Container(
                                         height: size.height * 0.1 - 18,
-                                        width: size.width * 0.1 -
-                                            10, //color: Colors.brown,
+                                        width: size.width * 0.1 - 10,
+                                        color: Colors.white10,
                                         child: Myicon(
                                             icon: Icons.control_point,
                                             size: size.width * 0.06,
@@ -298,21 +304,18 @@ class _HistoryState extends State<History> {
                       );
                     },
                     itemComparator: (item1, item2) =>
-                        item1['title'].compareTo(item2['title']),
-                    useStickyGroupSeparators: true,
-                    floatingHeader: true,
-                    order: GroupedListOrder.ASC,
+                        item1['title'].compareTo(item2['title']), // optional
+                    useStickyGroupSeparators: true, // optional
+                    floatingHeader: true, // optional
+                    order: GroupedListOrder.ASC, // optional
                   ),
                 ),
               ],
             ),
-            
-          ],
-        ),
+          ),
+        ],
       ),
-      bottomNavigationBar: musicOpened
-          ? MyNavbar()
-          : null,
+      bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

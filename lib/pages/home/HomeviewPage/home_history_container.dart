@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../music_image_container.dart';
+import 'homeview_popularcontainer.dart';
 
 class HomeHistoryView extends StatefulWidget {
   HomeHistoryView({Key key}) : super(key: key);
@@ -127,7 +127,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(17, allowFontScalingSelf: true),
+                                      fontSize: ScreenUtil().setSp(16, allowFontScalingSelf: true),
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),

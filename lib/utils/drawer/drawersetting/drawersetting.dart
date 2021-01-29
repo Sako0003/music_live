@@ -2,9 +2,13 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:music_live/pages/home/myicon.dart';
+import 'package:music_live/pages/parts/SetingPlaybaklazimsiz.dart';
+import 'package:music_live/pages/parts/Seting_langCash.dart';
+import 'package:music_live/pages/parts/darkmode.dart';
+import 'package:music_live/pages/parts/myicon.dart';
 
-import 'sawitchlistcontanorrr.dart';
+
+import '../../../pages/parts/settinsvicontaoner.dart';
 
 class Setting extends StatefulWidget {
   @override
@@ -12,7 +16,7 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  bool darkmode = false;
+  
   bool offline = false;
   bool autoplay = false;
   bool isscipsliencetrack = false;
@@ -44,7 +48,7 @@ class _SettingState extends State<Setting> {
         width: double.infinity,
         child: Column(
           children: [
-            ConnectionContainer(
+            SettingConnectionTextCont(
               size: size,
               fontSize: size.width * 0.05,
               text: 'Connection',
@@ -81,62 +85,10 @@ class _SettingState extends State<Setting> {
                 ),
               ],
             ),
-            Divider(
-              color: Colors.black,
-              height: size.height * 0.02,
-             ),// height: size.height * 0.040,
-            //           width: size.width * 0.7,//
-            Container(
-      alignment: Alignment.topLeft,
-      height: size.height * 0.057,
-      width: double.infinity,
-      margin: EdgeInsets.only(bottom: 10),
-      // color: Colors.pink,
-      child: ListTile(
-        title: Container(
-          padding: EdgeInsets.only(left: 5),
-          alignment: Alignment.centerLeft,
-          // color: Colors.green,
-          height: size.height * 0.040,
-          width: size.width * 0.7,
-          child: Text(
-            'Dark mode',
-            maxLines: 1,
-            style: TextStyle(fontWeight: FontWeight.bold,
-              color: Colors.black, fontSize: size.width * 0.050),
-          ),
-        ),
-        trailing: Container(
-          
-          height: size.height * 0.04,
-          width: size.width * 0.135,
-          decoration: BoxDecoration(
-              border: Border.all(
-                width: 0.8,
-                color: Colors.black54
-              ),
-              borderRadius: BorderRadius.circular(15)),
-          child: CupertinoSwitch(
-            activeColor: Colors.black54,
-            value: darkmode,
-            onChanged: (val) {
-                setState(() {
-                  darkmode = val;
-                });
-                if (offline) {
-                  //seyfeye gedis
-
-                }
-              },
-          ),
-        ),
-      ),
-    ),
-            Divider(
-              color: Colors.black,
-              height: size.height * 0.02,
-            ),
-            ConnectionContainer(
+            
+            DarkModeCont(size: size, ),
+            
+            SettingConnectionTextCont(
               size: size,
               fontSize: size.width * 0.05,
               text: 'Playback',
@@ -198,12 +150,12 @@ class _SettingState extends State<Setting> {
               text: 'Notification',
               value: notification,
             ),
-            LanguageContainer(
+            SettingLanguageCashContainer(
               size: size,
               ontap: () {},
               text: 'Clear Cash',
             ),
-            LanguageContainer(
+            SettingLanguageCashContainer(
               size: size,
               ontap: () {},
               text: 'Language',
@@ -215,78 +167,3 @@ class _SettingState extends State<Setting> {
   }
 }
 
-///Mellimden Sorus Sttylesse bolende bele Aplicationunun Suretine tesir edir ya yox ona gore duzelish et
-class LanguageContainer extends StatelessWidget {
-  const LanguageContainer({
-    Key key,
-    @required this.size,
-    this.text,
-    this.ontap,
-  }) : super(key: key);
-
-  final Size size;
-  final text;
-  final Function ontap;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      splashColor: Colors.white,
-      hoverColor: Colors.white,
-      highlightColor: Colors.white,
-      focusColor: Colors.white,
-      onTap: ontap,
-      child: Container(
-        padding: EdgeInsets.only(left: 23),
-        // color: Colors.amber,
-        alignment: Alignment.centerLeft,
-        height: size.height * 0.050,
-        width: double.infinity,
-        child: Text(
-          text,
-          maxLines: 1,
-          style: TextStyle(
-              fontWeight: FontWeight.normal,
-              color: Colors.black,
-              fontSize: size.width * 0.04),
-        ),
-      ),
-    );
-  }
-}
-
-class ConnectionContainer extends StatelessWidget {
-  const ConnectionContainer({
-    Key key,
-    @required this.size,
-    this.text,
-    this.fontSize,
-    this.fonweight,
-  }) : super(key: key);
-
-  final Size size;
-  final text;
-  final double fontSize;
-  final FontWeight fonweight;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 20),
-      alignment: Alignment.centerLeft,
-      height: size.height * 0.050,
-      width: double.infinity,
-      //  color: Colors.red,
-      child: Text(
-        text,
-        maxLines: 1,
-        style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
-            fontSize: size.width * 0.05),
-      ),
-    );
-  }
-}
-
-//  maxLines: 1,
-// softWrap: true,
-// overflow: TextOverflow.ellipsis,

@@ -3,10 +3,12 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'package:music_live/pages/home/music_image_container.dart';
-import 'package:music_live/pages/home/myicon.dart';
-import 'package:music_live/pages/home/mynavbar.dart';
-import 'package:music_live/utils/drawer/History/historydraywer.dart';
+import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
+
+import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/myicon.dart';
+import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
+
 
 //import 'package:music_live/pages/home/music_image_container.dart';
 

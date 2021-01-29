@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/variables.dart';
-
-import 'myicon.dart';
 
 class MyNavbar extends StatefulWidget {
   const MyNavbar({
