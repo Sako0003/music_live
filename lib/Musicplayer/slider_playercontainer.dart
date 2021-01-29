@@ -29,6 +29,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     super.initState();
     //Audio player yazanda hemise problem kotlin sdk version(kotlin version deyis)
     _player = AudioPlayer();
+    _player.play("https://filesamples.com/samples/audio/mp3/sample1.mp3");
 
     cache = AudioCache(fixedPlayer: _player);
     _player.onDurationChanged.listen((duration) {
@@ -48,6 +49,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     Size size = MediaQuery.of(context).size;
 
     return Container(
+      //TODO: Screenutil Height
       height: size.height * 0.4 - 22,
       width: size.width * 1,
       // color: Colors.green,
@@ -71,23 +73,23 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 5),
+          // Container(
+          //   margin: EdgeInsets.only(top: 5),
 
-            alignment: Alignment.bottomLeft,
-            height: size.height * 0.1 - 53,
-            width: size.width * 0.9 + 17, //color: Colors.blue,
-            child: Slider.adaptive(
-              inactiveColor: Colors.black12,
-              activeColor: Colors.black87,
-              min: 0,
-              max: musiclenght.inSeconds.toDouble(),
-              value: position.inSeconds.toDouble(),
-              onChanged: (value) {
-                seekToSec(value.toInt());
-              },
-            ),
-          ),
+          //   alignment: Alignment.bottomLeft,
+          //   height: size.height * 0.1 - 53,
+          //   width: size.width * 0.9 + 17, //color: Colors.blue,
+          //   child: Slider.adaptive(
+          //     inactiveColor: Colors.black12,
+          //     activeColor: Colors.black87,
+          //     min: 0,
+          //     max: 100.0,
+          //     value: 150.0,
+          //     onChanged: (value) {
+          //       seekToSec(value.toInt());
+          //     },
+          //   ),
+          // ),
           Container(
             margin: EdgeInsets.only(top: 15),
             alignment: Alignment.center,
@@ -98,8 +100,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
               softWrap: false,
-              style: TextStyle(
-                  color: Colors.black54, fontSize: size.width * 0.1 - 20),
+              style: TextStyle(color: Colors.black54, fontSize: size.width * 0.1 - 20),
             ),
           ),
           Container(
@@ -125,14 +126,8 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 //skip_previous
-                Myicon(
-                    icon: Icons.sync, size: size.width * 0.065, ontap: () {}),
-                Myicon(
-                    icon: Icons.skip_previous,
-                    size: size.width * 0.090,
-                    ontap: () {
-                      
-                    }),
+                Myicon(icon: Icons.sync, size: size.width * 0.065, ontap: () {}),
+                Myicon(icon: Icons.skip_previous, size: size.width * 0.090, ontap: () {}),
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius: size.width * 0.090,
@@ -148,8 +143,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                       ),
                       onPressed: () {
                         if (!playing) {
-                          _player.play(
-                              "https://www.soundlix.com/examples/mp3/SoundHelix-Song-1.mp3");
+                          // _player.play("https://filesamples.com/samples/audio/mp3/sample1.mp3");
 
                           setState(
                             () {
@@ -166,14 +160,8 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                         }
                       }),
                 ),
-                Myicon(
-                    icon: Icons.skip_next,
-                    size: size.width * 0.090,
-                    ontap: () {}),
-                Myicon(
-                    icon: Icons.shuffle_sharp,
-                    size: size.width * 0.065,
-                    ontap: () {}),
+                Myicon(icon: Icons.skip_next, size: size.width * 0.090, ontap: () {}),
+                Myicon(icon: Icons.shuffle_sharp, size: size.width * 0.065, ontap: () {}),
               ],
             ),
           ),

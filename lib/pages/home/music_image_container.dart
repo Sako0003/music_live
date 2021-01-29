@@ -4,44 +4,54 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class Mylist {
   String image;
   //String name;
-  Mylist(this.image,
+  Mylist(
+    this.image,
   );
 }
 
 List<Mylist> mylist = [
-  Mylist(//'Andreo',
-        'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Andreo',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
-  Mylist(//'Veli',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Veli',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
-  Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
-   Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
-   Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
-   Mylist(//'Cake',
-      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  ),
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  ),
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+  ),
+  Mylist(
+    //'Cake',
+    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
   ),
 ];
 
 class MusicImageContainer extends StatelessWidget {
   const MusicImageContainer({
     Key key,
-    
   }) : super(key: key);
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +60,6 @@ class MusicImageContainer extends StatelessWidget {
       height: ScreenUtil().setHeight(210),
       width: double.infinity,
       child: ListView.builder(
-        
         scrollDirection: Axis.horizontal,
         shrinkWrap: true,
         itemCount: mylist.length,
@@ -67,7 +76,7 @@ class MusicImageContainer extends StatelessWidget {
             ),
             child: Container(
               margin: EdgeInsets.only(left: 20),
-              height:ScreenUtil().setHeight(210),
+              height: ScreenUtil().setHeight(210),
               width: ScreenUtil().setWidth(190),
               decoration: BoxDecoration(
                 // color: Colors.black,

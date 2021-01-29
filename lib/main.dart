@@ -18,14 +18,12 @@ void main() {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
- 
   @override
   Widget build(BuildContext context) {
     //metnlerin fontsize ucun   ScreenUtil().setSp(20, allowFontScalingSelf: true),
@@ -51,11 +49,9 @@ class _MyAppState extends State<MyApp> {
           '/history': (context) => History(),
         },
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(  ),
+        theme: ThemeData(),
         home: RegistrationView(),
       ),
     );
   }
 }
-
- 

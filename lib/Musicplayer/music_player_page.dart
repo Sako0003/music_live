@@ -1,5 +1,3 @@
-
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -9,8 +7,6 @@ import 'package:music_live/pages/home/myicon.dart';
 import 'package:music_live/utils/drawer/downloads/downloads.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:music_live/utils/variables.dart';
-
-
 
 import 'showdialoq.dart';
 import 'slider_playercontainer.dart';
@@ -24,13 +20,11 @@ class Musicplayer extends StatefulWidget {
 class _MusicplayerState extends State<Musicplayer> {
   Future<void> share() async {
     await FlutterShare.share(
-      title: 'Example share',
-      text: 'Example share text',
-      linkUrl: 'https://flutter.dev/',
-      chooserTitle: 'Example Chooser Title'
-    );
+        title: 'Example share',
+        text: 'Example share text',
+        linkUrl: 'https://flutter.dev/',
+        chooserTitle: 'Example Chooser Title');
   }
-  
 
   double musict = 0.0;
 
@@ -69,7 +63,10 @@ class _MusicplayerState extends State<Musicplayer> {
                   mydownload.add(data);
                 });
               }), //urlFileShare,
-          Myicon(icon: Icons.share,ontap:share,),
+          Myicon(
+            icon: Icons.share,
+            ontap: share,
+          ),
           Padding(
             //
             padding: const EdgeInsets.only(right: 10),
@@ -126,33 +123,43 @@ class _MusicplayerState extends State<Musicplayer> {
               alignment: Alignment.bottomLeft,
               height: size.height * 0.1 - 47,
               width: size.width * 0.9 - 27, //color: Colors.blue,
-              child: Row(
+              child: Flex(
+                direction: Axis.horizontal,
                 children: [
-                  Icon(
-                    Icons.volume_mute,
-                    color: Colors.black45,
-                    size: size.width * 0.065,
-                  ),
                   Expanded(
-                    child: Slider(
-                      inactiveColor: Colors.black12,
-                      activeColor: Colors.black87,
-                      min: 0,
-                      max: 50,
-                      value: musict,
-                      onChanged: (double newValue) {
-                        setState(
-                          () {
-                            musict = newValue;
-                          },
-                        );
-                      },
+                    flex: 1,
+                    child: Icon(
+                      Icons.volume_mute,
+                      color: Colors.black45,
+                      size: size.width * 0.065,
                     ),
                   ),
-                  Icon(
-                    Icons.volume_up,
-                    color: Colors.black45,
-                    size: size.width * 0.065,
+                  Expanded(
+                    flex: 8,
+                    child: Container(
+                      child: Slider(
+                        inactiveColor: Colors.black12,
+                        activeColor: Colors.black87,
+                        min: 0,
+                        max: 50,
+                        value: musict,
+                        onChanged: (double newValue) {
+                          setState(
+                            () {
+                              musict = newValue;
+                            },
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Icon(
+                      Icons.volume_up,
+                      color: Colors.black45,
+                      size: size.width * 0.065,
+                    ),
                   ),
                 ],
               ),
@@ -163,4 +170,3 @@ class _MusicplayerState extends State<Musicplayer> {
     );
   }
 }
-
