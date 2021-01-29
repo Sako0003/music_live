@@ -3,12 +3,13 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_live/pages/parts/SetingPlaybaklazimsiz.dart';
-import 'package:music_live/pages/parts/Seting_langCash.dart';
+
 import 'package:music_live/pages/parts/darkmode.dart';
+import 'package:music_live/pages/parts/seting_lang_cach.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 
 
-import '../../../pages/parts/settinsvicontaoner.dart';
+import '../../../pages/parts/setigswitcontao.dart';
 
 class Setting extends StatefulWidget {
   @override
