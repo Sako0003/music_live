@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-import '../../pages/parts/my_librarycontainer.dart';
+import '../../pages/parts/mydrawer_liztname_container.dart';
 
 class MyDrawer extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     ),
                   ),
                 ),
-                MylibraryContainer(
+                MyDrawerlistNameContainer(
                   ontap: () {
                     Navigator.pushNamed(context, '/library');
                   },
@@ -50,28 +50,28 @@ class _MyDrawerState extends State<MyDrawer> {
                   icon: Icons.music_note,
                 ),
                 //
-                MylibraryContainer(
+                MyDrawerlistNameContainer(
                     ontap: () {
                       Navigator.pushNamed(context, '/playlstdrawer');
                     },
                     size: size,
                     text: 'Myplaylist',
                     icon: Icons.queue_music),
-                MylibraryContainer(
+                MyDrawerlistNameContainer(
                     ontap: () {
 Navigator.pushNamed(context, '/history');
                     },
                     size: size,
                     text: 'History',
                     icon: Icons.history),
-                    MylibraryContainer(
+                    MyDrawerlistNameContainer(
                     ontap: () {
 Navigator.pushNamed(context, '/download');
                     },
                     size: size,
                     text: 'Downloads',
                     icon: Icons.file_download),
-                MylibraryContainer(
+               MyDrawerlistNameContainer(
                   ontap: () {
                     Navigator.pushNamed(context, '/setting');
                   },
@@ -79,7 +79,7 @@ Navigator.pushNamed(context, '/download');
                   text: 'Setting',
                   icon: Icons.brightness_7,
                 ),
-                MylibraryContainer(
+                MyDrawerlistNameContainer(
                   ontap: () {
                     Navigator.pushNamed(context,  '/registr');
                   },

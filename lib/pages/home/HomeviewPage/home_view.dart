@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/home/HomeviewPage/homeview_myplaylistcont.dart';
-
 import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
 import 'package:music_live/pages/home/HomeviewPage/home_history_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
-
-
 import 'package:music_live/utils/drawer/my_drawer.dart';
-
 import 'mynavbar.dart';
 
 class HomePageView extends StatefulWidget {
@@ -53,16 +49,12 @@ class _HomePageViewState extends State<HomePageView> {
       drawer: MyDrawer(),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Container(
-            // color: Colors.pink,
-            width: double.infinity,
-            child: Column(
-              children: [
-             HomeViewPopularContainer(), 
-               HomeVievMyplaylistContainer(),
-                HomeHistoryView(),
-              ],
-            ),
+          child: Column(
+            children: [
+           HomeViewPopularContainer(), 
+             HomeVievMyplaylistContainer(),
+              HomeHistoryView(),
+            ],
           ),
         ),
       ),

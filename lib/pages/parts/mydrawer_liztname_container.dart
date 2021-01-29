@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MylibraryContainer extends StatelessWidget {
-  const MylibraryContainer({
+class MyDrawerlistNameContainer extends StatelessWidget {
+  const MyDrawerlistNameContainer({
     Key key,
     @required this.size,
     this.text,

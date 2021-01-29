@@ -1,56 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:music_live/pages/parts/see_allcontainer.dart';
-
-
-
-class Mylist {
-  String image;
-  //String name;
-  Mylist(
-    this.image,
-  );
-}
-
-List<Mylist> mylist = [
-  Mylist(
-    //'Andreo',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Veli',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-  Mylist(
-    //'Cake',
-    'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-  ),
-];
-
+import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
+import 'package:music_live/utils/variables.dart';
 class HomeViewPopularContainer extends StatelessWidget {
   const HomeViewPopularContainer({
     Key key,

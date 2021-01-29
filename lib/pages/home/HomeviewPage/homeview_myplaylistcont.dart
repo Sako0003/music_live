@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:music_live/pages/parts/see_allcontainer.dart';
-
-import 'homeview_popularcontainer.dart';
-
+import 'package:music_live/pages/parts/image_container.dart';
+import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
+import 'package:music_live/utils/variables.dart';
 class HomeVievMyplaylistContainer extends StatefulWidget {
   const HomeVievMyplaylistContainer({
     Key key,
@@ -37,32 +36,12 @@ class _HomeVievMyplaylistContainerState extends State<HomeVievMyplaylistContaine
                   children: [
                     ...List.generate(
                       mylist.length,
-                      (index) => ColorFiltered(
-                        colorFilter: ColorFilter.matrix(
-                          [
-                            0.2126, 0.7152, 0.0722, 0, 0,
-                            0.2126, 0.7152, 0.0722, 0,
-                            0, //this color image change(black)
-                            0.2126, 0.7152, 0.0722, 0, 0,
-                            0, 0, 0, 1, 0,
-                          ],
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.only(left: 20),
-                          height: ScreenUtil().setHeight(99),
-                          width: ScreenUtil().setWidth(100), //* 0.3 - 15,
-                          decoration: BoxDecoration(
-                             color: Colors.pink,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10),
-                            ),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(mylist[index].image),
-                            ),
-                          ),
-                        ),
-                      ),
+                      (index) => ImageContainer(withcont:ScreenUtil().setWidth(100) ,
+                        imageradius: 10,
+                        imageurl:mylist[index].image ,
+                        heightcont:ScreenUtil().setHeight(99) ,
+                        contmarginn:EdgeInsets.only(left: 20) ,)
+ 
                     ),
                   ],
                 ),

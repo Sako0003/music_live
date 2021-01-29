@@ -24,7 +24,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     _player.seek(newPos);
   }
 
-  var fileName = "song1.mp3";
+  //var fileName = "song1.mp3";
   @override
   void initState() {
     super.initState();

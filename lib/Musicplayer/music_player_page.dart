@@ -1,17 +1,13 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
-
-
-
 import 'package:flutter_share/flutter_share.dart';
+import 'package:music_live/pages/parts/sesartiran_cont.dart';
 import 'package:music_live/utils/drawer/drawerdownloads/drawer_downoads.dart';
 import 'package:music_live/utils/variables.dart';
-
-import 'showdialoq.dart';
+import 'showdialoq_1musicplayer.dart';
 import 'slider_playercontainer.dart';
-//import 'package:music_live/Mainpage/music_image_container.dart';
 
 class Musicplayer extends StatefulWidget {
   @override
@@ -27,7 +23,7 @@ class _MusicplayerState extends State<Musicplayer> {
         chooserTitle: 'Example Chooser Title');
   }
 
-  double musict = 0.0;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -90,84 +86,20 @@ class _MusicplayerState extends State<Musicplayer> {
               height: size.height * 0.4 + 20,
               width: size.width * 1,
               // color: Colors.amber,
-              child: ColorFiltered(
-                colorFilter: ColorFilter.matrix(
-                  [
-                    0.2126, 0.7152, 0.0722, 0, 0,
-                    0.2126, 0.7152, 0.0722, 0,
-                    0, //this color image change(black)
-                    0.2126, 0.7152, 0.0722, 0, 0,
-                    0, 0, 0, 1, 0,
-                  ],
-                ),
-                child: Container(
-                  margin: EdgeInsets.only(left: 25, right: 25),
-                  height: size.height * 0.4 + 20,
-                  width: size.width * 0.7,
-                  decoration: BoxDecoration(
-                    // color: Colors.black,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(1),
-                    ),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(Variables.noImage),
-                    ),
-                  ),
-                ),
-              ),
+              child:
+               ImageContainer(
+                 withcont:size.width * 0.7,
+                 heightcont:size.height * 0.4 + 20 ,
+                 imageradius: 1,
+                 contmarginn:EdgeInsets.only(left: 25, right: 25) ,
+                 imageurl: Variables.noImage),
             ),
             SliderPlayercontainer(),
-            Container(
-              margin: EdgeInsets.only(top: 5),
-//color: Colors.amber,
-              alignment: Alignment.bottomLeft,
-              height: size.height * 0.1 - 47,
-              width: size.width * 0.9 - 27, //color: Colors.blue,
-              child: Flex(
-                direction: Axis.horizontal,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Icon(
-                      Icons.volume_mute,
-                      color: Colors.black45,
-                      size: size.width * 0.065,
-                    ),
-                  ),
-                  Expanded(
-                    flex: 8,
-                    child: Container(
-                      child: Slider(
-                        inactiveColor: Colors.black12,
-                        activeColor: Colors.black87,
-                        min: 0,
-                        max: 50,
-                        value: musict,
-                        onChanged: (double newValue) {
-                          setState(
-                            () {
-                              musict = newValue;
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Icon(
-                      Icons.volume_up,
-                      color: Colors.black45,
-                      size: size.width * 0.065,
-                    ),
-                  ),
-                ],
-              ),
-            ),
+            SesartiranCont(size: size, ),
           ],
         ),
       ]),
     );
   }
 }
+

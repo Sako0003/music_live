@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-
+///Bu 2 ci acilan Showdialoq
 newplaylistFunc(
   context,
   /*imgage,

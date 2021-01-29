@@ -195,6 +195,7 @@ class _DownloadsState extends State<Downloads> {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
+                                   
                                       Expanded(
                                           child: ColorFiltered(
                                         colorFilter: ColorFilter.matrix(
@@ -210,6 +211,7 @@ class _DownloadsState extends State<Downloads> {
                                           color: Colors.white10,
                                           height: size.height * 0.075,
                                           // width: 75,
+
                                           child: Image(
                                             image: NetworkImage(
                                                 element['thumbnailUrl']),

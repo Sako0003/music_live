@@ -1,12 +1,10 @@
 
-
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-import 'package:music_live/Musicplayer/newplaylist.dart';
-import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
+import 'package:music_live/Musicplayer/showdialoq_2musicplayer.dart';
+import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/utils/variables.dart';
-
+///Bu 1 ci acilan Showdialoq
 showDialoqFunc(
   context,
   /*imgage,
@@ -60,36 +58,20 @@ showDialoqFunc(
                            // fit: StackFit.expand,
                           alignment: Alignment.center,
                             children: [
-                                                    ColorFiltered(
-                                          colorFilter:ColorFilter.matrix([
-                                            0.2126, 0.7152, 0.0722, 0, 0,
-                  0.2126, 0.7152, 0.0722, 0,
-                  0, //this color image change(black)
-                  0.2126, 0.7152, 0.0722, 0, 0,
-                  0, 0, 0, 1, 0,
-                                          ]) ,  child: InkWell(onTap: (){},
-                                       child: Container(
-                                  //Add play list container
-                                  margin: EdgeInsets.only(bottom: 19),
-                                  alignment: Alignment.centerLeft,
-                                  height: MediaQuery.of(context).size.height * 0.092,
-                                  width: MediaQuery.of(context).size.width * 0.8,
-                                  decoration: BoxDecoration(
-                                      //color: Colors.green,
-                                      image: DecorationImage(
-                                          fit: BoxFit.cover,
-                                          image: NetworkImage(Variables.noImage)),
-                                      borderRadius: BorderRadius.circular(8)),
-                                ),
-                              ),
-                            ),
-                                                 Positioned(
-                                                  left: MediaQuery.of(context).size.width * 0.025,
-                                                   child: Text(
-                                                     'Learn',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize:MediaQuery.of(context).size.width * 0.040,  ),))  
-                                                    , Positioned(top:MediaQuery.of(context).size.height * 0.010,right: MediaQuery.of(context).size.width * 0.025,
-                                                      child: Icon(Icons.more_horiz,color: Colors.white,size: MediaQuery.of(context).size.width * 0.040,)),
-                                                       ], );
+                         ImageContainer(
+                 withcont: MediaQuery.of(context).size.width * 0.8,
+                 heightcont:MediaQuery.of(context).size.height * 0.092,
+                 imageradius: 8,
+                 contmarginn:EdgeInsets.only(bottom: 19),
+                 imageurl: Variables.noImage),
+                        
+                            Positioned(
+                              left: MediaQuery.of(context).size.width * 0.025,
+                              child: Text(
+                           'Learn',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize:MediaQuery.of(context).size.width * 0.040,  ),))  
+                           , Positioned(top:MediaQuery.of(context).size.height * 0.010,right: MediaQuery.of(context).size.width * 0.025,
+                          child: Icon(Icons.more_horiz,color: Colors.white,size: MediaQuery.of(context).size.width * 0.040,)),
+                           ], );
                         },
                       ),
                       

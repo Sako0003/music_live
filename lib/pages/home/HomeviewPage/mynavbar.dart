@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+//import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/variables.dart';
 
@@ -37,7 +38,8 @@ class _MyNavbarState extends State<MyNavbar> {
           ),
       child: Row(
         children: [
-          ColorFiltered(
+//margin:  EdgeInsets.only(left: 22),,height:ScreenUtil().setHeight(80), , width: ScreenUtil().setWidth(83),url Variables.noImage                 
+         ColorFiltered(
             colorFilter: ColorFilter.matrix(
               [
                 0.2126, 0.7152, 0.0722, 0, 0,

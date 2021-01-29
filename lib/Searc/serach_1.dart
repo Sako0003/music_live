@@ -1,11 +1,8 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
 import 'package:music_live/pages/parts/myicon.dart';
-
-
-
+import 'package:music_live/utils/variables.dart';
 class Searc1page extends StatefulWidget {
   @override
   _Searc1pageState createState() => _Searc1pageState();

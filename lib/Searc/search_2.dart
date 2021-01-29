@@ -2,11 +2,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:music_live/pages/home/HomeviewPage/homeview_popularcontainer.dart';
+import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
-
-
-
+import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
+import 'package:music_live/utils/variables.dart';
 class Searc2page extends StatefulWidget {
   @override
   _Searc2pageState createState() => _Searc2pageState();
@@ -47,7 +46,7 @@ class _Searc2pageState extends State<Searc2page> {
                 children: [
                   Container(
                     height: size.height * 0.06,
-                    width: size.width * 0.7+10,
+                    width: size.width * 0.7,//+10,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.black12,
@@ -57,8 +56,7 @@ class _Searc2pageState extends State<Searc2page> {
                       
                       textAlign: TextAlign.start,
                       onSubmitted: (value) {
-                        /// axdardigin list
-                        /// Navigator,pushnamed(con,route named)
+                        
                       },
                       decoration: InputDecoration(icon: Icon(Icons.search,color: Colors.black54,),
                         border: InputBorder.none,
@@ -75,47 +73,10 @@ class _Searc2pageState extends State<Searc2page> {
                     child: Text('Cancel',style:  TextStyle(color: Colors.black,fontSize: size.width * 0.1 - 20),),)
                 ],
               ),
-              Container(
-                color: Colors.white10,
-                width: size.width * 0.9 + 1,
-                height: size.height * 0.07,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      alignment: Alignment.centerLeft,
-                     // color: Colors.pink,
-                      width: size.width * 0.5,
-                      height: size.height * 0.07,
-                      child: Text(
-                        'Artist ',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        //softWrap: false,
-
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: size.width * 0.1 - 20),
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        //color: Colors.brown,
-                        width: size.width * 0.2 + 10, height: size.height * 0.07,
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          'See All',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54,
-                              fontSize: size.width * 0.04),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+              SeallContainer(
+                text: 'Artist',
+                 textn: 'Se all',
+                 ontap: (){},
               ),
               Container(
                 color: Colors.white10,
@@ -126,30 +87,29 @@ class _Searc2pageState extends State<Searc2page> {
                   itemCount: mylist.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: const EdgeInsets.only(top: 10,),
                       child: InkWell(onTap: () {
-                        
+  
                       },
-                       child: Container(
-                          
+                       child: Container( 
                           height: size.height * 0.08,
                width: size.width * 0.9+6,
                decoration: BoxDecoration(
-                 color: Colors.black12,borderRadius: BorderRadius.circular(10)),
-               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: [ColorFiltered(
-                   colorFilter: ColorFilter.matrix([ 0.2126, 0.7152, 0.0722, 0, 0,
-                0.2126, 0.7152, 0.0722, 0,
-                0, //this color image change(black)
-                0.2126, 0.7152, 0.0722, 0, 0,
-                0, 0, 0, 1, 0,]),
-                                    child: Container(height: size.height * 0.1-25,width: size.width *0.2,
-                     //color: Colors.black,
-                              child: CircleAvatar(
-                                backgroundImage: NetworkImage(mylist[index].image),),      
-                   ),
+                 color: Colors.black12,borderRadius: BorderRadius.circular(10)
                  ),
-
+               child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                   Padding(
+                     padding: const EdgeInsets.only(left: 10),
+                     child: CircleAvatar(
+                       radius: 25,
+                        child: ImageContainer(
+                         imageradius: 30,
+                 withcont: size.width *0.2,
+                 heightcont:size.height * 0.1-25,
+             imageurl: mylist[index].image),
+                     ),
+                   ),
                  Container(//color: Colors.red,
                    height: size.height * 0.06,
                  width:  size.width * 0.5+35,

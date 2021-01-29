@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'homeview_popularcontainer.dart';
+import 'package:music_live/pages/parts/image_container.dart';
+import 'package:music_live/utils/variables.dart';
 
 class HomeHistoryView extends StatefulWidget {
   HomeHistoryView({Key key}) : super(key: key);
@@ -32,7 +32,8 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                   Text(
                     "History",
                     style: TextStyle(
-                        fontSize: ScreenUtil().setSp(17, allowFontScalingSelf: true),
+                        fontSize:
+                            ScreenUtil().setSp(17, allowFontScalingSelf: true),
                         fontWeight: FontWeight.bold),
                   ),
                   InkWell(
@@ -40,7 +41,8 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                     child: Text(
                       "See All",
                       style: TextStyle(
-                          fontSize: ScreenUtil().setSp(17, allowFontScalingSelf: true),
+                          fontSize: ScreenUtil()
+                              .setSp(17, allowFontScalingSelf: true),
                           fontWeight: FontWeight.bold,
                           color: Colors.black54),
                     ),
@@ -64,32 +66,9 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                   height: ScreenUtil().setHeight(60),
                   width: double.infinity,
                   child: Row(
-                    children: [
-                      ColorFiltered(
-                        colorFilter: ColorFilter.matrix(
-                          [
-                            0.2126, 0.7152, 0.0722, 0, 0,
-                            0.2126, 0.7152, 0.0722, 0,
-                            0, //this color image change(black)
-                            0.2126, 0.7152, 0.0722, 0, 0,
-                            0, 0, 0, 1, 0,
-                          ],
-                        ),
-                        child: Container(
-                          margin: EdgeInsets.only(left: 20),
-                          width: ScreenUtil().setHeight(63),
-                          decoration: BoxDecoration(
-                            //   color: Colors.black,
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(1),
-                            ),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(mylist[index].image),
-                            ),
-                          ),
-                        ),
-                      ),
+                    children: [//,//////1
+                      ImageContainer(
+                        withcont:ScreenUtil().setHeight(63) ,contmarginn: EdgeInsets.only(left: 20),imageradius: 1,imageurl: mylist[index].image,),
                       Container(
                         padding: EdgeInsets.only(
                           left: 10,
@@ -109,7 +88,8 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: Colors.black54,
-                                      fontSize: ScreenUtil().setSp(15, allowFontScalingSelf: true),
+                                      fontSize: ScreenUtil().setSp(15,
+                                          allowFontScalingSelf: true),
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -127,7 +107,8 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(16, allowFontScalingSelf: true),
+                                      fontSize: ScreenUtil().setSp(16,
+                                          allowFontScalingSelf: true),
                                       fontWeight: FontWeight.bold),
                                 ),
                               ),
@@ -161,3 +142,4 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
     );
   }
 }
+
