@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 import 'package:grouped_list/grouped_list.dart';
 
-
 import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
@@ -104,16 +103,22 @@ class _HistoryState extends State<History> {
             ontap: () {
               setState(() {
                 Navigator.pop(context);
-              });}),
+              });
+            }),
         backgroundColor: Colors.white,
         title: Center(
-          child:  Mytextstyle(text: 'History',textcolor:Colors.black,)),
+            child: Mytextstyle(
+          text: 'History',
+          textcolor: Colors.black,
+        )),
         actions: [
-          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),],),
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
+        ],
+      ),
       body: Container(
         height: size.height * 1,
         width: double.infinity,
-       // color: Colors.pink,
+        // color: Colors.pink,
         child: ListView(
           children: [
             Column(
@@ -133,7 +138,11 @@ class _HistoryState extends State<History> {
                       Myicon(
                           icon: Icons.shuffle_sharp,
                           size: size.width * 0.06,
-                          ontap: () {}),],), color: Colors.white10,),
+                          ontap: () {}),
+                    ],
+                  ),
+                  color: Colors.white10,
+                ),
                 Container(
                   width: double.infinity,
                   height: size.height * 0.8 + 30,
@@ -154,12 +163,16 @@ class _HistoryState extends State<History> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: size.width * 0.040),
-                          ),))],),
+                          ),
+                        ))
+                      ],
+                    ),
                     itemBuilder: (context, dynamic element) {
                       return SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
-                          children: [Container(
+                          children: [
+                            Container(
                               height: size.height * 0.1 + 22,
                               width: size.width * 1,
                               child: Card(
@@ -175,14 +188,18 @@ class _HistoryState extends State<History> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [Expanded(
+                                    children: [
+                                      Expanded(
                                           child: ColorFiltered(
-                                        colorFilter: ColorFilter.matrix([
+                                        colorFilter: ColorFilter.matrix(
+                                          [
                                             0.2126, 0.7152, 0.0722, 0, 0,
                                             0.2126, 0.7152, 0.0722, 0,
                                             0, //this color image change(black)
                                             0.2126, 0.7152, 0.0722, 0, 0,
-                                            0, 0, 0, 1, 0,],),
+                                            0, 0, 0, 1, 0,
+                                          ],
+                                        ),
                                         child: Container(
                                           color: Colors.white10,
                                           height: size.height * 0.075,
@@ -206,32 +223,50 @@ class _HistoryState extends State<History> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 18, right: 10),
-                                                child:  Mytextstyle(textcolor:Colors.black54 ,
-                                                  fontsizetext:size.width * 0.029 ,
-                                                  text:element['title'],)
-                                              ),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 18, right: 10),
+                                                  child: Mytextstyle(
+                                                    textcolor: Colors.black54,
+                                                    fontsizetext:
+                                                        size.width * 0.029,
+                                                    text: element['title'],
+                                                  )),
                                               Padding(
                                                 padding: EdgeInsets.only(
                                                     left: 10,
                                                     right: 10,
                                                     top: 6),
                                                 child: Container(
-                                                  //  color: Colors.amber,
-                                                  margin:
-                                                      EdgeInsets.only(left: 10),
-                                                  child:  Mytextstyle(textcolor:Colors.black ,
-                                                  fontsizetext:size.width * 0.041 ,
-                                                  text: '${element['author']}',)),),],),),),
+                                                    //  color: Colors.amber,
+                                                    margin: EdgeInsets.only(
+                                                        left: 10),
+                                                    child: Mytextstyle(
+                                                      textcolor: Colors.black,
+                                                      fontsizetext:
+                                                          size.width * 0.041,
+                                                      text:
+                                                          '${element['author']}',
+                                                    )),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
                                       Container(
                                         height: size.height * 0.1 - 18,
-                                        width: size.width * 0.1 -  10, //color: Colors.brown,
-                                           child: Myicon(
+                                        width: size.width * 0.1 -
+                                            10, //color: Colors.brown,
+                                        child: Myicon(
                                             icon: Icons.control_point,
                                             size: size.width * 0.06,
                                             ontap: () {}),
-                                      )],),),),),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
                             Container(
                                 margin: EdgeInsets.only(right: 15),
                                 alignment: Alignment.center,
@@ -259,9 +294,7 @@ class _HistoryState extends State<History> {
           ],
         ),
       ),
-      bottomNavigationBar: musicOpened
-          ? MyNavbar()
-          : null,
+      bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

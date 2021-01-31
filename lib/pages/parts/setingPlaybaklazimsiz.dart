@@ -1,20 +1,15 @@
 import 'package:flutter/material.dart';
-
 class SettingConnectionTextCont extends StatelessWidget {
   const SettingConnectionTextCont({
     Key key,
-    @required this.size,
     this.text,
     this.fontSize,
-    this.fonweight,
   }) : super(key: key);
-
-  final Size size;
-  final text;
+  final String text;
   final double fontSize;
-  final FontWeight fonweight;
   @override
   Widget build(BuildContext context) {
+     final size = MediaQuery.of(context).size;
     return Container(
       padding: EdgeInsets.only(left: 20),
       alignment: Alignment.centerLeft,

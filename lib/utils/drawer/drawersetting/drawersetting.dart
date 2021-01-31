@@ -12,6 +12,7 @@ class Setting extends StatefulWidget {
   @override
   _SettingState createState() => _SettingState();
 }
+
 class _SettingState extends State<Setting> {
   bool offline = false;
   bool autoplay = false;
@@ -25,15 +26,21 @@ class _SettingState extends State<Setting> {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){ Navigator.pop(context);} ),
-         title: Center(
+        leading: Myicon(
+            icon: Icons.chevron_left,
+            size: size.width * 0.090,
+            ontap: () {
+              Navigator.pop(context);
+            }),
+        title: Center(
             child: Text(
           'Setting',
           style: TextStyle(color: Colors.black),
         )),
         actions: [
-          Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),
-          SizedBox(width: size.width * 0.06),],
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
+          SizedBox(width: size.width * 0.06),
+        ],
       ),
       body: Container(
         color: Colors.white10,
@@ -42,59 +49,49 @@ class _SettingState extends State<Setting> {
         child: Column(
           children: [
             SettingConnectionTextCont(
-              size: size,
               fontSize: size.width * 0.05,
               text: 'Connection',
-              fonweight: FontWeight.bold,
             ),
             Row(
               children: [
-                Container( //  color: Colors.brown,
+                Container(
+                  //  color: Colors.brown,
                   padding: EdgeInsets.only(left: 20),
                   alignment: Alignment.centerLeft,
                   height: size.height * 0.050,
                   width: size.width * 0.8 - 10,
-                  child:
-                  Mytextstyle(
-                    textcolor:Colors.black87, 
+                  child: Mytextstyle(
+                    textcolor: Colors.black87,
                     text: 'veliliturakljdda@gmail.com',
-                  fontsizetext:size.width * 0.04 ,
+                    fontsizetext: size.width * 0.04,
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
-                  splashColor: Colors.white,
-                  hoverColor: Colors.white,
-                  highlightColor: Colors.white,
-                  focusColor: Colors.white,
-                  child:
-                   Mytextstyle(
-                     fontsizetext:size.width * 0.045,
-                     textcolor:Colors.black87,
-                     text:'Log out',)
-                ),
+                    onTap: () {},
+                    splashColor: Colors.white,
+                    hoverColor: Colors.white,
+                    highlightColor: Colors.white,
+                    focusColor: Colors.white,
+                    child: Mytextstyle(
+                      fontsizetext: size.width * 0.045,
+                      textcolor: Colors.black87,
+                      text: 'Log out',
+                    )),
               ],
             ),
-            
-            DarkModeCont(size: size, ),
-            
+            DarkModeCont(
+            ),
             SettingConnectionTextCont(
-              size: size,
               fontSize: size.width * 0.05,
               text: 'Playback',
-              fonweight: FontWeight.bold,
-            ),
+              ),
             Switchlistcontanorrr(
               onchanged: (val) {
                 setState(() {
                   offline = val;
                 });
-                if (offline) {
-                  //seyfeye gedis
-
-                }
-              },
-              size: size,
+                if (offline) { //seyfeye gedis
+                 }},
               text: 'Offline Mode',
               value: offline,
             ),
@@ -103,50 +100,38 @@ class _SettingState extends State<Setting> {
                 setState(() {
                   autoplay = val;
                 });
-                if (autoplay) {
-                  //seyfeye gedis
-
-                }
-              },
-              size: size,
+                if (autoplay) {//seyfeye gedis
+                  }},
               text: 'Auto Pay',
               value: autoplay,
             ),
             Switchlistcontanorrr(
-             onchanged: (val) {
+              onchanged: (val) {
                 setState(() {
                   isscipsliencetrack = val;
                 });
-                if (isscipsliencetrack) {
-                  //seyfeye gedrfrn
-
-                }
-              },
-              size: size,
+                if (isscipsliencetrack) {//seyfeye gedrfrn
+                  }},
               text: 'Scip Slience between track',
-              value:isscipsliencetrack,
+              value: isscipsliencetrack,
             ),
             Switchlistcontanorrr(
-             onchanged: (val) {
+              onchanged: (val) {
                 setState(() {
                   notification = val;
                 });
                 if (notification) {
                   //seyfeye gedrfrn
 
-                }
-              },
-              size: size,
+                }},
               text: 'Notification',
               value: notification,
             ),
             SettingLanguageCashContainer(
-              size: size,
               ontap: () {},
               text: 'Clear Cash',
             ),
             SettingLanguageCashContainer(
-              size: size,
               ontap: () {},
               text: 'Language',
             ),
@@ -156,4 +141,3 @@ class _SettingState extends State<Setting> {
     );
   }
 }
-

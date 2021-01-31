@@ -17,6 +17,8 @@ class HomePageView extends StatefulWidget {
 var scaffolfkey = GlobalKey<ScaffoldState>();
 
 class _HomePageViewState extends State<HomePageView> {
+  final textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,20 +30,25 @@ class _HomePageViewState extends State<HomePageView> {
             icon: Icons.menu,
             size: ScreenUtil().radius(25),
             ontap: () {
-              scaffolfkey.currentState.openDrawer(); //bu drayverin iconunu deyisdim rengine gore
+              //bu drayverin iconunu deyisdim rengine gore
+              scaffolfkey.currentState.openDrawer();
             }),
         elevation: 0,
         backgroundColor: Colors.white10,
         title: Container(
           child: TextField(
+            controller: textController,
             onSubmitted: (value) {
+              textController.clear();
               Navigator.pushNamed(context, '/search2');
             },
             decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: 'Search..',
-              suffixIcon: Myicon(icon: Icons.search,ontap:() {} ,)
-            ),
+                border: InputBorder.none,
+                hintText: 'Search..',
+                suffixIcon: Myicon(
+                  icon: Icons.search,
+                  ontap: () {},
+                )),
           ),
         ),
       ),
@@ -50,14 +57,14 @@ class _HomePageViewState extends State<HomePageView> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-           HomeViewPopularContainer(), 
-             HomeVievMyplaylistContainer(),
+              HomeViewPopularContainer(),
+              HomeVievMyplaylistContainer(),
               HomeHistoryView(),
             ],
           ),
         ),
       ),
-       bottomNavigationBar: musicOpened ? MyNavbar() : null,
+      bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

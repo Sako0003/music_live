@@ -37,46 +37,34 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 MyDrawerlistNameContainer(
                   ontap: () {
-                    Navigator.pushNamed(context, '/library');
-                  },
-                  size: size,
+                    Navigator.pushNamed(context, '/library');},
                   text: 'Library',
                   icon: Icons.music_note,
                 ),
                 MyDrawerlistNameContainer(
                     ontap: () {
-                      Navigator.pushNamed(context, '/playlstdrawer');
-                    },
-                    size: size,
+                      Navigator.pushNamed(context, '/playlstdrawer');},
                     text: 'Myplaylist',
                     icon: Icons.queue_music),
                 MyDrawerlistNameContainer(
                     ontap: () {
-                 Navigator.pushNamed(context, '/history');
-                    },
-                    size: size,
+                 Navigator.pushNamed(context, '/history');},
                     text: 'History',
                     icon: Icons.history),
                     MyDrawerlistNameContainer(
                     ontap: () {
-                    Navigator.pushNamed(context, '/download');
-                    },
-                    size: size,
+                    Navigator.pushNamed(context, '/download');},
                     text: 'Downloads',
                     icon: Icons.file_download),
                MyDrawerlistNameContainer(
                   ontap: () {
-                    Navigator.pushNamed(context, '/setting');
-                  },
-                  size: size,
+                    Navigator.pushNamed(context, '/setting');},
                   text: 'Setting',
                   icon: Icons.brightness_7,
                 ),
                 MyDrawerlistNameContainer(
                   ontap: () {
-                    Navigator.pushNamed(context,  '/registr');
-                  },
-                  size: size,
+                    Navigator.pushNamed(context,  '/registr');},
                   text: 'Logout',
                   icon: Icons.power_settings_new,
                 ),

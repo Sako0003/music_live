@@ -3,18 +3,16 @@ import 'package:flutter/material.dart';
 class MyDrawerlistNameContainer extends StatelessWidget {
   const MyDrawerlistNameContainer({
     Key key,
-    @required this.size,
     this.text,
     this.icon,
     this.ontap,
   }) : super(key: key);
-
-  final Size size;
-  final text;
+  final String text;
   final IconData icon;
-  final Function ontap;
+  final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
+    final  Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: ontap,
       child: Container(
@@ -30,7 +28,7 @@ class MyDrawerlistNameContainer extends StatelessWidget {
               height: size.height * 0.1 - 10,
               child: Icon(
                 icon,
-                size: size.width *0.065,
+                size: size.width * 0.065,
                 color: Colors.white,
               ),
             ),
@@ -39,7 +37,7 @@ class MyDrawerlistNameContainer extends StatelessWidget {
                 text,
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: size.width *0.044,
+                  fontSize: size.width * 0.044,
                   fontWeight: FontWeight.normal,
                 ),
               ),

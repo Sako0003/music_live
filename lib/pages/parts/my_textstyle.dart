@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 class Mytextstyle extends StatelessWidget {
   const Mytextstyle({
     Key key,
-   // @required this.size,
+    // @required this.size,
     this.textcolor,
-    this.fontsizetext, this.text,
+    this.fontsizetext,
+    this.text,
   }) : super(key: key);
 
   //final Size size;

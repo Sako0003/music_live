@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
-    Key key, this.imageurl, this.imageradius, this.withcont, this.contmarginn, this.heightcont,
+    Key key,
+    this.imageurl,
+    this.imageradius,
+    this.withcont,
+    this.contmarginn,
+    this.heightcont,
   }) : super(key: key);
   final String imageurl;
   final double imageradius;
@@ -23,24 +28,24 @@ class ImageContainer extends StatelessWidget {
       ),
       child: Container(
         height: heightcont,
-        margin: contmarginn, 
-        width: withcont, 
+        margin: contmarginn,
+        width: withcont,
         decoration: BoxDecoration(
           //   color: Colors.black,
           borderRadius: BorderRadius.all(
             Radius.circular(imageradius), //1
           ),
           image: DecorationImage(
-            fit: BoxFit.cover, 
+            fit: BoxFit.cover,
             image: NetworkImage(imageurl),
           ),
         ),
       ),
     );
   }
-}//navbar
-  // ImageContainer(
-          //   withcont:ScreenUtil().setWidth(83) ,
-          //   imageurl:Variables.noImage ,
-          //   heightcont:ScreenUtil().setHeight(80) ,
-          //   contmarginn:EdgeInsets.only(left: 22) ,),
+} //navbar
+// ImageContainer(
+//   withcont:ScreenUtil().setWidth(83) ,
+//   imageurl:Variables.noImage ,
+//   heightcont:ScreenUtil().setHeight(80) ,
+//   contmarginn:EdgeInsets.only(left: 22) ,),

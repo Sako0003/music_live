@@ -1,10 +1,8 @@
-
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
 import 'package:grouped_list/grouped_list.dart';
-
 
 import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
@@ -99,28 +97,50 @@ class _LibraryState extends State<Library> {
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
-        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){setState(() {
-                Navigator.pop(context);
-             });} ),
+        leading: Myicon(
+            icon: Icons.chevron_left,
+            size: size.width * 0.090,
+            ontap: () {
+              Navigator.pop(context);
+            }),
         backgroundColor: Colors.white,
         title: Center(
-          child: Mytextstyle(text: 'Library',textcolor:Colors.black,)
-        ),actions: [ Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),], ),
+            child: Mytextstyle(
+          text: 'Library',
+          textcolor: Colors.black,
+        )),
+        actions: [
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
+        ],
+      ),
       body: Container(
-       // color: Colors.pink,
-        child: ListView(children:[ Column(
+        // color: Colors.pink,
+        child: ListView(children: [
+          Column(
             children: [
               Container(
-                height: size.height *0.05,width: double.infinity,
-                child: Row(children: [
-                  SizedBox(width: size.width * 0.7+20,),
-                  Myicon(icon: Icons.sync,size:size.width * 0.060 ,ontap:(){} ),
-                  Myicon(icon: Icons.shuffle_sharp,size:size.width * 0.06 ,ontap:(){} ),
-                ],),
-                color:Colors.white,),
+                height: size.height * 0.05,
+                width: double.infinity,
+                child: Row(
+                  children: [
+                    SizedBox(
+                      width: size.width * 0.7 + 20,
+                    ),
+                    Myicon(
+                        icon: Icons.sync,
+                        size: size.width * 0.060,
+                        ontap: () {}),
+                    Myicon(
+                        icon: Icons.shuffle_sharp,
+                        size: size.width * 0.06,
+                        ontap: () {}),
+                  ],
+                ),
+                color: Colors.white,
+              ),
               Container(
                 width: double.infinity,
-                height: size.height *0.8+30,
+                height: size.height * 0.8 + 30,
                 //  color: Colors.amber,
                 child: GroupedListView<dynamic, String>(
                   elements: _library,
@@ -133,11 +153,13 @@ class _LibraryState extends State<Library> {
                               child: Row(
                             children: [
                               Container(
-                                margin: EdgeInsets.only(left: size.width * 0.04),
+                                margin:
+                                    EdgeInsets.only(left: size.width * 0.04),
                                 child: Text(
                                   groupByValue,
                                   textAlign: TextAlign.start,
-                                  style: TextStyle(fontSize: size.width * 0.050),
+                                  style:
+                                      TextStyle(fontSize: size.width * 0.050),
                                 ),
                               )
                             ],
@@ -164,12 +186,17 @@ class _LibraryState extends State<Library> {
                                   0.2126, 0.7152, 0.0722, 0,
                                   0, //this color image change(black)
                                   0.2126, 0.7152, 0.0722, 0, 0,
-                                  0, 0, 0, 1, 0, ],),
+                                  0, 0, 0, 1, 0,
+                                ],
+                              ),
                               child: Container(
                                 height: size.height * 0.075,
                                 child: Image(
                                   image: NetworkImage(element['thumbnailUrl']),
-                                  fit: BoxFit.cover,),),)),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            )),
                             Expanded(
                               flex: 5,
                               child: Container(
@@ -181,23 +208,28 @@ class _LibraryState extends State<Library> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 18, right: 10),
-                                      child:Mytextstyle(textcolor:Colors.black54 ,
-                                                  fontsizetext:size.width * 0.029 ,
-                                                  text:element['title'],)),
+                                        padding: const EdgeInsets.only(
+                                            left: 18, right: 10),
+                                        child: Mytextstyle(
+                                          textcolor: Colors.black54,
+                                          fontsizetext: size.width * 0.029,
+                                          text: element['title'],
+                                        )),
                                     Padding(
                                       padding: EdgeInsets.only(
-                                          left: size.width * 0.03, right: 10, 
+                                          left: size.width * 0.03,
+                                          right: 10,
                                           top: 6),
-                                          child:
-                                       Container(
-                                        //  color: Colors.amber,
-                                        margin: EdgeInsets.only(left: size.width * 0.02,),
-                                        child: Mytextstyle(textcolor:Colors.black ,
-                                                  fontsizetext:size.width * 0.041 ,
-                                                  text: '${element['author']}',)
-                                      ),
+                                      child: Container(
+                                          //  color: Colors.amber,
+                                          margin: EdgeInsets.only(
+                                            left: size.width * 0.02,
+                                          ),
+                                          child: Mytextstyle(
+                                            textcolor: Colors.black,
+                                            fontsizetext: size.width * 0.041,
+                                            text: '${element['author']}',
+                                          )),
                                     ),
                                   ],
                                 ),
@@ -205,9 +237,18 @@ class _LibraryState extends State<Library> {
                             ),
                             Container(
                               height: size.height * 0.1 - 18,
-                              width: size.width * 0.1 - 10, //color: Colors.brown,
-                              child:Myicon(icon: Icons.control_point,size:size.width * 0.06 ,ontap:(){} ),
-                            )],),),);},
+                              width:
+                                  size.width * 0.1 - 10, //color: Colors.brown,
+                              child: Myicon(
+                                  icon: Icons.control_point,
+                                  size: size.width * 0.06,
+                                  ontap: () {}),
+                            )
+                          ],
+                        ),
+                      ),
+                    );
+                  },
                   itemComparator: (item1, item2) =>
                       item1['title'].compareTo(item2['title']), // optional
                   useStickyGroupSeparators: true, // optional
@@ -216,8 +257,10 @@ class _LibraryState extends State<Library> {
                 ),
               ),
             ],
-          ),] ),
-      ),bottomNavigationBar: musicOpened ? MyNavbar() : null,
+          ),
+        ]),
+      ),
+      bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );
   }
 }

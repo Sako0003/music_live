@@ -11,6 +11,7 @@ class Searc2page extends StatefulWidget {
   _Searc2pageState createState() => _Searc2pageState();
 }
 
+
 class _Searc2pageState extends State<Searc2page> {
   @override
   Widget build(BuildContext context) {
@@ -19,9 +20,11 @@ class _Searc2pageState extends State<Searc2page> {
       appBar: AppBar(
         title: Center(
           child: Padding(
-            padding: const EdgeInsets.only(right: 50),
-            child: Mytextstyle( textcolor: Colors.black,text: 'Search',)
-          ),
+              padding: const EdgeInsets.only(right: 50),
+              child: Mytextstyle(
+                textcolor: Colors.black,
+                text: 'Search',
+              )),
         ),
         backgroundColor: Colors.white10,
         elevation: 0,
@@ -29,9 +32,7 @@ class _Searc2pageState extends State<Searc2page> {
             icon: Icons.chevron_left,
             size: size.width * 0.085,
             ontap: () {
-              setState(() {
-                Navigator.pop(context);
-              });
+              Navigator.pop(context);
             }),
       ),
       body: ListView(scrollDirection: Axis.vertical, children: [
@@ -96,9 +97,7 @@ class _Searc2pageState extends State<Searc2page> {
                   itemCount: mylist.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10,
-                      ),
+                      padding: EdgeInsets.only(top: 10),
                       child: InkWell(
                         onTap: () {},
                         child: Container(
@@ -130,11 +129,11 @@ class _Searc2pageState extends State<Searc2page> {
                                       MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                   Mytextstyle(
-                                   fontsizetext:size.width * 0.04,
-                                   text: 'Album Name',
-                                    textcolor:Colors.black,
-                                   ),
+                                    Mytextstyle(
+                                      fontsizetext: size.width * 0.04,
+                                      text: 'Album Name',
+                                      textcolor: Colors.black,
+                                    ),
                                     Flexible(
                                       child: Container(
                                         // color: Colors.amber,
@@ -143,26 +142,27 @@ class _Searc2pageState extends State<Searc2page> {
                                         child: Row(
                                           children: [
                                             Container(
-                                              alignment: Alignment.centerLeft,
-                                              height: size.height * 0.03,
-                                              width: size.width * 0.3,
-                                              //  color: Colors.green,
-                                              child: Mytextstyle(
-                                                text:'1 Album' ,
-                                                fontsizetext:size.width * 0.03,
-                                                textcolor:Colors.black54,
-                                                )
-                                            ), 
-                                            Container(//  
+                                                alignment: Alignment.centerLeft,
+                                                height: size.height * 0.03,
+                                                width: size.width * 0.3,
+                                                //  color: Colors.green,
+                                                child: Mytextstyle(
+                                                  text: '1 Album',
+                                                  fontsizetext:
+                                                      size.width * 0.03,
+                                                  textcolor: Colors.black54,
+                                                )),
+                                            Container(
+                                              //
                                               alignment: Alignment.centerLeft,
                                               height: size.height * 0.03,
                                               width: size.width * 0.3 - 5,
                                               //color: Colors.red,
                                               child: Mytextstyle(
-                                                 text: '4 Song',
-                                                 fontsizetext:size.width * 0.03 ,
-                                                 textcolor:Colors.black54,
-                                                ),
+                                                text: '4 Song',
+                                                fontsizetext: size.width * 0.03,
+                                                textcolor: Colors.black54,
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -190,4 +190,3 @@ class _Searc2pageState extends State<Searc2page> {
     );
   }
 }
-

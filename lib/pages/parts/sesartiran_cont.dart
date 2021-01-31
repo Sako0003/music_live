@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
 class SesartiranCont extends StatefulWidget {
-  const SesartiranCont({
-    Key key,
-    @required this.size,
- 
-  }) : super(key: key);
-
-  final Size size;
-
   @override
   _SesartiranContState createState() => _SesartiranContState();
 }
@@ -17,12 +9,12 @@ class _SesartiranContState extends State<SesartiranCont> {
   double musict = 0.0;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    final size = MediaQuery.of(context).size;
+    return Container( //color: Colors.amber,
       margin: EdgeInsets.only(top: 5),
-//color: Colors.amber,
-      alignment: Alignment.bottomLeft,
-      height: widget.size.height * 0.1 - 47,
-      width: widget.size.width * 0.9 - 27, //color: Colors.blue,
+     alignment: Alignment.bottomLeft,
+      height: size.height * 0.1 - 47,
+      width: size.width * 0.9 - 27, //color: Colors.blue,
       child: Flex(
         direction: Axis.horizontal,
         children: [
@@ -31,7 +23,7 @@ class _SesartiranContState extends State<SesartiranCont> {
             child: Icon(
               Icons.volume_mute,
               color: Colors.black45,
-              size: widget.size.width * 0.065,
+              size: size.width * 0.065,
             ),
           ),
           Expanded(
@@ -58,7 +50,7 @@ class _SesartiranContState extends State<SesartiranCont> {
             child: Icon(
               Icons.volume_up,
               color: Colors.black45,
-              size: widget.size.width * 0.065,
+              size: size.width * 0.065,
             ),
           ),
         ],

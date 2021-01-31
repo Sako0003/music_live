@@ -6,6 +6,7 @@ newplaylistFunc(
   /*imgage,
   metn, document,*///gelen melumat yerine class adi ve index yazmaq kifayetdir mesucun varibal[index]
 ) {
+  final textControllerr = TextEditingController();
   return showDialog(
     context: context,
     builder: (context) {
@@ -38,7 +39,11 @@ newplaylistFunc(
             alignment: Alignment.centerLeft,
                   height: MediaQuery.of(context).size.height * 0.1 - 24,
                   width: MediaQuery.of(context).size.width * 0.8,
-                  child:TextField(decoration: InputDecoration(
+                  child:TextField(
+                    onSubmitted: (value) {
+                    textControllerr.clear();},
+                    controller:textControllerr ,
+                    decoration: InputDecoration(
                     hintText: 'New playlist'
                   ),
                     textAlign: TextAlign.start,

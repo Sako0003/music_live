@@ -5,6 +5,7 @@ import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
+
 List mydownload = [
   {
     "albumId": 1,
@@ -102,8 +103,10 @@ class _DownloadsState extends State<Downloads> {
             }),
         backgroundColor: Colors.white,
         title: Center(
-          child: Mytextstyle(text: 'Downloads',textcolor:Colors.black,)
-        ),
+            child: Mytextstyle(
+          text: 'Downloads',
+          textcolor: Colors.black,
+        )),
         actions: [
           Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
         ],
@@ -153,10 +156,12 @@ class _DownloadsState extends State<Downloads> {
                                   color: Colors.white10,
                                   margin:
                                       EdgeInsets.only(left: size.width * 0.04),
-                                  child://
-                                   Mytextstyle(text: groupByValue,
-                                   textcolor: Colors.black87,
-                                   fontsizetext: size.width * 0.050,),
+                                  child: //
+                                      Mytextstyle(
+                                    text: groupByValue,
+                                    textcolor: Colors.black87,
+                                    fontsizetext: size.width * 0.050,
+                                  ),
                                 )
                               ],
                             ))
@@ -183,7 +188,6 @@ class _DownloadsState extends State<Downloads> {
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                   
                                       Expanded(
                                           child: ColorFiltered(
                                         colorFilter: ColorFilter.matrix(
@@ -220,27 +224,31 @@ class _DownloadsState extends State<Downloads> {
                                                 CrossAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.only(
-                                                    left: 18, right: 10),
-                                                child: 
-                                                Mytextstyle(textcolor:Colors.black54 ,
-                                                  fontsizetext:size.width * 0.029 ,
-                                                  text:element['title'],)
-                                              ),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 18, right: 10),
+                                                  child: Mytextstyle(
+                                                    textcolor: Colors.black54,
+                                                    fontsizetext:
+                                                        size.width * 0.029,
+                                                    text: element['title'],
+                                                  )),
                                               Padding(
                                                 padding: EdgeInsets.only(
                                                     left: 10,
                                                     right: 10,
                                                     top: 6),
                                                 child: Container(
-                                                  color: Colors.white10,
-                                                  margin:
-                                                      EdgeInsets.only(left: 10),
-                                                  child: Mytextstyle(textcolor:Colors.black ,
-                                                  fontsizetext:size.width * 0.041 ,
-                                                  text: '${element['author']}',)
-                                                   
-                                                ),
+                                                    color: Colors.white10,
+                                                    margin: EdgeInsets.only(
+                                                        left: 10),
+                                                    child: Mytextstyle(
+                                                      textcolor: Colors.black,
+                                                      fontsizetext:
+                                                          size.width * 0.041,
+                                                      text:
+                                                          '${element['author']}',
+                                                    )),
                                               ),
                                             ],
                                           ),

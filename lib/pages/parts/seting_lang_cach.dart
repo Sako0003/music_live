@@ -3,16 +3,14 @@ import 'package:flutter/material.dart';
 class SettingLanguageCashContainer extends StatelessWidget {
   const SettingLanguageCashContainer({
     Key key,
-    @required this.size,
     this.text,
     this.ontap,
   }) : super(key: key);
-
-  final Size size;
-  final text;
-  final Function ontap;
+  final String text;
+  final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
+     final size = MediaQuery.of(context).size;
     return InkWell(
       splashColor: Colors.white,
       hoverColor: Colors.white,

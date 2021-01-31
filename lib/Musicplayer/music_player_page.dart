@@ -22,10 +22,21 @@ class _MusicplayerState extends State<Musicplayer> {
         linkUrl: 'https://flutter.dev/',
         chooserTitle: 'Example Chooser Title');
   }
-@override
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    var data = {
+      "albumId": 20,
+      "id": 1,
+      "title": "song1",
+      "url": "https://via.placeholder.com/600/92c952",
+      "thumbnailUrl":
+          'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
+      "author": 'Veliiii',
+      "date": '11/2/21',
+      "group": 'A',
+    };
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -42,17 +53,6 @@ class _MusicplayerState extends State<Musicplayer> {
               icon: Icons.save_alt,
               size: size.width * 0.070,
               ontap: () {
-                var data = {
-                  "albumId": 20,
-                  "id": 1,
-                  "title": "song1",
-                  "url": "https://via.placeholder.com/600/92c952",
-                  "thumbnailUrl":
-                      'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-                  "author": 'Veliiii',
-                  "date": '11/2/21',
-                  "group": 'A',
-                };
                 setState(() {
                   mydownload.add(data);
                 });
@@ -69,9 +69,7 @@ class _MusicplayerState extends State<Musicplayer> {
                 size: size.width * 0.070,
                 ontap: () {
                   // this code showdialoq inside
-                  showDialoqFunc(
-                    context,
-                  );
+                  showDialoqFunc(context);
                 }),
           ),
         ],
@@ -83,20 +81,18 @@ class _MusicplayerState extends State<Musicplayer> {
               height: size.height * 0.4 + 20,
               width: size.width * 1,
               // color: Colors.amber,
-              child:
-               ImageContainer(
-                 withcont:size.width * 0.7,
-                 heightcont:size.height * 0.4 + 20 ,
-                 imageradius: 1,
-                 contmarginn:EdgeInsets.only(left: 25, right: 25) ,
-                 imageurl: Variables.noImage),
+              child: ImageContainer(
+                  withcont: size.width * 0.7,
+                  heightcont: size.height * 0.4 + 20,
+                  imageradius: 1,
+                  contmarginn: EdgeInsets.only(left: 25, right: 25),
+                  imageurl: Variables.noImage),
             ),
             SliderPlayercontainer(),
-            SesartiranCont(size: size, ),
+            SesartiranCont(),
           ],
         ),
       ]),
     );
   }
 }
-

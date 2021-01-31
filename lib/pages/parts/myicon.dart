@@ -11,10 +11,9 @@ class Myicon extends StatelessWidget {
   }) : super(key: key);
   final IconData icon;
   final double size;
-  final Function ontap;
+  final VoidCallback ontap;
   @override
   Widget build(BuildContext context) {
-    
     return IconButton(
         splashColor: Colors.white,
         hoverColor: Colors.white,

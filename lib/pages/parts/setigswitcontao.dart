@@ -5,19 +5,16 @@ import 'package:flutter/material.dart';
 class Switchlistcontanorrr extends StatelessWidget {
   const Switchlistcontanorrr({
     Key key,
-    @required this.size,
     this.onchanged,
     this.text,
     this.value,
   }) : super(key: key);
-
-  final Size size;
-  final Function onchanged;
+  final ValueChanged<bool> onchanged;
   final String text;
   final bool value;
   @override
   Widget build(BuildContext context) {
-   
+    final  Size size = MediaQuery.of(context).size;
     return Container(
       alignment: Alignment.topLeft,
       height: size.height * 0.057,
@@ -44,10 +41,7 @@ class Switchlistcontanorrr extends StatelessWidget {
               border: Border.all(width: 0.8, color: Colors.black54),
               borderRadius: BorderRadius.circular(15)),
           child: CupertinoSwitch(
-            activeColor: Colors.black54,
-            value: value,
-            onChanged: onchanged,
-          ),
+              activeColor: Colors.black54, value: value, onChanged: onchanged),
         ),
       ),
     );
