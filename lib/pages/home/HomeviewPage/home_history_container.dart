@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_live/pages/parts/image_container.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/utils/variables.dart';
 
 class HomeHistoryView extends StatefulWidget {
@@ -29,26 +30,19 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    "History",
-                    style: TextStyle(
-                        fontSize:
-                            ScreenUtil().setSp(17, allowFontScalingSelf: true),
-                        fontWeight: FontWeight.bold),
-                  ),
-                  InkWell(
+                  Mytextstyle(
+                      textcolor:Colors.black ,text:"History" ,
+                      fontsizetext:ScreenUtil()
+                               .setSp(17,), ),
+                  InkWell(//,,  
                     onTap: () {},
-                    child: Text(
-                      "See All",
-                      style: TextStyle(
-                          fontSize: ScreenUtil()
-                              .setSp(17, allowFontScalingSelf: true),
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black54),
-                    ),
+                    child: Mytextstyle(
+                      textcolor:Colors.black54 ,text:"See All" ,
+                      fontsizetext:ScreenUtil()
+                               .setSp(17,), ),
                   )
                 ],
-              ),
+               ),//
             ),
           ),
           Container(
@@ -81,36 +75,21 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                               child: Container(
                                 width: ScreenUtil().screenWidth / 2 + 43,
                                 alignment: Alignment.centerLeft,
-                                child: Text(
-                                  'Andro',
-                                  maxLines: 1,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      color: Colors.black54,
-                                      fontSize: ScreenUtil().setSp(15,
-                                          allowFontScalingSelf: true),
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                                child: Mytextstyle(textcolor: Colors.black54,
+                                  text:'Andro',
+                                  fontsizetext: ScreenUtil().setSp(15,
+                                         ),)
+                              ),// 
                             ),
-                            Flexible(
+                            Flexible(//Colors.black,
                               child: Container(
                                 width: ScreenUtil().screenWidth / 2 + 43,
 
                                 alignment: Alignment.topLeft,
                                 //  color: Colors.pink,
-                                child: Text(
-                                  'Touromusic',
-                                  maxLines: 1,
-                                  softWrap: true,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: ScreenUtil().setSp(16,
-                                          allowFontScalingSelf: true),
-                                      fontWeight: FontWeight.bold),
-                                ),
+                                child: Mytextstyle(fontsizetext:ScreenUtil().setSp(16,),
+                                    textcolor: Colors.black,     
+                                  text:'Touromusic',)
                               ),
                             ),
                           ],

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 
 class DarkModeCont extends StatefulWidget {
   const DarkModeCont({
@@ -34,12 +35,11 @@ class _DarkModeContState extends State<DarkModeCont> {
               // color: Colors.green,
               height: widget.size.height * 0.040,
               width: widget.size.width * 0.7,
-              child: Text(
-        'Dark mode',
-        maxLines: 1,
-        style: TextStyle(fontWeight: FontWeight.bold,
-          color: Colors.black, fontSize: widget.size.width * 0.050),
-              ),
+              child: 
+              //,
+              Mytextstyle(
+                fontsizetext:widget.size.width * 0.050,
+                text:'Dark mode',textcolor:Colors.black ,),
             ),
             trailing: Container(
               

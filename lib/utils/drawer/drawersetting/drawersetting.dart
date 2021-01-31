@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:music_live/pages/parts/SetingPlaybaklazimsiz.dart';
 import 'package:music_live/pages/parts/darkmode.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/seting_lang_cach.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import '../../../pages/parts/setigswitcontao.dart';
@@ -11,9 +12,7 @@ class Setting extends StatefulWidget {
   @override
   _SettingState createState() => _SettingState();
 }
-
 class _SettingState extends State<Setting> {
-  
   bool offline = false;
   bool autoplay = false;
   bool isscipsliencetrack = false;
@@ -27,17 +26,14 @@ class _SettingState extends State<Setting> {
         elevation: 0,
         backgroundColor: Colors.white,
         leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.090 ,ontap:(){ Navigator.pop(context);} ),
-         
-        title: Center(
+         title: Center(
             child: Text(
           'Setting',
           style: TextStyle(color: Colors.black),
         )),
         actions: [
           Myicon(icon: Icons.search,size:size.width * 0.070 ,ontap:(){} ),
-         
-          SizedBox(width: size.width * 0.06),
-        ],
+          SizedBox(width: size.width * 0.06),],
       ),
       body: Container(
         color: Colors.white10,
@@ -53,19 +49,16 @@ class _SettingState extends State<Setting> {
             ),
             Row(
               children: [
-                Container(
+                Container( //  color: Colors.brown,
                   padding: EdgeInsets.only(left: 20),
                   alignment: Alignment.centerLeft,
                   height: size.height * 0.050,
                   width: size.width * 0.8 - 10,
-                  //  color: Colors.brown,
-                  child: Text(
-                    'veliliturakljdda@gmail.com',
-                    maxLines: 1,
-                    softWrap: true,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                        color: Colors.black87, fontSize: size.width * 0.04),
+                  child:
+                  Mytextstyle(
+                    textcolor:Colors.black87, 
+                    text: 'veliliturakljdda@gmail.com',
+                  fontsizetext:size.width * 0.04 ,
                   ),
                 ),
                 InkWell(
@@ -74,11 +67,11 @@ class _SettingState extends State<Setting> {
                   hoverColor: Colors.white,
                   highlightColor: Colors.white,
                   focusColor: Colors.white,
-                  child: Text(
-                    'Log out',
-                    style: TextStyle(
-                        color: Colors.black, fontSize: size.width * 0.045),
-                  ),
+                  child:
+                   Mytextstyle(
+                     fontsizetext:size.width * 0.045,
+                     textcolor:Colors.black87,
+                     text:'Log out',)
                 ),
               ],
             ),

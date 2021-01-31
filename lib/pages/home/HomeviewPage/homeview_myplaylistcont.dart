@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_live/pages/parts/image_container.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
 import 'package:music_live/utils/variables.dart';
 class HomeVievMyplaylistContainer extends StatefulWidget {
@@ -65,15 +66,10 @@ class _HomeVievMyplaylistContainerState extends State<HomeVievMyplaylistContaine
                       Icons.add,
                       color: Colors.white,
                       size: ScreenUtil().radius(25),
-                    ),
-                    Text(
-                      'Add Playlist',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: ScreenUtil().setSp(14, allowFontScalingSelf: true),
-                      ),
-                    ),
+                    ),//,
+                    Mytextstyle(fontsizetext:ScreenUtil().setSp(14,), 
+                      textcolor:Colors.white,
+                      text:'Add Playlist',),
                   ],
                 ),
               ),

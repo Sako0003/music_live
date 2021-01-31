@@ -1,8 +1,7 @@
-
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:music_live/Musicplayer/showdialoq_2musicplayer.dart';
 import 'package:music_live/pages/parts/image_container.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/utils/variables.dart';
 ///Bu 1 ci acilan Showdialoq
 showDialoqFunc(
@@ -18,32 +17,25 @@ showDialoqFunc(
           type: MaterialType.transparency,
           child: Container(
             decoration: BoxDecoration(
-              // borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
-            ),
+              color: Colors.white,),
             padding: EdgeInsets.all(10),
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.4 + 17,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Container(
+                Container( // color: Colors.black,
                   margin: EdgeInsets.only(bottom: 7),
                   alignment: Alignment.centerLeft,
                   height: MediaQuery.of(context).size.height * 0.045,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  // color: Colors.black,
-                  child: Text(
-                    'Add To Playlist',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: MediaQuery.of(context).size.width * 0.040,
-                        color: Colors.black54),
-                  ),
-                ),
-                Container(
-                  //Liswiew container
-                  // color: Colors.black,
+                  width: MediaQuery.of(context).size.width * 0.8,               
+                  child:
+                  Mytextstyle(
+                  text:'Add To Playlist',
+                   fontsizetext:MediaQuery.of(context).size.width * 0.040,
+                   textcolor:Colors.black54 ,), ),
+                Container( // color: Colors.black,
+                  //Liswiew container               
                   alignment: Alignment.centerLeft,
                   height: MediaQuery.of(context).size.height * 0.2 + 24,
                   width: MediaQuery.of(context).size.width * 0.8,
@@ -54,8 +46,6 @@ showDialoqFunc(
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Stack(
-                            
-                           // fit: StackFit.expand,
                           alignment: Alignment.center,
                             children: [
                          ImageContainer(
@@ -64,26 +54,26 @@ showDialoqFunc(
                  imageradius: 8,
                  contmarginn:EdgeInsets.only(bottom: 19),
                  imageurl: Variables.noImage),
-                        
-                            Positioned(
-                              left: MediaQuery.of(context).size.width * 0.025,
-                              child: Text(
-                           'Learn',style: TextStyle(fontWeight: FontWeight.bold,color:Colors.white,fontSize:MediaQuery.of(context).size.width * 0.040,  ),))  
-                           , Positioned(top:MediaQuery.of(context).size.height * 0.010,right: MediaQuery.of(context).size.width * 0.025,
-                          child: Icon(Icons.more_horiz,color: Colors.white,size: MediaQuery.of(context).size.width * 0.040,)),
-                           ], );
-                        },
-                      ),
-                      
+                 Positioned(
+                left: MediaQuery.of(context).size.width * 0.025,
+                child:
+                 Mytextstyle(
+                   fontsizetext:MediaQuery.of(context).size.width * 0.040, 
+                   textcolor:Colors.white,
+                   text:'Learn' ,)
+               )  
+               , Positioned(top:MediaQuery.of(context).size.height * 0.010,
+               right: MediaQuery.of(context).size.width * 0.025,
+               child: Icon(Icons.more_horiz,color: Colors.white,
+               size: MediaQuery.of(context).size.width * 0.040,)),
+                 ], );
+                 },), 
                 ),
                 GestureDetector(
                   onTap: () {
                      newplaylistFunc(
-                  context,
-                );
-                  },
-                  child: Container(
-                    //New play list container
+                  context,); },
+                  child: Container( //New play list container               
                     margin: EdgeInsets.only(bottom: 10),
                     alignment: Alignment.centerLeft,
                     height: MediaQuery.of(context).size.height * 0.092,
@@ -94,17 +84,13 @@ showDialoqFunc(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                          Text('New playlist',
-                          style: TextStyle(fontWeight: FontWeight.bold,
-                          fontSize: MediaQuery.of(context).size.width * 0.045,
-                         color: Colors.white
-                          ),
-                        ),
-                        Icon(
-                            Icons.add,color: Colors.white,size: MediaQuery.of(context).size.width * 0.059,),
-                        
-                        ],),
-                        
+                            Mytextstyle(
+                   fontsizetext:MediaQuery.of(context).size.width * 0.045, 
+                   textcolor:Colors.white,
+                   text:'New playlist' ,), 
+                        Icon(Icons.add,color: Colors.white,
+                            size: MediaQuery.of(context).size.width * 0.059,),                       
+                        ],), 
                   ),
                 ),
               ],

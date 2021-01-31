@@ -6,6 +6,7 @@ import 'package:grouped_list/grouped_list.dart';
 
 
 import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 
 bool musicOpened = true;
@@ -103,19 +104,12 @@ class _HistoryState extends State<History> {
             ontap: () {
               setState(() {
                 Navigator.pop(context);
-              });
-            }),
+              });}),
         backgroundColor: Colors.white,
         title: Center(
-          child: Text(
-            'History',
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
+          child:  Mytextstyle(text: 'History',textcolor:Colors.black,)),
         actions: [
-          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
-        ],
-      ),
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),],),
       body: Container(
         height: size.height * 1,
         width: double.infinity,
@@ -139,11 +133,7 @@ class _HistoryState extends State<History> {
                       Myicon(
                           icon: Icons.shuffle_sharp,
                           size: size.width * 0.06,
-                          ontap: () {}),
-                    ],
-                  ),
-                  color: Colors.white10,
-                ),
+                          ontap: () {}),],), color: Colors.white10,),
                 Container(
                   width: double.infinity,
                   height: size.height * 0.8 + 30,
@@ -164,16 +154,12 @@ class _HistoryState extends State<History> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: size.width * 0.040),
-                          ),
-                        ))
-                      ],
-                    ),
+                          ),))],),
                     itemBuilder: (context, dynamic element) {
                       return SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Row(
-                          children: [
-                            Container(
+                          children: [Container(
                               height: size.height * 0.1 + 22,
                               width: size.width * 1,
                               child: Card(
@@ -189,22 +175,17 @@ class _HistoryState extends State<History> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Expanded(
+                                    children: [Expanded(
                                           child: ColorFiltered(
-                                        colorFilter: ColorFilter.matrix(
-                                          [
+                                        colorFilter: ColorFilter.matrix([
                                             0.2126, 0.7152, 0.0722, 0, 0,
                                             0.2126, 0.7152, 0.0722, 0,
                                             0, //this color image change(black)
                                             0.2126, 0.7152, 0.0722, 0, 0,
-                                            0, 0, 0, 1, 0,
-                                          ],
-                                        ),
+                                            0, 0, 0, 1, 0,],),
                                         child: Container(
                                           color: Colors.white10,
                                           height: size.height * 0.075,
-                                          // width: 75,
                                           child: Image(
                                             image: NetworkImage(
                                                 element['thumbnailUrl']),
@@ -227,19 +208,9 @@ class _HistoryState extends State<History> {
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     left: 18, right: 10),
-                                                child: Text(
-                                                  element['title'],
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          size.width * 0.03 -
-                                                              0.1,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.black54),
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
+                                                child:  Mytextstyle(textcolor:Colors.black54 ,
+                                                  fontsizetext:size.width * 0.029 ,
+                                                  text:element['title'],)
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.only(
@@ -250,39 +221,17 @@ class _HistoryState extends State<History> {
                                                   //  color: Colors.amber,
                                                   margin:
                                                       EdgeInsets.only(left: 10),
-                                                  child: Text(
-                                                    '${element['author']}',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            size.width * 0.04 +
-                                                                0.01,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black),
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
+                                                  child:  Mytextstyle(textcolor:Colors.black ,
+                                                  fontsizetext:size.width * 0.041 ,
+                                                  text: '${element['author']}',)),),],),),),
                                       Container(
                                         height: size.height * 0.1 - 18,
-                                        width: size.width * 0.1 -
-                                            10, //color: Colors.brown,
-                                        child: Myicon(
+                                        width: size.width * 0.1 -  10, //color: Colors.brown,
+                                           child: Myicon(
                                             icon: Icons.control_point,
                                             size: size.width * 0.06,
                                             ontap: () {}),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
+                                      )],),),),),
                             Container(
                                 margin: EdgeInsets.only(right: 15),
                                 alignment: Alignment.center,
@@ -307,7 +256,6 @@ class _HistoryState extends State<History> {
                 ),
               ],
             ),
-            
           ],
         ),
       ),

@@ -22,10 +22,7 @@ class _MusicplayerState extends State<Musicplayer> {
         linkUrl: 'https://flutter.dev/',
         chooserTitle: 'Example Chooser Title');
   }
-
-  
-
-  @override
+@override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 

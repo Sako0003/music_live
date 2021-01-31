@@ -1,6 +1,5 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/variables.dart';
 class Searc1page extends StatefulWidget {
@@ -29,8 +28,7 @@ class _Searc1pageState extends State<Searc1page> {
           setState(() {
                 Navigator.pop(context);
               });
-        } ),
-         
+        } ),   
       ),
       body: ListView(
               children: [Container(
@@ -45,8 +43,7 @@ class _Searc1pageState extends State<Searc1page> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Colors.black12,
-                ),
-                
+                ), 
                 child: TextField(
                   textAlign: TextAlign.start,
                   onSubmitted: (value) {
@@ -75,17 +72,10 @@ class _Searc1pageState extends State<Searc1page> {
                      // color: Colors.pink,
                       width: size.width * 0.5,
                       height: size.height * 0.07,
-                      child: Text(
-                        'Recent ',
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 1,
-                        //softWrap: false,
-
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                            fontSize: size.width * 0.1 - 20),
-                      ),
+                      child: Mytextstyle(
+                        textcolor: Colors.black,
+                        text:'Recent ',
+                      fontsizetext:size.width * 0.1 - 20,)
                     ),
                     InkWell(
                       onTap: () {},
@@ -93,13 +83,11 @@ class _Searc1pageState extends State<Searc1page> {
                         //color: Colors.brown,
                         width: size.width * 0.2 + 10, height: size.height * 0.07,
                         alignment: Alignment.centerRight,
-                        child: Text(
-                          'Clear All',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54,
-                              fontSize: size.width * 0.04),
-                        ),
+                        child:Mytextstyle(
+                        textcolor: Colors.black54,
+                        text:'Clear All',
+                      fontsizetext:size.width * 0.04,)
+                         
                       ),
                     )
                   ],
@@ -115,12 +103,9 @@ class _Searc1pageState extends State<Searc1page> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.only(top: 10),
-                      child: InkWell(onTap: () {
-                        
-                      },
-                                            child: Container(
-                          
-                          height: size.height * 0.07,
+                      child: InkWell(onTap: () { },
+                       child: Container( 
+                       height: size.height * 0.07,
                width: size.width * 0.9+6,
                decoration: BoxDecoration(
                  color: Colors.black12,borderRadius: BorderRadius.circular(10)),
@@ -128,15 +113,11 @@ class _Searc1pageState extends State<Searc1page> {
                  children: [
                  Padding(
                    padding: const EdgeInsets.all(8.0),
-                   child: Text(
-                            'Post maole',
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black54,
-                                fontSize: size.width * 0.04),
-                          ),
-                 ),Myicon(icon: Icons.arrow_right,size:size.width * 0.090 ,ontap:(){},),
-                        
+                   child: Mytextstyle(
+                          textcolor: Colors.black54,
+                          text:'Post maole ',
+                        fontsizetext:size.width * 0.04,),   
+                 ),Myicon(icon: Icons.arrow_right,size:size.width * 0.090 ,ontap:(){},),        
                ],),
                ),
                       ),

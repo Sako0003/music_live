@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 //import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/variables.dart';
@@ -38,7 +39,6 @@ class _MyNavbarState extends State<MyNavbar> {
           ),
       child: Row(
         children: [
-//margin:  EdgeInsets.only(left: 22),,height:ScreenUtil().setHeight(80), , width: ScreenUtil().setWidth(83),url Variables.noImage                 
          ColorFiltered(
             colorFilter: ColorFilter.matrix(
               [
@@ -86,15 +86,11 @@ class _MyNavbarState extends State<MyNavbar> {
                           alignment: Alignment.topLeft,
 
                           width: ScreenUtil().setWidth(232),
-                          child: Text(
-                            'Andro',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Colors.black54,
-                                fontSize: ScreenUtil()
-                                    .setSp(13, allowFontScalingSelf: true),
-                                fontWeight: FontWeight.bold),
-                          ),
+                          child: 
+                          Mytextstyle(
+                            text:'Andro ',textcolor:Colors.black54,
+                            fontsizetext: ScreenUtil() .setSp(13, ),),
+                          
                         ),
                       ),
                       Flexible(
@@ -105,15 +101,11 @@ class _MyNavbarState extends State<MyNavbar> {
                           height: ScreenUtil().setHeight(21),
 
                           width: ScreenUtil().setWidth(232),
-                          child: Text(
-                            'Track 5',
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: ScreenUtil()
-                                    .setSp(15, allowFontScalingSelf: true),
-                                fontWeight: FontWeight.bold),
-                          ),
+                          //  
+                          child: Mytextstyle(
+                            text:'Track 5' ,textcolor:Colors.black,
+                            fontsizetext: ScreenUtil() .setSp(15, ),),
+                                   
                         ),
                       ),
                       Container(
@@ -146,7 +138,6 @@ class _MyNavbarState extends State<MyNavbar> {
                
                 Container(
                   padding: EdgeInsets.only(top: 7),
-                  //3 num count column
                   // color: Colors.blue,
                   alignment: Alignment.bottomLeft,
 

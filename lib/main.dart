@@ -14,21 +14,14 @@ import 'utils/drawer/drawerMyplaylist/drawer_mayplaylist.dart';
 void main() {
   runApp(MyApp());
 }
-
 class MyApp extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
-
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    //metnlerin fontsize ucun   ScreenUtil().setSp(20, allowFontScalingSelf: true),
     // dizayn sayti https://psdetch.com/
-//container uzunluq ucun ScreenUtil().setHeight(40),
-//container genislik ucun ScreenUtil().setWidth(320),
-//ScreenUtil().setHeight(1),//
-    //ScreenUtil().setWidth(20),//
     return ScreenUtilInit(
       designSize: Size(365, 690),
       allowFontScaling: false,

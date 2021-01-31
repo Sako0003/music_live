@@ -35,7 +35,6 @@ class _HomePageViewState extends State<HomePageView> {
         title: Container(
           child: TextField(
             onSubmitted: (value) {
-              
               Navigator.pushNamed(context, '/search2');
             },
             decoration: InputDecoration(

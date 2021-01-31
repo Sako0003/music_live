@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
 import '../../variables.dart';
@@ -16,25 +17,20 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.07 ,ontap:(){ Navigator.pop(context);} ),
-        
+        leading:Myicon(icon: Icons.chevron_left,size:size.width * 0.07 ,
+        ontap:(){ Navigator.pop(context);} ),
         elevation: 0,
         backgroundColor: Colors.white10,
         title: Center(
-            child: Text(
-          'My Playlist',
-          style: TextStyle(
-              fontWeight: FontWeight.bold, //'/search1'Icons.search,
-              //  color: Colors.black,
-              color: Colors.black,
-              fontSize: size.width * 0.05),
-        )),
+            child:
+            Mytextstyle(textcolor: Colors.black,
+        fontsizetext: size.width * 0.05,
+        text:'My Playlist',) ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 7),
-            child: Myicon(icon: Icons.add,size:ScreenUtil().radius(23) ,ontap:(){ Navigator.pushNamed(context, '/search1');} ),
-            
-          )
+            child: Myicon(icon: Icons.add,size:ScreenUtil().radius(23) ,
+            ontap:(){ Navigator.pushNamed(context, '/search1');} ), )
         ],
       ),
       body: Container(
@@ -73,16 +69,14 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
           Positioned(
       bottom: 19,
       left: 10,
-      child: Text(
-        'Sport Music',
-        style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: size.width * 0.05),
-      )),
+      child: //,  
+      Mytextstyle(textcolor: Colors.white,
+        fontsizetext: size.width * 0.05,
+        text:'Sport Music',)),
           Positioned(
       right: size.width * 0.01,
-      child: IconButton(
+      child:
+       IconButton(
          splashColor: Colors.white,
           hoverColor: Colors.white,
           highlightColor: Colors.white,
@@ -91,11 +85,11 @@ class _MyplaylisDraywerState extends State<MyplaylisDraywer> {
             Icons.more_horiz,
             color: Colors.white,
           ),
-          onPressed: () {}))
+          onPressed: () {}),
+          )
           ]),
             ),
-          );
-          },
+          ); },
           ),
         ),bottomNavigationBar: musicOpened ? MyNavbar() : null,
     );

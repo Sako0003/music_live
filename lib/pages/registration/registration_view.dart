@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/social_button.dart';
 
 class RegistrationView extends StatefulWidget {
@@ -26,13 +27,10 @@ class _RegistrationViewState extends State<RegistrationView> {
                 width: ScreenUtil().setWidth(190), 
                 height: ScreenUtil().setHeight(180), 
                 color: Colors.black87,
-                child: Text(
-                  'Mejx',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45),
-                ),
+                child://  
+                 Mytextstyle(
+                   fontsizetext:ScreenUtil().setSp(40,),
+                   text:'Mejx',textcolor:Colors.white,)
               ),
               SocialButton(
                 ontap: () {

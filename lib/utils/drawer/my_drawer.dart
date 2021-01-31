@@ -1,14 +1,11 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import '../../pages/parts/mydrawer_liztname_container.dart';
-
 class MyDrawer extends StatefulWidget {
   @override
   _MyDrawerState createState() => _MyDrawerState();
 }
-
 class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
@@ -27,18 +24,15 @@ class _MyDrawerState extends State<MyDrawer> {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 21, top: 15),
-                  child: Container(
+                  child: Container(//  color: Colors.amber,
                     alignment: Alignment.centerLeft,
                     height: size.height * 0.1,
                     width: size.width * 0.3,
-                    //  color: Colors.amber,
-                    child: Text(
-                      'Music',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: size.width * 0.070,
-                          fontWeight: FontWeight.bold),
-                    ),
+                    child:
+                     Mytextstyle(
+                       textcolor: Colors.white,
+                       text:'Music',
+                     fontsizetext:size.width * 0.070,)
                   ),
                 ),
                 MyDrawerlistNameContainer(
@@ -49,7 +43,6 @@ class _MyDrawerState extends State<MyDrawer> {
                   text: 'Library',
                   icon: Icons.music_note,
                 ),
-                //
                 MyDrawerlistNameContainer(
                     ontap: () {
                       Navigator.pushNamed(context, '/playlstdrawer');
@@ -59,14 +52,14 @@ class _MyDrawerState extends State<MyDrawer> {
                     icon: Icons.queue_music),
                 MyDrawerlistNameContainer(
                     ontap: () {
-Navigator.pushNamed(context, '/history');
+                 Navigator.pushNamed(context, '/history');
                     },
                     size: size,
                     text: 'History',
                     icon: Icons.history),
                     MyDrawerlistNameContainer(
                     ontap: () {
-Navigator.pushNamed(context, '/download');
+                    Navigator.pushNamed(context, '/download');
                     },
                     size: size,
                     text: 'Downloads',

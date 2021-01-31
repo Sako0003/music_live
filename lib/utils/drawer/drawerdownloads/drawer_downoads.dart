@@ -1,26 +1,19 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import 'package:grouped_list/grouped_list.dart';
-
-
 import 'package:music_live/pages/home/HomeviewPage/mynavbar.dart';
+import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
-
-
-
-
 List mydownload = [
   {
     "albumId": 1,
     "id": 1,
-    "title": "Flutter programindddddd dddddddddddddddd",
+    "title": "Flutter progr",
     "url": "https://via.placeholder.com/600/92c952",
     "thumbnailUrl":
         'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-    "author": 'DDDDDdddddddddddddddddddDD',
+    "author": 'DDDDD',
     "date": '24/24/24',
     "group": 'A',
   },
@@ -109,10 +102,7 @@ class _DownloadsState extends State<Downloads> {
             }),
         backgroundColor: Colors.white,
         title: Center(
-          child: Text(
-            'Downloads',
-            style: TextStyle(color: Colors.black),
-          ),
+          child: Mytextstyle(text: 'Downloads',textcolor:Colors.black,)
         ),
         actions: [
           Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
@@ -163,12 +153,10 @@ class _DownloadsState extends State<Downloads> {
                                   color: Colors.white10,
                                   margin:
                                       EdgeInsets.only(left: size.width * 0.04),
-                                  child: Text(
-                                    groupByValue,
-                                    textAlign: TextAlign.start,
-                                    style:
-                                        TextStyle(fontSize: size.width * 0.050),
-                                  ),
+                                  child://
+                                   Mytextstyle(text: groupByValue,
+                                   textcolor: Colors.black87,
+                                   fontsizetext: size.width * 0.050,),
                                 )
                               ],
                             ))
@@ -234,19 +222,10 @@ class _DownloadsState extends State<Downloads> {
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     left: 18, right: 10),
-                                                child: Text(
-                                                  element['title'],
-                                                  style: TextStyle(
-                                                      fontSize:
-                                                          size.width * 0.03 -
-                                                              0.1,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Colors.black54),
-                                                  maxLines: 1,
-                                                  overflow:
-                                                      TextOverflow.ellipsis,
-                                                ),
+                                                child: 
+                                                Mytextstyle(textcolor:Colors.black54 ,
+                                                  fontsizetext:size.width * 0.029 ,
+                                                  text:element['title'],)
                                               ),
                                               Padding(
                                                 padding: EdgeInsets.only(
@@ -257,19 +236,10 @@ class _DownloadsState extends State<Downloads> {
                                                   color: Colors.white10,
                                                   margin:
                                                       EdgeInsets.only(left: 10),
-                                                  child: Text(
-                                                    '${element['author']}',
-                                                    style: TextStyle(
-                                                        fontSize:
-                                                            size.width * 0.04 +
-                                                                0.01,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black),
-                                                    maxLines: 1,
-                                                    overflow:
-                                                        TextOverflow.ellipsis,
-                                                  ),
+                                                  child: Mytextstyle(textcolor:Colors.black ,
+                                                  fontsizetext:size.width * 0.041 ,
+                                                  text: '${element['author']}',)
+                                                   
                                                 ),
                                               ),
                                             ],
