@@ -15,6 +15,7 @@ class Musicplayer extends StatefulWidget {
 }
 
 class _MusicplayerState extends State<Musicplayer> {
+  //Bu Share ucundur
   Future<void> share() async {
     await FlutterShare.share(
         title: 'Example share',

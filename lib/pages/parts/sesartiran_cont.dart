@@ -1,3 +1,4 @@
+import 'package:audio_manager/audio_manager.dart';
 import 'package:flutter/material.dart';
 
 class SesartiranCont extends StatefulWidget {
@@ -6,7 +7,7 @@ class SesartiranCont extends StatefulWidget {
 }
 
 class _SesartiranContState extends State<SesartiranCont> {
-  double musict = 0.0;
+ double _sliderVolume;
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,18 +36,15 @@ class _SesartiranContState extends State<SesartiranCont> {
                 thumbShape: RoundSliderThumbShape(
                 enabledThumbRadius: 6,
                 )),
-                child: Slider.adaptive(
+                child: Slider(
                 inactiveColor: Colors.black12,
                 activeColor: Colors.black87,
-                min: 0,
-                max: 50,
-                value: musict,
-                onChanged: (double newValue) {
-                  setState(
-                    () {
-                      musict = newValue;
-                    },
-                  );
+                value: _sliderVolume ?? 0,
+                onChanged: (value) {
+                  setState(() {
+                    _sliderVolume = value;
+                    AudioManager.instance.setVolume(value, showVolume: true);
+                  });
                 },
               ),
             ),

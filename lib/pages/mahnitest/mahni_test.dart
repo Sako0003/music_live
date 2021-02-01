@@ -1,30 +1,21 @@
-import 'dart:io';
-import 'dart:ui';
-//import 'package:audio_manager/audio_manager.dart';
-//import 'package:http/http.dart' as request;
-import 'package:audio_manager/audio_manager.dart';
+
+
 import 'package:flutter/material.dart';
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/services.dart';
-//import 'package:flutter/services.dart';
-//import 'package:path_provider/path_provider.dart';
-//import 'package:audioplayers/audioplayers.dart';
-import 'package:music_live/pages/parts/my_textstyle.dart';
-import 'package:music_live/pages/parts/myicon.dart';
+import 'package:audio_manager/audio_manager.dart';
 import 'package:path_provider/path_provider.dart';
 
-class SliderPlayercontainer extends StatefulWidget {
+class MahniTest extends StatefulWidget {
   @override
-  _SliderPlayercontainerState createState() => _SliderPlayercontainerState();
+  _MahniTestState createState() => _MahniTestState();
 }
 
-
-class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
- 
-
- 
-
-String _platformVersion = 'Unknown';
-  bool isPlaying = true;
+class _MahniTestState extends State<MahniTest> {
+  String _platformVersion = 'Unknown';
+  bool isPlaying = false;
   Duration _duration;
   Duration _position;
   double _slider;
@@ -59,10 +50,10 @@ String _platformVersion = 'Unknown';
 
   @override
   void dispose() {
+    // 释放所有资源
     AudioManager.instance.release();
     super.dispose();
   }
-
 
   void setupAudio() {
     List<AudioInfo> _list = [];
@@ -128,8 +119,9 @@ String _platformVersion = 'Unknown';
           break;
       }
     });
-  } 
-void loadFile() async {
+  }
+
+  void loadFile() async {
     // read bundle file to local path
     final audioFile = await rootBundle.load("assets/aLIEz.m4a");
     final audio = audioFile.buffer.asUint8List();
@@ -147,6 +139,7 @@ void loadFile() async {
     AudioManager.instance.audioList.add(info);
     setState(() {});
   }
+
   Future<void> initPlatformState() async {
     String platformVersion;
     try {
@@ -163,115 +156,73 @@ void loadFile() async {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      // color: Colors.green,
-      height: size.height * 0.4 - 22,
-      width: size.width * 1,
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 15),
-            height: size.height * 0.1 - 50,
-            width: size.width * 0.9 - 30,
-            child: Row(
-              children: [
-                Mytextstyle(
-                  textcolor: Colors.black54,
-                  fontsizetext: size.width * 0.040,
-                  text:
-                       _formatDuration(_duration),//.toString(),
-                ),
-                Spacer(), //
-                Mytextstyle(
-                  textcolor: Colors.black54,
-                  fontsizetext: size.width * 0.040,
-                  text:
-                       _formatDuration(_duration),//.toString(),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            //color: Colors.blue,
-            alignment: Alignment.bottomLeft,
-            height: size.height * 0.03,
-            width: size.width * 0.85,
-            child: SliderTheme(
-                data: SliderTheme.of(context).copyWith(
-                  trackHeight: 2,
-                  thumbColor: Colors.white,
-                  overlayColor: Colors.black,
-                  thumbShape: RoundSliderThumbShape(
-                    disabledThumbRadius: 5,
-                    enabledThumbRadius: 5,
-                  ),
-                  overlayShape: RoundSliderOverlayShape(
-                    overlayRadius: 10,
-                  ),
-                  activeTrackColor: Colors.black87,
-                  inactiveTrackColor: Colors.grey,
-                ),
-                child: Slider(//burda qaldin
-                  value: _slider ?? 0,
-                  onChanged: (value) {
-                    setState(() {
-                      _slider = value;
-                    });
-                  },
-                  onChangeEnd: (value) {
-                    if (_duration != null) {
-                      Duration msec = Duration(
-                          milliseconds:
-                              (_duration.inMilliseconds * value).round());
-                      AudioManager.instance.seekTo(msec);
-                    }
-                  },
-                )),
-          ),
-          Container(
-              //color: Colors.amber,
-              margin: EdgeInsets.only(top: 15),
-              alignment: Alignment.center,
-              height: size.height * 0.1 - 49,
-              width: size.width * 0.5 - 9,
-              child: Mytextstyle(
-                  text: 'Jaybal ',
-                  textcolor: Colors.black54,
-                  fontsizetext: size.width * 0.1 - 20)),
-          Container(
-              alignment: Alignment.center, //  color: Colors.green,
-              height: size.height * 0.1 - 45,
-              width: size.width * 0.8,
-              child: Mytextstyle(
-                text: 'Music Is My Terephyy ',
-                textcolor: Colors.black,
-                fontsizetext: size.width * 0.1 - 15,
-              )),
-          Container(
-            alignment: Alignment.center, // color: Colors.amber,
-            height: size.height * 0.2 - 25, width: size.width * 0.8,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [//size: size.width * 0.065,
-                IconButton(
-                    icon: getPlayModeIcon(playMode), onPressed: () {
-                     playMode = AudioManager.instance.nextMode();
-                      setState(() {
-                        
-                      });
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+            title: IconButton(
+                icon: Icon(Icons.ac_unit),
+                onPressed: () {
+                  Navigator.pop(context);
+                })),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+             // Text('Running on: $_platformVersion\n'),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
+                child: volumeFrame(),
+              ),
+              Expanded(
+                child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        title: Text(list[index]["title"],
+                            style: TextStyle(fontSize: 18)),
+                        subtitle: Text(list[index]["desc"]),
+                        onTap: () => AudioManager.instance.play(index: index),
+                      );
                     },
-    
-                    ),
-                Myicon(
-                    icon: Icons.skip_previous,
-                    size: size.width * 0.090,
-                    ontap: () => AudioManager.instance.previous()
-                    ),
-                CircleAvatar(
-                  backgroundColor: Colors.black,
-                  radius: size.width * 0.090,
-                  child: IconButton(
+                    separatorBuilder: (BuildContext context, int index) =>
+                        Divider(),
+                    itemCount: list.length),
+              ),
+              Center(
+                  child: Text(_error != null
+                      ? _error
+                      : "${AudioManager.instance.info.title} lrc text: $_position")),
+              bottomPanel()
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget bottomPanel() {
+    return Column(children: <Widget>[
+      Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: songProgress(context),
+      ),
+      Container(
+        padding: EdgeInsets.symmetric(vertical: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+                icon: getPlayModeIcon(playMode),
+                onPressed: () {
+                  playMode = AudioManager.instance.nextMode();
+                  setState(() {});
+                }),
+            IconButton(
+                iconSize: 36,
+                icon: Icon(
+                  Icons.skip_previous,
+                  color: Colors.black,
+                ),
+                onPressed: () => AudioManager.instance.previous()),
+            IconButton(
               onPressed: () async {
                 bool playing = await AudioManager.instance.playOrPause();
                 print("await -- $playing");
@@ -279,41 +230,30 @@ void loadFile() async {
               padding: const EdgeInsets.all(0.0),
               icon: Icon(
                 isPlaying ? Icons.pause : Icons.play_arrow,
-                size: size.width * 0.1,
-                color: Colors.white,
+                size: 48.0,
+                color: Colors.black,
               ),
             ),
+            IconButton(
+                iconSize: 36,
+                icon: Icon(
+                  Icons.skip_next,
+                  color: Colors.black,
                 ),
-                Myicon(
-                    icon: Icons.skip_next,
-                    size: size.width * 0.090,
-                    ontap:() => AudioManager.instance.next()
-                    ),
-                Myicon(
-                    icon: Icons.shuffle_sharp,
-                    size: size.width * 0.065,
-                    ontap: () {
-                      Navigator.pushNamed(context, '/mahnitest');
-                    }),
-              ],
-            ),
-          ),
-        ],
+                onPressed: () => AudioManager.instance.next()),
+            IconButton(
+                icon: Icon(
+                  Icons.stop,
+                  color: Colors.black,
+                ),
+                onPressed: () => AudioManager.instance.stop()),
+          ],
+        ),
       ),
-    );
+    ]);
   }
-}
 
-String _formatDuration(Duration d) {
-    if (d == null) return "--:--";
-    int minute = d.inMinutes;
-    int second = (d.inSeconds > 60) ? (d.inSeconds % 60) : d.inSeconds;
-    String format = ((minute < 10) ? "0$minute" : "$minute") +
-        ":" +
-        ((second < 10) ? "0$second" : "$second");
-    return format;
-  }
- Widget getPlayModeIcon(PlayMode playMode) {
+  Widget getPlayModeIcon(PlayMode playMode) {
     switch (playMode) {
       case PlayMode.sequence:
         return Icon(
@@ -334,3 +274,92 @@ String _formatDuration(Duration d) {
     return Container();
   }
 
+  Widget songProgress(BuildContext context) {
+    var style = TextStyle(color: Colors.black);
+    return Row(
+      children: <Widget>[
+       // Text('tete'),
+        Text(
+          _formatDuration(_position),
+          style: style,
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 5),
+            child: SliderTheme(
+                data: SliderTheme.of(context).copyWith(
+                  trackHeight: 2,
+                  thumbColor: Colors.blueAccent,
+                  overlayColor: Colors.blue,
+                  thumbShape: RoundSliderThumbShape(
+                    disabledThumbRadius: 5,
+                    enabledThumbRadius: 5,
+                  ),
+                  overlayShape: RoundSliderOverlayShape(
+                    overlayRadius: 10,
+                  ),
+                  activeTrackColor: Colors.blueAccent,
+                  inactiveTrackColor: Colors.grey,
+                ),
+                child: Slider(
+                  value: _slider ?? 0,
+                  onChanged: (value) {
+                    setState(() {
+                      _slider = value;
+                    });
+                  },
+                  onChangeEnd: (value) {
+                    if (_duration != null) {
+                      Duration msec = Duration(
+                          milliseconds:
+                              (_duration.inMilliseconds * value).round());
+                      AudioManager.instance.seekTo(msec);
+                    }
+                  },
+                )),
+          ),
+        ),
+        Text(
+          _formatDuration(_duration),
+          style: style,
+        ),
+      ],
+    );
+  }
+
+  String _formatDuration(Duration d) {
+    if (d == null) return "--:--";
+    int minute = d.inMinutes;
+    int second = (d.inSeconds > 60) ? (d.inSeconds % 60) : d.inSeconds;
+    String format = ((minute < 10) ? "0$minute" : "$minute") +
+        ":" +
+        ((second < 10) ? "0$second" : "$second");
+    return format;
+  }
+
+  Widget volumeFrame() {
+    return Row(children: <Widget>[
+      IconButton(
+          padding: EdgeInsets.all(0),
+          icon: Icon(
+            Icons.audiotrack,
+            color: Colors.black,
+          ),
+          onPressed: () {
+            AudioManager.instance.setVolume(0);
+          }),
+      Expanded(
+          child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 0),
+              child: Slider(
+                value: _sliderVolume ?? 0,
+                onChanged: (value) {
+                  setState(() {
+                    _sliderVolume = value;
+                    AudioManager.instance.setVolume(value, showVolume: true);
+                  });
+                },
+              )))
+    ]);
+  }
+}
