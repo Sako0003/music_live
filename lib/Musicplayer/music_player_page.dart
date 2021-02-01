@@ -62,7 +62,6 @@ class _MusicplayerState extends State<Musicplayer> {
             ontap: share,
           ),
           Padding(
-            //
             padding: const EdgeInsets.only(right: 10),
             child: Myicon(
                 icon: Icons.control_point,

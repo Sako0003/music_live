@@ -10,11 +10,11 @@ class _SesartiranContState extends State<SesartiranCont> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container( //color: Colors.amber,
-      margin: EdgeInsets.only(top: 5),
-     alignment: Alignment.bottomLeft,
+    return Container(
+     // color: Colors.amber,
+      alignment: Alignment.bottomLeft,
       height: size.height * 0.1 - 47,
-      width: size.width * 0.9 - 27, //color: Colors.blue,
+      width: size.width * 0.9 , //color: Colors.blue,
       child: Flex(
         direction: Axis.horizontal,
         children: [
@@ -26,10 +26,16 @@ class _SesartiranContState extends State<SesartiranCont> {
               size: size.width * 0.065,
             ),
           ),
-          Expanded(
-            flex: 8,
-            child: Container(
-              child: Slider(
+                Container(
+                height: size.height * 0.03,
+                width: size.width * 0.75,
+                child: SliderTheme(
+                data: SliderThemeData(
+                trackHeight: 2,
+                thumbShape: RoundSliderThumbShape(
+                enabledThumbRadius: 6,
+                )),
+                child: Slider.adaptive(
                 inactiveColor: Colors.black12,
                 activeColor: Colors.black87,
                 min: 0,

@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:http/http.dart' as request;
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audio_cache.dart';
+//import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
@@ -13,7 +13,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
   bool playing = false;
   IconData playBtn = Icons.play_arrow;
   AudioPlayer _player = AudioPlayer();
-  AudioCache cache;
+  //AudioCache cache;
   Duration position = Duration();
   Duration musiclenght = Duration();
   void seekToSec(int sec) {
@@ -25,7 +25,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
     //Audio player yazanda hemise problem kotlin sdk version(kotlin version deyis)
     _player = AudioPlayer();
     _player.play("https://filesamples.com/samples/audio/mp3/sample1.mp3");
-    cache = AudioCache(fixedPlayer: _player);
+  //  cache = AudioCache(fixedPlayer: _player);
     _player.onDurationChanged.listen((duration) {
       setState(() {
         musiclenght = duration;
@@ -34,6 +34,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
       setState(() {
         position = newPostion;
       });});}
+      double music = 0.0;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -55,10 +56,37 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                 Mytextstyle(textcolor: Colors.black54,
                   fontsizetext: size.width * 0.048,
                   text:'${musiclenght.inHours}:${musiclenght.inMinutes}:${musiclenght.inSeconds.remainder(60)}',),
+              
               ],
             ),
-          ),
-          Container( // color: Colors.amber,
+          ),Container(//color: Colors.blue,
+                  alignment: Alignment.bottomLeft,
+                  height:size.height * 0.03,
+                  width: size.width * 0.9,
+                  child: SliderTheme(
+                    data: SliderThemeData(                     
+                      overlayColor: Colors.red,
+                    trackHeight: 1,                    
+                      thumbShape:RoundSliderThumbShape ( 
+                        enabledThumbRadius: 5,)
+                    ),//adaptive ios ucun ayri slider,abdroid ucun ayri slider qurar aftomatik
+                        child: Slider.adaptive(
+                      inactiveColor: Colors.black12,
+                      activeColor: Colors.black87,
+                      min: 0,
+                      max: 50,
+                      value: music,
+                      onChanged: (double newValue) {
+                        setState(
+                          () {
+                            music = newValue;
+                          },
+                        );
+                      },
+                    ),
+                  ),
+                ),
+          Container( //color: Colors.amber,
             margin: EdgeInsets.only(top: 15),
             alignment: Alignment.center,
             height: size.height * 0.1 - 49, width: size.width * 0.5 - 9,

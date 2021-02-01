@@ -110,12 +110,9 @@ class _LibraryState extends State<Library> {
           textcolor: Colors.black,
         )),
         actions: [
-          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),
-        ],
-      ),
-      body: Container(
-        // color: Colors.pink,
-        child: ListView(children: [
+          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),],),
+      body: Container( // color: Colors.pink,
+       child: ListView(children: [
           Column(
             children: [
               Container(
@@ -124,8 +121,7 @@ class _LibraryState extends State<Library> {
                 child: Row(
                   children: [
                     SizedBox(
-                      width: size.width * 0.7 + 20,
-                    ),
+                      width: size.width * 0.7 + 20,),
                     Myicon(
                         icon: Icons.sync,
                         size: size.width * 0.060,
@@ -133,11 +129,8 @@ class _LibraryState extends State<Library> {
                     Myicon(
                         icon: Icons.shuffle_sharp,
                         size: size.width * 0.06,
-                        ontap: () {}),
-                  ],
-                ),
-                color: Colors.white,
-              ),
+                        ontap: () {}),],),
+                color: Colors.white,),
               Container(
                 width: double.infinity,
                 height: size.height * 0.8 + 30,
@@ -152,16 +145,14 @@ class _LibraryState extends State<Library> {
                           Flexible(
                               child: Row(
                             children: [
-                              Container(
-                                margin:
-                                    EdgeInsets.only(left: size.width * 0.04),
-                                child: Text(
-                                  groupByValue,
-                                  textAlign: TextAlign.start,
-                                  style:
-                                      TextStyle(fontSize: size.width * 0.050),
-                                ),
-                              )
+                          Container(
+                         margin:
+                        EdgeInsets.only(left: size.width * 0.04),
+                      child: Text(
+                     groupByValue,
+                   textAlign: TextAlign.start,
+                  style:
+                 TextStyle(fontSize: size.width * 0.050),),)
                             ],
                           ))
                         ],
@@ -181,14 +172,11 @@ class _LibraryState extends State<Library> {
                             Expanded(
                                 child: ColorFiltered(
                               colorFilter: ColorFilter.matrix(
-                                [
-                                  0.2126, 0.7152, 0.0722, 0, 0,
+                                [0.2126, 0.7152, 0.0722, 0, 0,
                                   0.2126, 0.7152, 0.0722, 0,
                                   0, //this color image change(black)
                                   0.2126, 0.7152, 0.0722, 0, 0,
-                                  0, 0, 0, 1, 0,
-                                ],
-                              ),
+                                  0, 0, 0, 1, 0,],),
                               child: Container(
                                 height: size.height * 0.075,
                                 child: Image(
@@ -199,9 +187,8 @@ class _LibraryState extends State<Library> {
                             )),
                             Expanded(
                               flex: 5,
-                              child: Container(
-                                height: size.height * 0.1 - 22,
-                                // color: Colors.pink,
+                              child: Container( // color: Colors.pink,
+                                height: size.height * 0.1 - 22,                               
                                 padding: EdgeInsets.only(bottom: 5),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
@@ -218,13 +205,10 @@ class _LibraryState extends State<Library> {
                                     Padding(
                                       padding: EdgeInsets.only(
                                           left: size.width * 0.03,
-                                          right: 10,
-                                          top: 6),
-                                      child: Container(
-                                          //  color: Colors.amber,
+                                          right: 10, top: 6),
+                                      child: Container( //  color: Colors.amber,                                       
                                           margin: EdgeInsets.only(
-                                            left: size.width * 0.02,
-                                          ),
+                                            left: size.width * 0.02,),
                                           child: Mytextstyle(
                                             textcolor: Colors.black,
                                             fontsizetext: size.width * 0.041,
@@ -247,8 +231,7 @@ class _LibraryState extends State<Library> {
                           ],
                         ),
                       ),
-                    );
-                  },
+                    );},
                   itemComparator: (item1, item2) =>
                       item1['title'].compareTo(item2['title']), // optional
                   useStickyGroupSeparators: true, // optional

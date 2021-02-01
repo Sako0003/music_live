@@ -50,12 +50,10 @@ class _SettingState extends State<Setting> {
           children: [
             SettingConnectionTextCont(
               fontSize: size.width * 0.05,
-              text: 'Connection',
-            ),
+              text: 'Connection',),
             Row(
               children: [
-                Container(
-                  //  color: Colors.brown,
+                Container(//  color: Colors.brown,                 
                   padding: EdgeInsets.only(left: 20),
                   alignment: Alignment.centerLeft,
                   height: size.height * 0.050,
@@ -63,8 +61,7 @@ class _SettingState extends State<Setting> {
                   child: Mytextstyle(
                     textcolor: Colors.black87,
                     text: 'veliliturakljdda@gmail.com',
-                    fontsizetext: size.width * 0.04,
-                  ),
+                    fontsizetext: size.width * 0.04,),
                 ),
                 InkWell(
                     onTap: () {},
@@ -121,9 +118,8 @@ class _SettingState extends State<Setting> {
                   notification = val;
                 });
                 if (notification) {
-                  //seyfeye gedrfrn
-
-                }},
+                  //seyfeye gedrfrn 
+                  }},
               text: 'Notification',
               value: notification,
             ),
