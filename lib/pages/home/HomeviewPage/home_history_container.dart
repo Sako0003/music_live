@@ -62,7 +62,10 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                   child: Row(
                     children: [
                       ImageContainer(
-                        withcont:ScreenUtil().setHeight(63) ,contmarginn: EdgeInsets.only(left: 20),imageradius: 1,imageurl: mylist[index].image,),
+                        withcont:ScreenUtil().setHeight(63) ,
+                        contmarginn: EdgeInsets.only(left: 20),
+                        imageradius: 1,
+                        imageurl: mylist[index].image,),
                       Container(
                         padding: EdgeInsets.only(
                           left: 10,
