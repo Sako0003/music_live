@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:flutter_share/flutter_share.dart';
-import 'package:music_live/pages/parts/sesartiran_cont.dart';
+//import 'package:music_live/pages/parts/sesartiran_cont.dart';
 import 'package:music_live/utils/drawer/drawerdownloads/drawer_downoads.dart';
 import 'package:music_live/utils/variables.dart';
 import 'showdialoq_1musicplayer.dart';
@@ -89,7 +89,7 @@ class _MusicplayerState extends State<Musicplayer> {
                   imageurl: Variables.noImage),
             ),
             SliderPlayercontainer(),
-            SesartiranCont(),
+           // SesartiranCont(),
           ],
         ),
       ]),

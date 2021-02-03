@@ -10,6 +10,7 @@ import 'package:flutter/services.dart';
 //import 'package:audioplayers/audioplayers.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
+import 'package:music_live/pages/parts/sesartiran_cont.dart';
 import 'package:path_provider/path_provider.dart';
 
 class SliderPlayercontainer extends StatefulWidget {
@@ -17,29 +18,27 @@ class SliderPlayercontainer extends StatefulWidget {
   _SliderPlayercontainerState createState() => _SliderPlayercontainerState();
 }
 
-
 class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
- 
-
- 
-
-String _platformVersion = 'Unknown';
+ // String _platformVersion = 'Unknown';
   bool isPlaying = true;
   Duration _duration;
   Duration _position;
   double _slider;
+  // ignore: unused_field
   double _sliderVolume;
+  // ignore: unused_field
   String _error;
+ 
   num curIndex = 0;
   PlayMode playMode = AudioManager.instance.playMode;
 
   final list = [
-    {
-      "title": "Assets",
-      "desc": "assets playback",
-      "url": "assets/xv.mp3",
-      "coverUrl": "assets/ic_launcher.png"
-    },
+    // {
+    //   "title": "Assets",
+    //   "desc": "assets playback",
+    //   "url": "assets/xv.mp3",
+    //   "coverUrl": "assets/ic_launcher.png"
+    // },
     {
       "title": "network",
       "desc": "network resouce playback",
@@ -52,9 +51,9 @@ String _platformVersion = 'Unknown';
   void initState() {
     super.initState();
 
-    initPlatformState();
+   // initPlatformState();
     setupAudio();
-    loadFile();
+     loadFile();
   }
 
   @override
@@ -62,7 +61,6 @@ String _platformVersion = 'Unknown';
     AudioManager.instance.release();
     super.dispose();
   }
-
 
   void setupAudio() {
     List<AudioInfo> _list = [];
@@ -84,6 +82,7 @@ String _platformVersion = 'Unknown';
           _slider = 0;
           setState(() {});
           break;
+          ///en son bunu sildin
         case AudioManagerEvents.ready:
           print("ready to play");
           _error = null;
@@ -91,8 +90,8 @@ String _platformVersion = 'Unknown';
           _position = AudioManager.instance.position;
           _duration = AudioManager.instance.duration;
           setState(() {});
-          // if you need to seek times, must after AudioManagerEvents.ready event invoked
-          // AudioManager.instance.seekTo(Duration(seconds: 10));
+          //if you need to seek times, must after AudioManagerEvents.ready event invoked
+         // AudioManager.instance.seekTo(Duration(seconds: 10));
           break;
         case AudioManagerEvents.seekComplete:
           _position = AudioManager.instance.position;
@@ -113,7 +112,7 @@ String _platformVersion = 'Unknown';
           setState(() {});
           AudioManager.instance.updateLrc(args["position"].toString());
           break;
-        case AudioManagerEvents.error:
+        case AudioManagerEvents.error:///en son bunu sildin
           _error = args;
           setState(() {});
           break;
@@ -128,8 +127,9 @@ String _platformVersion = 'Unknown';
           break;
       }
     });
-  } 
-void loadFile() async {
+  }
+
+  void loadFile() async {
     // read bundle file to local path
     final audioFile = await rootBundle.load("assets/aLIEz.m4a");
     final audio = audioFile.buffer.asUint8List();
@@ -147,26 +147,27 @@ void loadFile() async {
     AudioManager.instance.audioList.add(info);
     setState(() {});
   }
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    try {
-      platformVersion = await AudioManager.instance.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-    if (!mounted) return;
 
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
+  // Future<void> initPlatformState() async {
+  //   String platformVersion;
+  //   try {
+  //     platformVersion = await AudioManager.instance.platformVersion;
+  //   } on PlatformException {
+  //     platformVersion = 'Failed to get platform version.';
+  //   }
+  //   if (!mounted) return;
+
+  //   setState(() {
+  //     _platformVersion = platformVersion;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       // color: Colors.green,
-      height: size.height * 0.4 - 22,
+      height: size.height * 0.465 ,
       width: size.width * 1,
       child: Column(
         children: [
@@ -179,15 +180,13 @@ void loadFile() async {
                 Mytextstyle(
                   textcolor: Colors.black54,
                   fontsizetext: size.width * 0.040,
-                  text:
-                       _formatDuration(_duration),//.toString(),
+                  text: _formatDuration(_position), 
                 ),
                 Spacer(), //
                 Mytextstyle(
                   textcolor: Colors.black54,
                   fontsizetext: size.width * 0.040,
-                  text:
-                       _formatDuration(_duration),//.toString(),
+                  text: _formatDuration(_duration), 
                 ),
               ],
             ),
@@ -212,7 +211,7 @@ void loadFile() async {
                   activeTrackColor: Colors.black87,
                   inactiveTrackColor: Colors.grey,
                 ),
-                child: Slider(//burda qaldin
+                child: Slider(
                   value: _slider ?? 0,
                   onChanged: (value) {
                     setState(() {
@@ -231,16 +230,28 @@ void loadFile() async {
           ),
           Container(
               //color: Colors.amber,
-              margin: EdgeInsets.only(top: 15),
+             // margin: EdgeInsets.only(top: 15),
               alignment: Alignment.center,
-              height: size.height * 0.1 - 49,
+              height: size.height * 0.1 - 29,
               width: size.width * 0.5 - 9,
-              child: Mytextstyle(
-                  text: 'Jaybal ',
-                  textcolor: Colors.black54,
-                  fontsizetext: size.width * 0.1 - 20)),
+              child: Expanded(
+                child: ListView.separated(
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        // title: Text(list[index]["title"],
+                        //     style: TextStyle(fontSize: 18)),
+                        subtitle: Text(list[index]["desc"]),
+                        onTap: () => AudioManager.instance.play(index: index),
+                      );
+                    },
+                    separatorBuilder: (BuildContext context, int index) =>
+                         Divider(),
+                    itemCount: list.length),
+              ),
+           
+              ),
           Container(
-              alignment: Alignment.center, //  color: Colors.green,
+              alignment: Alignment.center,  // color: Colors.pink,
               height: size.height * 0.1 - 45,
               width: size.width * 0.8,
               child: Mytextstyle(
@@ -249,55 +260,52 @@ void loadFile() async {
                 fontsizetext: size.width * 0.1 - 15,
               )),
           Container(
-            alignment: Alignment.center, // color: Colors.amber,
+            alignment: Alignment.center, // color: Colors.brown,
             height: size.height * 0.2 - 25, width: size.width * 0.8,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [//size: size.width * 0.065,
+              children: [
+                //size: size.width * 0.065,
                 IconButton(
-                    icon: getPlayModeIcon(playMode), onPressed: () {
-                     playMode = AudioManager.instance.nextMode();
-                      setState(() {
-                        
-                      });
-                    },
-    
-                    ),
+                  icon: getPlayModeIcon(playMode),
+                  onPressed: () {
+                    playMode = AudioManager.instance.nextMode();
+                    setState(() {});
+                  },
+                ),
                 Myicon(
                     icon: Icons.skip_previous,
                     size: size.width * 0.090,
-                    ontap: () => AudioManager.instance.previous()
-                    ),
+                    ontap: () => AudioManager.instance.previous()),
                 CircleAvatar(
                   backgroundColor: Colors.black,
                   radius: size.width * 0.090,
                   child: IconButton(
-              onPressed: () async {
-                bool playing = await AudioManager.instance.playOrPause();
-                print("await -- $playing");
-              },
-              padding: const EdgeInsets.all(0.0),
-              icon: Icon(
-                isPlaying ? Icons.pause : Icons.play_arrow,
-                size: size.width * 0.1,
-                color: Colors.white,
-              ),
-            ),
+                    onPressed: () async {
+                      bool playing = await AudioManager.instance.playOrPause();
+                      print("await  $playing");
+                    },
+                    padding: const EdgeInsets.all(0.0),
+                    icon: Icon(
+                      isPlaying ? Icons.pause : Icons.play_arrow,
+                      size: size.width * 0.1,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
                 Myicon(
                     icon: Icons.skip_next,
                     size: size.width * 0.090,
-                    ontap:() => AudioManager.instance.next()
-                    ),
+                    ontap: () => AudioManager.instance.next()),
                 Myicon(
                     icon: Icons.shuffle_sharp,
                     size: size.width * 0.065,
                     ontap: () {
-                      Navigator.pushNamed(context, '/mahnitest');
+                     // Navigator.pushNamed(context, '/mahnitest');
                     }),
               ],
             ),
-          ),
+          ),SesartiranCont()
         ],
       ),
     );
@@ -305,32 +313,32 @@ void loadFile() async {
 }
 
 String _formatDuration(Duration d) {
-    if (d == null) return "--:--";
-    int minute = d.inMinutes;
-    int second = (d.inSeconds > 60) ? (d.inSeconds % 60) : d.inSeconds;
-    String format = ((minute < 10) ? "0$minute" : "$minute") +
-        ":" +
-        ((second < 10) ? "0$second" : "$second");
-    return format;
-  }
- Widget getPlayModeIcon(PlayMode playMode) {
-    switch (playMode) {
-      case PlayMode.sequence:
-        return Icon(
-          Icons.repeat,
-          color: Colors.black,
-        );
-      case PlayMode.shuffle:
-        return Icon(
-          Icons.shuffle,
-          color: Colors.black,
-        );
-      case PlayMode.single:
-        return Icon(
-          Icons.repeat_one,
-          color: Colors.black,
-        );
-    }
-    return Container();
-  }
+  if (d == null) return "--:--";
+  int minute = d.inMinutes;
+  int second = (d.inSeconds > 60) ? (d.inSeconds % 60) : d.inSeconds;
+  String format = ((minute < 10) ? "0$minute" : "$minute") +
+      ":" +
+      ((second < 10) ? "0$second" : "$second");
+  return format;
+}
 
+Widget getPlayModeIcon(PlayMode playMode) {
+  switch (playMode) {
+    case PlayMode.sequence:
+      return Icon(
+        Icons.repeat,
+        color: Colors.black,
+      );
+    case PlayMode.shuffle:
+      return Icon(
+        Icons.shuffle,
+        color: Colors.black,
+      );
+    case PlayMode.single:
+      return Icon(
+        Icons.repeat_one,
+        color: Colors.black,
+      );
+  }
+  return Container();
+}
