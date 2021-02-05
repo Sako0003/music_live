@@ -28,7 +28,7 @@ class _HomePageViewState extends State<HomePageView> {
       appBar: AppBar(
         leading: Myicon(
             icon: Icons.menu,
-            size: ScreenUtil().radius(25),
+            size: ScreenUtil().radius(30),
             ontap: () {
               //bu drayverin iconunu deyisdim rengine gore
               scaffolfkey.currentState.openDrawer();
@@ -47,6 +47,7 @@ class _HomePageViewState extends State<HomePageView> {
                 hintText: 'Search..',
                 suffixIcon: Myicon(
                   icon: Icons.search,
+                  size: ScreenUtil().radius(25),
                   ontap: () {},
                 )),
           ),

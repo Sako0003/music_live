@@ -29,7 +29,8 @@ class SeallContainer extends StatelessWidget {
             Text(
               text,
               style: TextStyle(
-                  fontSize: ScreenUtil().setSp(17, allowFontScalingSelf: true),
+                  fontSize: ScreenUtil().setSp(17,// allowFontScalingSelf: true
+                  ),
                   fontWeight: FontWeight.bold),
             ),
             InkWell(
@@ -38,7 +39,8 @@ class SeallContainer extends StatelessWidget {
                 textn,
                 style: TextStyle(
                     fontSize:
-                        ScreenUtil().setSp(17, allowFontScalingSelf: true),
+                        ScreenUtil().setSp(17, //allowFontScalingSelf: true
+                        ),
                     fontWeight: FontWeight.bold,
                     color: Colors.black54),
               ),

@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:flutter_share/flutter_share.dart';
 import 'package:music_live/Musicplayer/showdialoq_1musicplayer.dart';
 import 'package:music_live/model/song.dart';
@@ -111,7 +112,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
         backgroundColor: Colors.white10,
         leading: Myicon(
           icon: Icons.chevron_left,
-          size: size.width * 0.090,
+          size: ScreenUtil().radius(31),
           ontap: () {
             Navigator.pop(context);
           },
@@ -119,7 +120,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
         actions: [
           Myicon(
               icon: Icons.save_alt,
-              size: size.width * 0.070,
+              size: ScreenUtil().radius(26),
               ontap: () {
                 if (this.mounted) {
                   setState(() {
@@ -138,6 +139,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                 }
               }),
           Myicon(
+            size: ScreenUtil().radius(25),
             icon: Icons.share,
             ontap: () => share(mysong.musicurl, mysong.title, mysong.imageUrl),
           ),
@@ -145,7 +147,7 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
             padding: const EdgeInsets.only(right: 10),
             child: Myicon(
                 icon: Icons.control_point,
-                size: size.width * 0.070,
+                size: ScreenUtil().radius(25),
                 ontap: () {
                   // this code showdialoq inside
                   showDialoqFunc(context);
@@ -158,35 +160,39 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
         //   height: size.height * 0.465,
         alignment: Alignment.center,
         child: ListView(
+          scrollDirection: Axis.vertical,
           children: [
-            Container(
-              height: size.height * 0.4 + 20,
-              width: size.width * 1,
-              // color: Colors.amber,
-              margin: EdgeInsets.only(left: 10, right: 10),
-              child: ImageContainer(
-                withcont: size.width * 0.7,
-                heightcont: size.height * 0.4 + 20,
-                imageradius: 1,
-                contmarginn: EdgeInsets.only(left: 25, right: 25),
-                imageurl: mysong.imageUrl,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 15, left: 15, right: 15),
-              height: size.height * 0.1 - 50,
-              width: size.width * 0.9 - 30,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  //height: size.height * 0.4 + 20,
+                 // width: size.width * 1,
+                  // color: Colors.pink,
+                  margin: EdgeInsets.only(left: 10, right: 10),
+                  child: ImageContainer(
+                    //withcont: size.width * 0.7,
+                    heightcont: size.height * 0.425,
+                    imageradius: 1,
+                    contmarginn: EdgeInsets.only(left: 25, right: 25),
+                    imageurl: mysong.imageUrl,
+                  ),
+                ),Container(
+              //color: Colors.amber,
+              margin: EdgeInsets.only(top: 10, left: 15, right: 15),
+              height:ScreenUtil().setHeight(23),
+              //width: size.width * 0.9 - 30,
               child: Row(
                 children: [
                   Mytextstyle(
                     textcolor: Colors.black54,
-                    fontsizetext: size.width * 0.040,
+                    fontsizetext: ScreenUtil().setSp(14,),
                     text: _formatDuration(_position),
                   ),
                   Spacer(), //
                   Mytextstyle(
                     textcolor: Colors.black54,
-                    fontsizetext: size.width * 0.040,
+                    fontsizetext: ScreenUtil().setSp(14,),
                     text: _formatDuration(_duration),
                   ),
                 ],
@@ -211,21 +217,18 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                       overlayRadius: 10,
                     ),
                     activeTrackColor: Colors.black87,
-                    inactiveTrackColor: Colors.grey,
-                  ),
+                    inactiveTrackColor: Colors.grey,),
                   child: Slider(
                     value: _slider ?? 0,
                     onChanged: (value) {
                       setState(() {
                         _slider = value;
-                      });
-                    },
+                      });},
                     onChangeEnd: (value) async {
                       if (_duration != null) {
                         Duration msec = Duration(
                             milliseconds:
                                 (_duration.inMilliseconds * value).round());
-
                         await audioPlayer.seek(msec);
                       }
                     },
@@ -233,39 +236,40 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
             ),
             Container(
                 alignment: Alignment.center, // color: Colors.green,
-                height: size.height * 0.1 - 45,
-                width: size.width * 0.8,
+                height: ScreenUtil().setHeight(23),
+               // width: size.width * 0.2,
                 child: Mytextstyle(
                   text: mysong.title,
                   textcolor: Colors.black54,
-                  fontsizetext: size.width * 0.1 - 25,
+                  fontsizetext:ScreenUtil().setSp(17,),
                 )),
             Container(
-                alignment: Alignment.center, //  color: Colors.pink,
-                height: size.height * 0.1 - 45,
-                width: size.width * 0.8,
+                alignment: Alignment.center,  // color: Colors.pink,
+                height: ScreenUtil().setHeight(33),
+               // width: size.width * 0.8,
                 child: Mytextstyle(
                   text: mysong.musicstil,
                   textcolor: Colors.black,
-                  fontsizetext: size.width * 0.1 - 15,
+                  fontsizetext: ScreenUtil().setSp(22,),
                 )),
             Container(
               alignment: Alignment.center, // color: Colors.brown,
-              height: size.height * 0.2 , width: size.width * 0.8,
+              height: ScreenUtil().setHeight(83), 
+              width: size.width * 0.8,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Myicon(
                       icon: Icons.repeat,
-                      size: size.width * 0.060,
+                      size: ScreenUtil().radius(23),
                       ontap: () {}),
                   Myicon(
                       icon: Icons.skip_previous,
-                      size: size.width * 0.090,
+                      size: ScreenUtil().radius(34),
                       ontap: () {}),
                   CircleAvatar(
                     backgroundColor: Colors.black,
-                    radius: size.width * 0.090,
+                    radius: ScreenUtil().radius(35),
                     child: IconButton(
                       onPressed: () {
                         if (isPlaying)
@@ -276,18 +280,18 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
                       padding: const EdgeInsets.all(0.0),
                       icon: Icon(
                         isPlaying ? Icons.pause : Icons.play_arrow,
-                        size: size.width * 0.1,
+                        size: ScreenUtil().radius(34),
                         color: Colors.white,
                       ),
                     ),
                   ),
                   Myicon(
                       icon: Icons.skip_next,
-                      size: size.width * 0.090,
+                      size: ScreenUtil().radius(34),
                       ontap: () {}),
                   Myicon(
                       icon: Icons.shuffle,
-                      size: size.width * 0.060,
+                      size: ScreenUtil().radius(23),
                       ontap: () {
                         mylist2.shuffle();
                       }),
@@ -295,6 +299,9 @@ class _SliderPlayercontainerState extends State<SliderPlayercontainer> {
               ),
             ),
             SesartiranCont(audioPlayer: audioPlayer)
+              ],
+            ),
+            
           ],
         ),
       ),

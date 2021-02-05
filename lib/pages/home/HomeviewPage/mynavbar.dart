@@ -16,7 +16,7 @@ class _MyNavbarState extends State<MyNavbar> {
   @override
   Widget build(BuildContext context) {
     return Container(
-       width: double.infinity,
+       width: ScreenUtil().setWidth(690), 
        height:ScreenUtil().setHeight(111), 
       decoration: BoxDecoration(
         borderRadius: BorderRadius.only(

@@ -42,96 +42,98 @@ class _SettingState extends State<Setting> {
           SizedBox(width: size.width * 0.06),
         ],
       ),
-      body: Container(
-        color: Colors.white10,
-        height: size.height * 1,
-        width: double.infinity,
-        child: Column(
-          children: [
-            SettingConnectionTextCont(
-              fontSize: size.width * 0.05,
-              text: 'Connection',),
-            Row(
-              children: [
-                Container(//  color: Colors.brown,                 
-                  padding: EdgeInsets.only(left: 20),
-                  alignment: Alignment.centerLeft,
-                  height: size.height * 0.050,
-                  width: size.width * 0.8 - 10,
-                  child: Mytextstyle(
-                    textcolor: Colors.black87,
-                    text: 'veliliturakljdda@gmail.com',
-                    fontsizetext: size.width * 0.04,),
-                ),
-                InkWell(
-                    onTap: () {},
-                    splashColor: Colors.white,
-                    hoverColor: Colors.white,
-                    highlightColor: Colors.white,
-                    focusColor: Colors.white,
+      body: SafeArea(
+              child: Container(
+          color: Colors.white10,
+          height: size.height * 1,
+          width: double.infinity,
+          child: Column(
+            children: [
+              SettingConnectionTextCont(
+                fontSize: size.width * 0.05,
+                text: 'Connection',),
+              Row(
+                children: [
+                  Container(//  color: Colors.brown,                 
+                    padding: EdgeInsets.only(left: 20),
+                    alignment: Alignment.centerLeft,
+                    height: size.height * 0.050,
+                    width: size.width * 0.8 - 10,
                     child: Mytextstyle(
-                      fontsizetext: size.width * 0.045,
                       textcolor: Colors.black87,
-                      text: 'Log out',
-                    )),
-              ],
-            ),
-            DarkModeCont(
-            ),
-            SettingConnectionTextCont(
-              fontSize: size.width * 0.05,
-              text: 'Playback',
+                      text: 'veliliturakljdda@gmail.com',
+                      fontsizetext: size.width * 0.04,),
+                  ),
+                  InkWell(
+                      onTap: () {},
+                      splashColor: Colors.white,
+                      hoverColor: Colors.white,
+                      highlightColor: Colors.white,
+                      focusColor: Colors.white,
+                      child: Mytextstyle(
+                        fontsizetext: size.width * 0.045,
+                        textcolor: Colors.black87,
+                        text: 'Log out',
+                      )),
+                ],
               ),
-            Switchlistcontanorrr(
-              onchanged: (val) {
-                setState(() {
-                  offline = val;
-                });
-                if (offline) { //seyfeye gedis
-                 }},
-              text: 'Offline Mode',
-              value: offline,
-            ),
-            Switchlistcontanorrr(
-              onchanged: (val) {
-                setState(() {
-                  autoplay = val;
-                });
-                if (autoplay) {//seyfeye gedis
-                  }},
-              text: 'Auto Pay',
-              value: autoplay,
-            ),
-            Switchlistcontanorrr(
-              onchanged: (val) {
-                setState(() {
-                  isscipsliencetrack = val;
-                });
-                if (isscipsliencetrack) {//seyfeye gedrfrn
-                  }},
-              text: 'Scip Slience between track',
-              value: isscipsliencetrack,
-            ),
-            Switchlistcontanorrr(
-              onchanged: (val) {
-                setState(() {
-                  notification = val;
-                });
-                if (notification) {
-                  //seyfeye gedrfrn 
-                  }},
-              text: 'Notification',
-              value: notification,
-            ),
-            SettingLanguageCashContainer(
-              ontap: () {},
-              text: 'Clear Cash',
-            ),
-            SettingLanguageCashContainer(
-              ontap: () {},
-              text: 'Language',
-            ),
-          ],
+              DarkModeCont(
+              ),
+              SettingConnectionTextCont(
+                fontSize: size.width * 0.05,
+                text: 'Playback',
+                ),
+              Switchlistcontanorrr(
+                onchanged: (val) {
+                  setState(() {
+                    offline = val;
+                  });
+                  if (offline) { //seyfeye gedis
+                   }},
+                text: 'Offline Mode',
+                value: offline,
+              ),
+              Switchlistcontanorrr(
+                onchanged: (val) {
+                  setState(() {
+                    autoplay = val;
+                  });
+                  if (autoplay) {//seyfeye gedis
+                    }},
+                text: 'Auto Pay',
+                value: autoplay,
+              ),
+              Switchlistcontanorrr(
+                onchanged: (val) {
+                  setState(() {
+                    isscipsliencetrack = val;
+                  });
+                  if (isscipsliencetrack) {//seyfeye gedrfrn
+                    }},
+                text: 'Scip Slience between track',
+                value: isscipsliencetrack,
+              ),
+              Switchlistcontanorrr(
+                onchanged: (val) {
+                  setState(() {
+                    notification = val;
+                  });
+                  if (notification) {
+                    //seyfeye gedrfrn 
+                    }},
+                text: 'Notification',
+                value: notification,
+              ),
+              SettingLanguageCashContainer(
+                ontap: () {},
+                text: 'Clear Cash',
+              ),
+              SettingLanguageCashContainer(
+                ontap: () {},
+                text: 'Language',
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -20,6 +20,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+      
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -28,7 +29,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.only(
-                left: 18,
+                left: 20,
                 right: 18,
               ),
               child: Row(
@@ -47,9 +48,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                     child: Mytextstyle(
                       textcolor: Colors.black54,
                       text: "See All",
-                      fontsizetext: ScreenUtil().setSp(
-                        17,
-                      ),
+                      fontsizetext: ScreenUtil().setSp(17,),
                     ),
                   )
                 ],
@@ -70,7 +69,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                   // color: Colors.green,
                   height: ScreenUtil().setHeight(60),
                   width: double.infinity,
-                  child: Row(
+                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       ImageContainer(
                         withcont: ScreenUtil().setHeight(63),
@@ -93,17 +92,14 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                                   child: Mytextstyle(
                                     textcolor: Colors.black54,
                                     text: 'Andro',
-                                    fontsizetext: ScreenUtil().setSp(
-                                      15,
-                                    ),
-                                  )), //
-                            ),
+                                    fontsizetext: ScreenUtil().setSp(15,),
+                                    )),),
                             Flexible(
                               //Colors.black,
                               child: Container(
                                   width: ScreenUtil().screenWidth / 2 + 43,
                                   alignment: Alignment.topLeft,
-                                  //  color: Colors.pink,
+                                  // color: Colors.pink,
                                   child: Mytextstyle(
                                     fontsizetext: ScreenUtil().setSp(
                                       16,
@@ -126,14 +122,12 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                             ));
                           },
                           child: Container(
-                            // color: Colors.amber,
-                            margin: const EdgeInsets.only(
-                              left: 8,
-                            ),
+                            padding: EdgeInsets.only(right: 17),
+                            
                             child: Icon(
                               Icons.add_circle_outline,
                               color: Colors.black,
-                              size: 29,
+                              size: ScreenUtil().radius(27),
                             ),
                           )),
                     ],

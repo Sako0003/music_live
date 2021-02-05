@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/Musicplayer/showdialoq_2musicplayer.dart';
 import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
@@ -32,12 +33,12 @@ showDialoqFunc(
                   child:
                   Mytextstyle(
                   text:'Add To Playlist',
-                   fontsizetext:MediaQuery.of(context).size.width * 0.040,
+                   fontsizetext:ScreenUtil().setSp(17,),
                    textcolor:Colors.black54 ,), ),
-                Container( // color: Colors.black,
+                Container(  color: Colors.black,
                   //Liswiew container               
                   alignment: Alignment.centerLeft,
-                  height: MediaQuery.of(context).size.height * 0.2 + 24,
+                  height: ScreenUtil().setHeight(153),
                   width: MediaQuery.of(context).size.width * 0.8,
                   child:
                       ListView.builder(
@@ -50,7 +51,7 @@ showDialoqFunc(
                             children: [
                          ImageContainer(
                  withcont: MediaQuery.of(context).size.width * 0.8,
-                 heightcont:MediaQuery.of(context).size.height * 0.092,
+                 heightcont:ScreenUtil().setHeight(55),
                  imageradius: 8,
                  contmarginn:EdgeInsets.only(bottom: 19),
                  imageurl: mylist2[index].imageUrl),
@@ -58,14 +59,14 @@ showDialoqFunc(
                 left: MediaQuery.of(context).size.width * 0.025,
                 child:
                  Mytextstyle(
-                   fontsizetext:MediaQuery.of(context).size.width * 0.040, 
+                   fontsizetext:ScreenUtil().setSp(7,), 
                    textcolor:Colors.white,
                    text:'Learn' ,)
                )  
                , Positioned(top:MediaQuery.of(context).size.height * 0.010,
                right: MediaQuery.of(context).size.width * 0.025,
                child: Icon(Icons.more_horiz,color: Colors.white,
-               size: MediaQuery.of(context).size.width * 0.040,)),
+               size: ScreenUtil().radius(24),)),
                  ], );
                  },), 
                 ),
@@ -74,9 +75,9 @@ showDialoqFunc(
                      newplaylistFunc(
                   context,); },
                   child: Container( //New play list container               
-                    margin: EdgeInsets.only(bottom: 10),
+                    margin: EdgeInsets.only(bottom: 8),
                     alignment: Alignment.centerLeft,
-                    height: MediaQuery.of(context).size.height * 0.092,
+                    height: ScreenUtil().setHeight(55),
                     width: MediaQuery.of(context).size.width * 0.8,
                     decoration: BoxDecoration(
                         color: Colors.black,
@@ -85,11 +86,11 @@ showDialoqFunc(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Mytextstyle(
-                   fontsizetext:MediaQuery.of(context).size.width * 0.045, 
+                   fontsizetext:ScreenUtil().setSp(17,),
                    textcolor:Colors.white,
                    text:'New playlist' ,), 
                         Icon(Icons.add,color: Colors.white,
-                            size: MediaQuery.of(context).size.width * 0.059,),                       
+                            size: ScreenUtil().radius(27),),                       
                         ],), 
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 ///Bu 2 ci acilan Showdialoq
 newplaylistFunc(
@@ -31,7 +32,7 @@ newplaylistFunc(
                   child:
                    Mytextstyle(
                   text: 'New Playlist',
-                   fontsizetext:MediaQuery.of(context).size.width * 0.037,
+                   fontsizetext:ScreenUtil().setSp(22,), 
                    textcolor:Colors.black ,
                    ),
                 ),
@@ -61,7 +62,7 @@ newplaylistFunc(
                         borderRadius: BorderRadius.circular(8)),
                         child: Center(
                           child: Mytextstyle(text:'Create',
-                          fontsizetext:MediaQuery.of(context).size.width * 0.055,
+                          fontsizetext:ScreenUtil().setSp(22,), 
                           textcolor:Colors.white,
                           )
                         ),

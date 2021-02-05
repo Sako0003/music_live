@@ -22,7 +22,7 @@ class _HomeVievMyplaylistContainerState
     extends State<HomeVievMyplaylistContainer> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 20),
@@ -32,7 +32,7 @@ class _HomeVievMyplaylistContainerState
             textn: 'See all',
           ),
         ),
-        Row(
+        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               height: ScreenUtil().setHeight(109),
@@ -50,7 +50,7 @@ class _HomeVievMyplaylistContainerState
                               imageurl: mylist2[index].imageUrl,
                               heightcont: ScreenUtil().setHeight(99),
                               contmarginn: EdgeInsets.only(left: 20),
-                            )),
+                            ),),
                   ],
                 ),
               ),

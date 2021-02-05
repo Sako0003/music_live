@@ -1,5 +1,6 @@
-import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import '../../pages/parts/mydrawer_liztname_container.dart';
 class MyDrawer extends StatefulWidget {
@@ -9,70 +10,85 @@ class MyDrawer extends StatefulWidget {
 class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    return Container(
-      height: size.height * 1,
-      width: size.width * 0.5 + 5,
-      child: Scaffold(
-        body: Drawer(
-          elevation: 0,
-          child: Container(
-            height: size.height * 1,
-            width: size.width * 0.5 - 10,
+  
+    return  Container(
             color: Colors.black,
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 21, top: 15),
-                  child: Container(//  color: Colors.amber,
-                    alignment: Alignment.centerLeft,
-                    height: size.height * 0.1,
-                    width: size.width * 0.3,
-                    child:
-                     Mytextstyle(
-                       textcolor: Colors.white,
-                       text:'Music',
-                     fontsizetext:size.width * 0.070,)
-                  ),
-                ),
-                MyDrawerlistNameContainer(
-                  ontap: () {
-                    Navigator.pushNamed(context, '/library');},
-                  text: 'Library',
-                  icon: Icons.music_note,
-                ),
-                MyDrawerlistNameContainer(
-                    ontap: () {
-                      Navigator.pushNamed(context, '/playlstdrawer');},
-                    text: 'Myplaylist',
-                    icon: Icons.queue_music),
-                MyDrawerlistNameContainer(
-                    ontap: () {
-                 Navigator.pushNamed(context, '/history');},
-                    text: 'History',
-                    icon: Icons.history),
-                    MyDrawerlistNameContainer(
-                    ontap: () {
-                    Navigator.pushNamed(context, '/download');},
-                    text: 'Downloads',
-                    icon: Icons.file_download),
-               MyDrawerlistNameContainer(
-                  ontap: () {
-                    Navigator.pushNamed(context, '/setting');},
-                  text: 'Setting',
-                  icon: Icons.brightness_7,
-                ),
-                MyDrawerlistNameContainer(
-                  ontap: () {
-                    Navigator.pushNamed(context,  '/registr');},
-                  text: 'Logout',
-                  icon: Icons.power_settings_new,
-                ),
-              ],
-            ),
-          ),
+          // height:ScreenUtil().setHeight(690),
+         width:ScreenUtil().setWidth(190),
+             // backgroundColor: Colors.black,
+      child: Drawer(
+            elevation: 0,
+            child: Scaffold(
+            body: Container(alignment: Alignment.center,
+         height:ScreenUtil().setHeight(690),
+         width:ScreenUtil().setWidth(190),
+                color: Colors.black,
+                child: Column(
+      children: [
+        Padding(
+              padding: const EdgeInsets.only( top: 25
+              ),
+              child: Container(  color: Colors.amber,
+                alignment: Alignment.center,
+                  width:ScreenUtil().setWidth(100),
+                child:
+                 Mytextstyle(                      
+                   textcolor: Colors.white,
+                   text:'Music',
+                 fontsizetext:ScreenUtil().setSp(25,),)
+              ),
         ),
-      ),
+        MyDrawerlistNameContainer(
+         contheight:ScreenUtil().setHeight(29),
+         contwidth:ScreenUtil().setWidth(133),
+              ontap: () {
+                Navigator.pushNamed(context, '/library');},
+              text: 'Library',
+              icon: Icons.music_note, ),
+                 MyDrawerlistNameContainer(
+                 contheight:ScreenUtil().setHeight(29),
+                 contwidth:ScreenUtil().setWidth(133),
+                ontap: () {
+                  Navigator.pushNamed(context, '/playlstdrawer');},
+                text: 'Myplaylist',
+                icon: Icons.queue_music,),
+                MyDrawerlistNameContainer(
+                contheight:ScreenUtil().setHeight(29),
+                contwidth:ScreenUtil().setWidth(133),
+                ontap: () {
+                Navigator.pushNamed(context, '/history');},
+                text: 'History',
+                icon: Icons.history),
+                MyDrawerlistNameContainer(
+                 contheight:ScreenUtil().setHeight(29),
+                contwidth:ScreenUtil().setWidth(133),
+                ontap: () {
+                Navigator.pushNamed(context, '/download');},
+                text: 'Downloads',
+                icon: Icons.file_download),
+                MyDrawerlistNameContainer(
+                contheight:ScreenUtil().setHeight(29),
+                contwidth:ScreenUtil().setWidth(133),
+                ontap: () {
+                Navigator.pushNamed(context, '/setting');},
+                text: 'Setting',
+              icon: Icons.brightness_7,
+        ),
+        MyDrawerlistNameContainer(
+              contheight:ScreenUtil().setHeight(29),
+         contwidth:ScreenUtil().setWidth(133),
+              ontap: () {
+                Navigator.pushNamed(context,  '/registr');},
+              text: 'Logout',
+              icon: Icons.power_settings_new,
+        ),
+      ],
+                  ),
+              ),
+            ),
+        ),
+            
+        
     );
   }
 }
