@@ -6,16 +6,16 @@ import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/drawer/drawerHistory/drawer_historyr.dart';
 
-List mydownload = [
+List mylist1 = [
   {
-    "albumId": 1,
+    "albumid": 1,
     "id": 1,
     "title": "Flutter progr",
     "url": "https://via.placeholder.com/600/92c952",
-    "thumbnailUrl":
+    "imageUrl":
         'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-    "author": 'DDDDD',
-    "date": '24/24/24',
+    "musicstil": 'DDDDD',
+    "datamusic": '24/24/24',
     "group": 'A',
   },
   {
@@ -23,9 +23,9 @@ List mydownload = [
     "id": 2,
     "title": "Androi",
     "url": "https://via.placeholder.com/600/771796",
-    "thumbnailUrl": "https://via.placeholder.com/150/771796",
-    "author": 'DDDDDDD',
-    "date": '24/24/24',
+    "imageUrl": "https://via.placeholder.com/150/771796",
+    "musicstil": 'DDDDDDD',
+    "datamusic": '24/24/24',
     "group": 'B',
   },
   {
@@ -33,9 +33,9 @@ List mydownload = [
     "id": 2,
     "title": "Androi",
     "url": "https://via.placeholder.com/600/771796",
-    "thumbnailUrl": "https://via.placeholder.com/150/771796",
-    "author": 'DDDDDDD',
-    "date": '24/24/24',
+    "imageUrl": "https://via.placeholder.com/150/771796",
+    "musicstil": 'DDDDDDD',
+    "datamusic": '24/24/24',
     "group": 'B',
   },
   {
@@ -43,9 +43,9 @@ List mydownload = [
     "id": 2,
     "title": "Androi",
     "url": "https://via.placeholder.com/600/771796",
-    "thumbnailUrl": "https://via.placeholder.com/150/771796",
-    "author": 'DDDDDDD',
-    "date": '24/24/24',
+    "imageUrl": "https://via.placeholder.com/150/771796",
+    "musicstil": 'DDDDDDD',
+    "datamusic": '24/24/24',
     "group": 'B',
   },
   {
@@ -53,9 +53,9 @@ List mydownload = [
     "id": 3,
     "title": "Bu group",
     "url": "https://via.placeholder.com/600/24f355",
-    "thumbnailUrl": "https://via.placeholder.com/150/24f355",
-    "author": 'DDDDDDD',
-    "date": '24/24/24',
+    "imageUrl": "https://via.placeholder.com/150/24f355",
+    "musicstil": 'DDDDDDD',
+    "datamusic": '24/24/24',
     "group": 'C',
   },
   {
@@ -63,9 +63,9 @@ List mydownload = [
     "id": 4,
     "title": "AVTOGROUP",
     "url": "https://via.placeholder.com/600/d32776",
-    "thumbnailUrl": "https://via.placeholder.com/150/d32776",
-    "author": 'DDDDDDD',
-    "date": '24/24/24',
+    "imageUrl": "https://via.placeholder.com/150/d32776",
+    "musicstil": 'DDDDDDD',
+    "datamusic": '24/24/24',
     "group": 'D',
   },
   {
@@ -73,10 +73,10 @@ List mydownload = [
     "id": 1,
     "title": "Flutter programin",
     "url": "https://via.placeholder.com/600/92c952",
-    "thumbnailUrl":
+    "imageUrl":
         'https://c.files.bbci.co.uk/203A/production/_107105280_488f082d-e3bf-4f7f-b6d2-d3aa0998facb.jpg',
-    "author": 'dfjkdshfjkds',
-    "date": '24/24/24',
+    "musicstil": 'dfjkdshfjkds',
+    "datamusic": '24/24/24',
     "group": 'A',
   },
 ];
@@ -143,7 +143,7 @@ class _DownloadsState extends State<Downloads> {
                   color: Colors.white10,
                   child: GroupedListView<dynamic, String>(
                     // scrollDirection: Axis.vertical,
-                    elements: mydownload,
+                    elements: mylist1,
                     groupBy: (element) => element['group'],
                     groupSeparatorBuilder: (String groupByValue) => Padding(
                         padding: EdgeInsets.all(3),
@@ -206,7 +206,7 @@ class _DownloadsState extends State<Downloads> {
 
                                           child: Image(
                                             image: NetworkImage(
-                                                element['thumbnailUrl']),
+                                                element["imageUrl"]),
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -247,7 +247,7 @@ class _DownloadsState extends State<Downloads> {
                                                       fontsizetext:
                                                           size.width * 0.041,
                                                       text:
-                                                          '${element['author']}',
+                                                          '${element["musicstil"]}',
                                                     )),
                                               ),
                                             ],

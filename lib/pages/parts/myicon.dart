@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-var myiconbutton = Myicon();
-
 class Myicon extends StatelessWidget {
   const Myicon({
     Key key,

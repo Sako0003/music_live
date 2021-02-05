@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:music_live/Musicplayer/slider_playercontainer.dart';
 import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/utils/variables.dart';
+
+//import 'package:music_live/utils/variables.dart';
+
 
 class HomeHistoryView extends StatefulWidget {
   HomeHistoryView({Key key}) : super(key: key);
@@ -31,18 +35,25 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Mytextstyle(
-                      textcolor:Colors.black ,text:"History" ,
-                      fontsizetext:ScreenUtil()
-                               .setSp(17,), ),
-                  InkWell(//,,  
+                    textcolor: Colors.black,
+                    text: "History",
+                    fontsizetext: ScreenUtil().setSp(
+                      17,
+                    ),
+                  ),
+                  InkWell(
+                    //,,
                     onTap: () {},
                     child: Mytextstyle(
-                      textcolor:Colors.black54 ,text:"See All" ,
-                      fontsizetext:ScreenUtil()
-                               .setSp(17,), ),
+                      textcolor: Colors.black54,
+                      text: "See All",
+                      fontsizetext: ScreenUtil().setSp(
+                        17,
+                      ),
+                    ),
                   )
                 ],
-               ),//
+              ), //
             ),
           ),
           Container(
@@ -52,7 +63,7 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
               shrinkWrap: true,
               physics: NeverScrollableScrollPhysics(),
               scrollDirection: Axis.vertical,
-              itemCount: mylist.length,
+              itemCount: mylist2.length,
               itemBuilder: (context, index) {
                 return Container(
                   margin: EdgeInsets.only(bottom: 10),
@@ -62,10 +73,11 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                   child: Row(
                     children: [
                       ImageContainer(
-                        withcont:ScreenUtil().setHeight(63) ,
+                        withcont: ScreenUtil().setHeight(63),
                         contmarginn: EdgeInsets.only(left: 20),
                         imageradius: 1,
-                        imageurl: mylist[index].image,),
+                        imageurl: mylist2[index].imageUrl,
+                      ),
                       Container(
                         padding: EdgeInsets.only(
                           left: 10,
@@ -76,31 +88,42 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
                           children: [
                             Flexible(
                               child: Container(
-                                width: ScreenUtil().screenWidth / 2 + 43,
-                                alignment: Alignment.centerLeft,
-                                child: Mytextstyle(textcolor: Colors.black54,
-                                  text:'Andro',
-                                  fontsizetext: ScreenUtil().setSp(15,
-                                         ),)
-                              ),// 
+                                  width: ScreenUtil().screenWidth / 2 + 43,
+                                  alignment: Alignment.centerLeft,
+                                  child: Mytextstyle(
+                                    textcolor: Colors.black54,
+                                    text: 'Andro',
+                                    fontsizetext: ScreenUtil().setSp(
+                                      15,
+                                    ),
+                                  )), //
                             ),
-                            Flexible(//Colors.black,
+                            Flexible(
+                              //Colors.black,
                               child: Container(
-                                width: ScreenUtil().screenWidth / 2 + 43,
-
-                                alignment: Alignment.topLeft,
-                                //  color: Colors.pink,
-                                child: Mytextstyle(fontsizetext:ScreenUtil().setSp(16,),
-                                    textcolor: Colors.black,     
-                                  text:'Touromusic',)
-                              ),
+                                  width: ScreenUtil().screenWidth / 2 + 43,
+                                  alignment: Alignment.topLeft,
+                                  //  color: Colors.pink,
+                                  child: Mytextstyle(
+                                    fontsizetext: ScreenUtil().setSp(
+                                      16,
+                                    ),
+                                    textcolor: Colors.black,
+                                    text: 'Touromusic',
+                                  )),
                             ),
                           ],
                         ),
                       ),
                       GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/musicplayer');
+                          onTap: () {                          
+                            Navigator.push(context, MaterialPageRoute(
+                              builder: (context) {
+                                return SliderPlayercontainer(
+                                  song: mylist2[index],
+                                );
+                              },
+                            ));
                           },
                           child: Container(
                             // color: Colors.amber,
@@ -124,4 +147,3 @@ class _HomeHistoryViewState extends State<HomeHistoryView> {
     );
   }
 }
-

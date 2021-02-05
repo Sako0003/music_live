@@ -4,27 +4,34 @@ import 'package:music_live/pages/parts/image_container.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
 import 'package:music_live/utils/variables.dart';
+
+
+
+
 class HomeVievMyplaylistContainer extends StatefulWidget {
   const HomeVievMyplaylistContainer({
     Key key,
   }) : super(key: key);
 
   @override
-  _HomeVievMyplaylistContainerState createState() => _HomeVievMyplaylistContainerState();
+  _HomeVievMyplaylistContainerState createState() =>
+      _HomeVievMyplaylistContainerState();
 }
 
-class _HomeVievMyplaylistContainerState extends State<HomeVievMyplaylistContainer> {
+class _HomeVievMyplaylistContainerState
+    extends State<HomeVievMyplaylistContainer> {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: SeallContainer(
-                    ontap: (){},
-                    text: 'My playlist',
-                    textn: 'See all',
-                  ),
-                ),
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: SeallContainer(
+            ontap: () {},
+            text: 'My playlist',
+            textn: 'See all',
+          ),
+        ),
         Row(
           children: [
             Container(
@@ -36,14 +43,14 @@ class _HomeVievMyplaylistContainerState extends State<HomeVievMyplaylistContaine
                 child: Row(
                   children: [
                     ...List.generate(
-                      mylist.length,
-                      (index) => ImageContainer(withcont:ScreenUtil().setWidth(100) ,
-                        imageradius: 10,
-                        imageurl:mylist[index].image ,
-                        heightcont:ScreenUtil().setHeight(99) ,
-                        contmarginn:EdgeInsets.only(left: 20) ,)
- 
-                    ),
+                        mylist2.length,
+                        (index) => ImageContainer(
+                              withcont: ScreenUtil().setWidth(100),
+                              imageradius: 10,
+                              imageurl: mylist2[index].imageUrl,
+                              heightcont: ScreenUtil().setHeight(99),
+                              contmarginn: EdgeInsets.only(left: 20),
+                            )),
                   ],
                 ),
               ),
@@ -61,15 +68,19 @@ class _HomeVievMyplaylistContainerState extends State<HomeVievMyplaylistContaine
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                   // Container(),
+                    // Container(),
                     Icon(
                       Icons.add,
                       color: Colors.white,
                       size: ScreenUtil().radius(25),
-                    ),//,
-                    Mytextstyle(fontsizetext:ScreenUtil().setSp(14,), 
-                      textcolor:Colors.white,
-                      text:'Add Playlist',),
+                    ), //,
+                    Mytextstyle(
+                      fontsizetext: ScreenUtil().setSp(
+                        14,
+                      ),
+                      textcolor: Colors.white,
+                      text: 'Add Playlist',
+                    ),
                   ],
                 ),
               ),

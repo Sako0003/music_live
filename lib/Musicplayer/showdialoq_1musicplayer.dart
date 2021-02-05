@@ -42,7 +42,7 @@ showDialoqFunc(
                   child:
                       ListView.builder(
                         scrollDirection: Axis.vertical,
-                        itemCount: mylist.length,
+                        itemCount: mylist2.length,
                         shrinkWrap: true,
                         itemBuilder: (context, index) {
                           return Stack(
@@ -53,7 +53,7 @@ showDialoqFunc(
                  heightcont:MediaQuery.of(context).size.height * 0.092,
                  imageradius: 8,
                  contmarginn:EdgeInsets.only(bottom: 19),
-                 imageurl: Variables.noImage),
+                 imageurl: mylist2[index].imageUrl),
                  Positioned(
                 left: MediaQuery.of(context).size.width * 0.025,
                 child:
