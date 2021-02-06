@@ -38,7 +38,7 @@ showDialoqFunc(
                 Container(  color: Colors.black,
                   //Liswiew container               
                   alignment: Alignment.centerLeft,
-                  height: ScreenUtil().setHeight(153),
+                  height: ScreenUtil().setHeight(160),
                   width: MediaQuery.of(context).size.width * 0.8,
                   child:
                       ListView.builder(
@@ -59,7 +59,7 @@ showDialoqFunc(
                 left: MediaQuery.of(context).size.width * 0.025,
                 child:
                  Mytextstyle(
-                   fontsizetext:ScreenUtil().setSp(7,), 
+                   fontsizetext:ScreenUtil().setSp(10,), 
                    textcolor:Colors.white,
                    text:'Learn' ,)
                )  

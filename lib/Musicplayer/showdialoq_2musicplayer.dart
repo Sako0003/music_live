@@ -32,7 +32,7 @@ newplaylistFunc(
                   child:
                    Mytextstyle(
                   text: 'New Playlist',
-                   fontsizetext:ScreenUtil().setSp(22,), 
+                   fontsizetext:ScreenUtil().setSp(15,), 
                    textcolor:Colors.black ,
                    ),
                 ),

@@ -41,7 +41,7 @@ class _HomePageViewState extends State<HomePageView> {
             onSubmitted: (value) {
               textController.clear();
               Navigator.pushNamed(context, '/search2');
-            },
+              Navigator.pushNamed(context, '/search1');},
             decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: 'Search..',

@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 
 import 'package:grouped_list/grouped_list.dart';
 
@@ -99,20 +100,21 @@ class _LibraryState extends State<Library> {
         elevation: 0,
         leading: Myicon(
             icon: Icons.chevron_left,
-            size: size.width * 0.090,
+            size: ScreenUtil().radius(31),
             ontap: () {
               Navigator.pop(context);
             }),
         backgroundColor: Colors.white,
         title: Center(
             child: Mytextstyle(
+              fontsizetext: ScreenUtil().setSp(20,),
           text: 'Library',
           textcolor: Colors.black,
         )),
         actions: [
-          Myicon(icon: Icons.search, size: size.width * 0.070, ontap: () {}),],),
+          Myicon(icon: Icons.search, size: ScreenUtil().radius(23), ontap: () {}),],),
       body: SafeArea(
-              child: Container( // color: Colors.pink,
+              child: Container(  color: Colors.pink,
          child: ListView(children: [
             Column(
               children: [
@@ -122,14 +124,14 @@ class _LibraryState extends State<Library> {
                   child: Row(
                     children: [
                       SizedBox(
-                        width: size.width * 0.7 + 20,),
+                        width: ScreenUtil().setWidth(270),),
                       Myicon(
                           icon: Icons.sync,
-                          size: size.width * 0.060,
+                          size: ScreenUtil().radius(23),
                           ontap: () {}),
                       Myicon(
                           icon: Icons.shuffle_sharp,
-                          size: size.width * 0.06,
+                          size: ScreenUtil().radius(23),
                           ontap: () {}),],),
                   color: Colors.white,),
                 Container(
@@ -153,7 +155,7 @@ class _LibraryState extends State<Library> {
                        groupByValue,
                      textAlign: TextAlign.start,
                     style:
-                   TextStyle(fontSize: size.width * 0.050),),)
+                   TextStyle(fontSize:ScreenUtil().setSp(17,),),),)
                               ],
                             ))
                           ],
@@ -200,7 +202,7 @@ class _LibraryState extends State<Library> {
                                               left: 18, right: 10),
                                           child: Mytextstyle(
                                             textcolor: Colors.black54,
-                                            fontsizetext: size.width * 0.029,
+                                            fontsizetext:ScreenUtil().setSp(12,),
                                             text: element['title'],
                                           )),
                                       Padding(
@@ -212,7 +214,7 @@ class _LibraryState extends State<Library> {
                                               left: size.width * 0.02,),
                                             child: Mytextstyle(
                                               textcolor: Colors.black,
-                                              fontsizetext: size.width * 0.041,
+                                              fontsizetext: ScreenUtil().setSp(15,),
                                               text: '${element['author']}',
                                             )),
                                       ),
@@ -226,7 +228,7 @@ class _LibraryState extends State<Library> {
                                     size.width * 0.1 - 10, //color: Colors.brown,
                                 child: Myicon(
                                     icon: Icons.control_point,
-                                    size: size.width * 0.06,
+                                    size: ScreenUtil().radius(22),
                                     ontap: () {}),
                               )
                             ],

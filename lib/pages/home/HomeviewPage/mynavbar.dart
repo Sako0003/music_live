@@ -54,8 +54,8 @@ class _MyNavbarState extends State<MyNavbar> {
             ),
           ),
           Container(
-            // color: Colors.green,
-            height: ScreenUtil().setHeight(95),
+             //color: Colors.green,
+            height: ScreenUtil().setHeight(99),
             width: ScreenUtil().setWidth(255),
             child: Column(
               children: [
@@ -63,7 +63,7 @@ class _MyNavbarState extends State<MyNavbar> {
                 Container(
                   //1 num cont column
                   // color: Colors.brown,
-                  height: ScreenUtil().setHeight(59),
+                  height: ScreenUtil().setHeight(67),
                   width: ScreenUtil().setWidth(252),
                   child: Column(
                     children: [
@@ -81,9 +81,9 @@ class _MyNavbarState extends State<MyNavbar> {
                       ),
                       Flexible(
                         //inside 2 count
-                        child: Container(//  color: Colors.pink,
-                          alignment: Alignment.topLeft,                        
-                          height: ScreenUtil().setHeight(21),
+                        child: Container( // color: Colors.pink,
+                          alignment: Alignment.centerLeft,                        
+                          height: ScreenUtil().setHeight(33),
                           width: ScreenUtil().setWidth(232),                        
                           child: Mytextstyle(
                             text:'Track 5' ,textcolor:Colors.black,
@@ -92,12 +92,12 @@ class _MyNavbarState extends State<MyNavbar> {
                       ),
                       Container(
                         // color: Colors.yellow,
-                        height: ScreenUtil().setHeight(26),
-                        width: ScreenUtil().setWidth(246),
+                        height: ScreenUtil().setHeight(27),
+                        width: ScreenUtil().setWidth(249),
                         child: Row(
                           children: [
                             SizedBox(
-                              width: ScreenUtil().setWidth(104),
+                              width: ScreenUtil().setWidth(100),
                             ),
                             Myicon(
                                 icon: Icons.skip_previous,
@@ -117,7 +117,7 @@ class _MyNavbarState extends State<MyNavbar> {
                   padding: EdgeInsets.only(top: 7),
                   // color: Colors.blue,
                   alignment: Alignment.bottomLeft,
-                  height: ScreenUtil().setHeight(28),
+                  height: ScreenUtil().setHeight(23),
                   width: ScreenUtil().setWidth(247),
                   child: SliderTheme(
                     data: SliderThemeData(                     

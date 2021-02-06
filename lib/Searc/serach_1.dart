@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/screenutil.dart';
 import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/myicon.dart';
 import 'package:music_live/utils/variables.dart';
@@ -19,7 +20,7 @@ class _Searc1pageState extends State<Searc1page> {
             padding: const EdgeInsets.only(right: 50),
             child: Text(
               'Search',
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black,fontSize:ScreenUtil().setSp(18,) ),
             ),
           ),
         ),
@@ -27,7 +28,7 @@ class _Searc1pageState extends State<Searc1page> {
         elevation: 0,
         leading: Myicon(
             icon: Icons.chevron_left,
-            size: size.width * 0.085,
+            size: ScreenUtil().radius(29),
             ontap: () {
               setState(() {
                 Navigator.pop(context);
@@ -57,8 +58,12 @@ class _Searc1pageState extends State<Searc1page> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'Search',
+                    hintMaxLines: 9,
+                        hintStyle: TextStyle(
+                            fontSize:ScreenUtil().setSp(13,),),
                     suffixIcon: Icon(
-                      Icons.keyboard_voice, //micrafon
+                      Icons.keyboard_voice, 
+                      size: ScreenUtil().radius(23),
                       color: Colors.black54,
                     ),
                   ),
@@ -79,7 +84,7 @@ class _Searc1pageState extends State<Searc1page> {
                         child: Mytextstyle(
                           textcolor: Colors.black,
                           text: 'Recent ',
-                          fontsizetext: size.width * 0.1 - 20,
+                          fontsizetext: ScreenUtil().setSp(18,)
                         )),
                     InkWell(
                       onTap: () {},
@@ -91,16 +96,16 @@ class _Searc1pageState extends State<Searc1page> {
                           child: Mytextstyle(
                             textcolor: Colors.black54,
                             text: 'Clear All',
-                            fontsizetext: size.width * 0.04,
+                            fontsizetext:ScreenUtil().setSp(15,)
                           )),
                     )
                   ],
                 ),
               ),
               Container(
-                color: Colors.white10,
-                width: size.width * 0.9 + 6,
-                height: size.height * 0.7 + 45,
+                color:Colors.white10,
+                width: ScreenUtil().setWidth(333),
+                height:  ScreenUtil().setHeight(524),
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: mylist.length,
@@ -110,8 +115,7 @@ class _Searc1pageState extends State<Searc1page> {
                       child: InkWell(
                         onTap: () {},
                         child: Container(
-                          height: size.height * 0.07,
-                          width: size.width * 0.9 + 6,
+                          height: ScreenUtil().setHeight(50),
                           decoration: BoxDecoration(
                               color: Colors.black12,
                               borderRadius: BorderRadius.circular(10)),
@@ -123,12 +127,12 @@ class _Searc1pageState extends State<Searc1page> {
                                 child: Mytextstyle(
                                   textcolor: Colors.black54,
                                   text: 'Post maole ',
-                                  fontsizetext: size.width * 0.04,
+                                  fontsizetext: ScreenUtil().setSp(15,)
                                 ),
                               ),
-                              Myicon(
+                              Myicon(                               
                                 icon: Icons.arrow_right,
-                                size: size.width * 0.090,
+                                size:ScreenUtil().radius(33),
                                 ontap: () {},
                               ),
                             ],

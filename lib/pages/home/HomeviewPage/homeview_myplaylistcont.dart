@@ -5,9 +5,6 @@ import 'package:music_live/pages/parts/my_textstyle.dart';
 import 'package:music_live/pages/parts/see_allcontainer_homepage.dart';
 import 'package:music_live/utils/variables.dart';
 
-
-
-
 class HomeVievMyplaylistContainer extends StatefulWidget {
   const HomeVievMyplaylistContainer({
     Key key,
@@ -22,7 +19,8 @@ class _HomeVievMyplaylistContainerState
     extends State<HomeVievMyplaylistContainer> {
   @override
   Widget build(BuildContext context) {
-    return Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 20),
@@ -32,7 +30,8 @@ class _HomeVievMyplaylistContainerState
             textn: 'See all',
           ),
         ),
-        Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               height: ScreenUtil().setHeight(109),
@@ -43,20 +42,23 @@ class _HomeVievMyplaylistContainerState
                 child: Row(
                   children: [
                     ...List.generate(
-                        mylist2.length,
-                        (index) => ImageContainer(
-                              withcont: ScreenUtil().setWidth(100),
-                              imageradius: 10,
-                              imageurl: mylist2[index].imageUrl,
-                              heightcont: ScreenUtil().setHeight(99),
-                              contmarginn: EdgeInsets.only(left: 20),
-                            ),),
+                      mylist2.length,
+                      (index) => ImageContainer(
+                        withcont: ScreenUtil().setWidth(100),
+                        imageradius: 10,
+                        imageurl: mylist2[index].imageUrl,
+                        heightcont: ScreenUtil().setHeight(99),
+                        contmarginn: EdgeInsets.only(left: 20),
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, '/mahnitest');
+              },
               child: Container(
                 margin: EdgeInsets.only(right: 13),
                 height: ScreenUtil().setHeight(99),
@@ -68,12 +70,11 @@ class _HomeVievMyplaylistContainerState
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    // Container(),
                     Icon(
                       Icons.add,
                       color: Colors.white,
                       size: ScreenUtil().radius(25),
-                    ), //,
+                    ),
                     Mytextstyle(
                       fontsizetext: ScreenUtil().setSp(
                         14,
