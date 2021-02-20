@@ -95,7 +95,7 @@ class _Searc2pageState extends State<Searc2page> {
               ),
               Container(
                 color:Colors.white10,
-                width: ScreenUtil().setHeight(325),
+                width: ScreenUtil().setWidth(335),
                 height: ScreenUtil().setHeight(543),
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
@@ -112,7 +112,7 @@ class _Searc2pageState extends State<Searc2page> {
                               color: Colors.black12,
                               borderRadius: BorderRadius.circular(10)),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(left: 10),
@@ -121,54 +121,60 @@ class _Searc2pageState extends State<Searc2page> {
                                   backgroundImage: NetworkImage(mylist[index].image),
                                 ),
                               ),
-                              Container(
-                                height: ScreenUtil().setHeight(55),
-                                width: ScreenUtil().setWidth(220),
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceAround,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Mytextstyle(
-                                      fontsizetext: ScreenUtil().setSp(14,),
-                                      text: 'Album Name',
-                                      textcolor: Colors.black,
-                                    ),
-                                    Flexible(
-                                      child: Container(
-                                        // color: Colors.amber,
-                                        height: size.height * 0.03 + 10,
-                                        width: double.infinity,
-                                        child: Row(
-                                          children: [
-                                            Container(
-                                                alignment: Alignment.centerLeft,
-                                                height: size.height * 0.03,
-                                                width: size.width * 0.3,
-                                                //  color: Colors.green,
-                                                child: Mytextstyle(
-                                                  text: '1 Album',
-                                                  fontsizetext:
-                                                     ScreenUtil().setSp(12,),
-                                                  textcolor: Colors.black54,
-                                                )),
-                                            Container(
-                                              //
-                                              alignment: Alignment.centerLeft,
-                                              height: size.height * 0.03,
-                                              width: size.width * 0.3 - 5,
-                                              //color: Colors.red,
-                                              child: Mytextstyle(
-                                                text: '4 Song',
-                                                fontsizetext: ScreenUtil().setSp(12,),
-                                                textcolor: Colors.black54,
-                                              ),
-                                            ),
-                                          ],
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15),
+                                child: Container(
+                                 // color: Colors.green,
+                                  height: ScreenUtil().setHeight(55),
+                                  width: ScreenUtil().setWidth(220),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,                                      
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 9),
+                                        child: Mytextstyle(
+                                          fontsizetext: ScreenUtil().setSp(14,),
+                                          text: 'Album Name',
+                                          textcolor: Colors.black,
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                      Flexible(
+                                        child: Container(
+                                           //color: Colors.amber,
+                                          height: ScreenUtil().setHeight(25),
+                                          width: double.infinity,
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                  alignment: Alignment.centerLeft,
+                                                  height: ScreenUtil().setHeight(20),
+                                                  width: size.width * 0.3,
+                                                   // color: Colors.green,
+                                                  child: Mytextstyle(
+                                                    text: '1 Album',
+                                                    fontsizetext:
+                                                       ScreenUtil().setSp(12,),
+                                                    textcolor: Colors.black54,
+                                                  )),
+                                              Container(
+                                                //
+                                                alignment: Alignment.centerLeft,
+                                                height: ScreenUtil().setHeight(20),
+                                                width: size.width * 0.3 - 5,
+                                                //color: Colors.red,
+                                                child: Mytextstyle(
+                                                  text: '4 Song',
+                                                  fontsizetext: ScreenUtil().setSp(12,),
+                                                  textcolor: Colors.black54,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               Myicon(

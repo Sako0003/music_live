@@ -1,11 +1,10 @@
-//import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-//import 'package:http/http.dart' as http;
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-//import 'package:music_live/Musicplayer/music_player_page.dart';
 import 'package:music_live/Searc/serach_1.dart';
-//import 'package:music_live/model/user.dart';
+
 import 'package:music_live/pages/home/HomeviewPage/home_view.dart';
 import 'package:music_live/pages/registration/registration_view.dart';
 import 'package:music_live/utils/drawer/drawerLibrary/drawer_library.dart';
@@ -27,7 +26,7 @@ class _MyAppState extends State<MyApp> {
  void initState() {
     super.initState();
     // _jsonDers();  bu print ucundur
-    SystemChrome.setPreferredOrientations([
+    SystemChrome.setPreferredOrientations([//bu teli cevirende proqram cevrilmir
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);}

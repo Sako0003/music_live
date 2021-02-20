@@ -35,7 +35,7 @@ showDialoqFunc(
                   text:'Add To Playlist',
                    fontsizetext:ScreenUtil().setSp(17,),
                    textcolor:Colors.black54 ,), ),
-                Container(  color: Colors.black,
+                Container( // color: Colors.black,
                   //Liswiew container               
                   alignment: Alignment.centerLeft,
                   height: ScreenUtil().setHeight(160),

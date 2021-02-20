@@ -8,7 +8,7 @@ class MahniTest extends StatefulWidget {
   _MahniTestState createState() => _MahniTestState();
 }
 
-// void jsonDers() async {
+// void jsonDers() async {//print ucun
 //   var url = "https://shuffleaz.herokuapp.com/";
 //   var netice = await http.get(url); //zeng link yeni get
 //   List neticelist = json.decode(netice.body); //neticeni liste cevirir
